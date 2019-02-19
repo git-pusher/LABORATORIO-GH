@@ -1,0 +1,46 @@
+/* .text-lands {
+    color: red !important;
+} */
+
+.btn-lands {
+    background-color: #42929f;
+    color: black;
+}
+
+.btn-lands:hover {
+    background-color: #65daed;
+}
+
+
+#main .carousel-inner img {
+    max-height: 80vh;
+    object-fit: cover;
+    filter: grayscale(70%)
+}
+
+#carousel {
+    position: relative;
+}
+
+#carousel .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+    height: 100%;
+}
+
+#footer {
+    background: #42929f;
+}
+
+footer a {
+    color:white;
+}
