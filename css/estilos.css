@@ -2,9 +2,6 @@
 /* .text-lands {
     color: red !important;
 } */
-navbar navbar-inverse navbar-expand-lg navbar-light
-row expanded white-text align-middle blue-grey darken-2
-flex: 0 0 auto;width: 100%;z-index: 10; border-bottom: 1px solid #cfd8dc;
 
 #men{
     display: flex;
@@ -128,6 +125,24 @@ h5 {
 }
 span{
    font-size: 15px; 
+}
+
+div legend{
+    width: 70%;
+    height: 55px;
+    margin: 10px auto;
+    background-color: #a6dbde;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    line-height: 50px;
+}
+
+form{
+    width: 70%;
+    margin: 20px auto;
+    font-size: 15px; 
 }
 
 #descripcion{
