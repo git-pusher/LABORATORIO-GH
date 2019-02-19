@@ -1,3 +1,4 @@
+
 /* .text-lands {
     color: red !important;
 } */
@@ -13,9 +14,9 @@
 
 
 #main .carousel-inner img {
-    max-height: 60vh;
+    max-height: 80vh;
     object-fit: cover;
-    filter: grayscale(20%)
+    filter: grayscale(70%)
 }
 
 #carousel {
