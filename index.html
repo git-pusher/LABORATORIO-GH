@@ -16,7 +16,7 @@
 
   <!-- header -->
   <header>    
-    <nav class="navbar navbar-inverse navbar-expand-lg navbar-light" style="background-color: #42929f">
+    <nav class="navbar navbar-inverse fixed-top navbar-expand-lg navbar-light" style="background-color: #42929f">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="././img/logo.png" alt="Landsteiner Scientific" height="50px">
@@ -26,13 +26,13 @@
         </button>      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item nav-pills">
               <a class="nav-link" href="#">Inicio </span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item nav-pills">
               <a class="nav-link" href="#">¿Quiénes somos?</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item nav-pills dropdown">
               <!-- "tex-lands" se crea y se le da el color en el css -->
               <a class="nav-link text-lands dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Exámenes
@@ -44,7 +44,7 @@
                 <a class="dropdown-item" href="#">Pruebas de coagulación</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item nav-pills dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Resultados
               </a>
@@ -55,13 +55,13 @@
                 <a class="dropdown-item" href="#">Laboratorio</a>
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item nav-pills">
                 <a class="nav-link" href="#">Cotizar</a>
               </li>
-            <li class="nav-item">
+            <li class="nav-item nav-pills">
                 <a class="nav-link" href="#">Contáctanos</a>
               </li>
-            <!-- <li class="nav-item">
+            <!-- <li class="nav-item nav-pills">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
           </ul>
@@ -111,29 +111,17 @@
 </section>
   <!-- /main -->
 
-  <!-- section -->
+<!-- section menú bajo carrusel -->
   <section class="menu">
     <div class="container-fluid">
       <div class="row" id="fila" style="height: 120px;" >
-        <div class="col-sm-3 col formato">          
-          <a href="#">
-            <li class="fas fa-clipboard-list" id="mono"></li>
-            <li>Exámenes</li>
-          </a>
-        </div>
-        <div class="col-sm-3 col formato">
-          <a href="#">
-            <li class="far fa-money-bill-alt" id="mono"></li>
-            <li>Cotizar</li>
-          </a>
-        </div>
-        <div class="col-sm-3 col formato">
+        <div class="col-sm-3 col-lg-6 formato">
           <a href="#">
             <li class="fas fa-user-md" id="mono"></li>
             <li>Indicaciones médicas</li>
           </a>
         </div>
-        <div class="col-sm-3 col formato">
+        <div class="col-sm-3 col-lg-6 formato">
           <a href="#">
             <li class="far fa-calendar-check" id="mono"></li>
             <li>Citas</li>
@@ -141,9 +129,50 @@
         </div>
       </div>
   </section>
-  <!-- /section -->
+<!-- /section menú bajo carrusel -->
 
-<!-- paquetes -->
+<!-- sección Quiénes somos -->
+<section>
+  <div class="container">
+    <h1>QUIÉNES SOMOS</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+       minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+       ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+       minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+       ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+       minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+       ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+       minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+       ut hic ducimus nostrum dolorum doloribus. </p>
+    <div class="row text-center">
+      <div class="col">
+        <h2>MISIÓN</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Quisquam ipsum repudiandae dicta beatae. Sit distinctio rem, 
+          corporis aliquam sint illum praesentium pariatur! Pariatur, 
+          deleniti dolor explicabo commodi eligendi esse ratione!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Quisquam ipsum repudiandae dicta beatae. Sit distinctio rem, 
+          corporis aliquam sint illum praesentium pariatur! Pariatur, 
+          deleniti dolor explicabo commodi eligendi esse ratione!</p>   
+      </div>                  
+      <div class="col">
+        <H2>VISIÓN</H2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          In vel modi totam molestiae maiores optio eos non beatae 
+          commodi natus? Quos ducimus at ea vel consequatur, 
+          dignissimos nobis facilis modi.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          In vel modi totam molestiae maiores optio eos non beatae 
+          commodi natus? Quos ducimus at ea vel consequatur, 
+          dignissimos nobis facilis modi.</p>
+      </div>          
+    </div>
+  </div>
+</section>
+<!-- sección Quiénes somos -->
+
+<!-- sección paquetes -->
 <section id="paquetes" class="mt-4">
   <div class="container">
     <div class="row">
@@ -210,7 +239,7 @@
   </div>
 
 </section>
-<!-- /paquetes -->
+<!-- /sección paquetes -->
 
   <!-- fotter -->
   <footer id="footer" class="pb-4 pt-4">
