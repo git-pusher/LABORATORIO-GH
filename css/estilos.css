@@ -127,9 +127,7 @@ span{
    font-size: 15px; 
 }
 
-div legend{
-    width: 70%;
-    height: 55px;
+div legend{    
     margin: 10px auto;
     background-color: #a6dbde;
     font-size: large;
@@ -138,10 +136,7 @@ div legend{
     display: flex;
     line-height: 50px;
 }
-
 form{
-    width: 70%;
-    margin: 20px auto;
     font-size: 15px; 
 }
 
