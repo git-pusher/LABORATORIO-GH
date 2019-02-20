@@ -12,6 +12,12 @@ h2 {
     /* margin-top: 40px; */
 }
 
+h3 {
+    font-size: 30px;
+    /* line-height: 1.5; */
+    margin-top: 20px;
+}
+
 .navbar {
     margin-bottom: 0;
     color: white;
@@ -102,11 +108,11 @@ margin: 0;
 
 .about {
     background-color: #fafafa;
-    padding: 35px;
+    padding: 60px;
 }
 
 #fila-quienes {
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 .quienes {
@@ -120,14 +126,13 @@ margin: 0;
 }
 
 .quienes-descripcion {
-    font-size: 20px;
+    font-size: 15px;
     padding-top: 15px;
     text-align: justify;
 }
 
 /* #vision-mision {
-    background-color: #eaf1f3;
-    border: 1px solid #42929f;
+    padding-top: 20px;
 } */
 
 .vision-mision-detalles {
@@ -135,8 +140,28 @@ margin: 0;
     margin-top: 25px;
     border-radius: 10px;
     /* border: 1px solid #42929f; */
-    font-size: 20px;
+    font-size: 15px;
     padding: 10px;
+    text-align: justify;
+}
+
+.vision-mision-descripcion {
+    padding-top: 10px;
+}
+
+.conoce-examenes {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-title { 
+    font-size: 17px;
+}
+
+.card-text {
+    font-size:  15px;
+    text-align: justify;
 }
 
 #footer {
