@@ -155,12 +155,26 @@ margin: 0;
     padding-bottom: 20px;
 }
 
+.card-exa {
+    background-color: #eaf1f3;
+}
+
 .card-title { 
+    padding-top: 7px;
     font-size: 17px;
 }
 
 .card-text {
+    padding-top: 10px;
     font-size:  15px;
+    text-align: justify;
+}
+
+.card-body-descripcion-im {
+    background-color: white;
+    padding: 13px;
+    /* padding-bottom: 10px; */
+    font-size: 15px;
     text-align: justify;
 }
 
@@ -185,7 +199,18 @@ margin: 0;
     padding-bottom: 20px;
 }
 
+#medical-indication, #card-im {
+    background-color:#eaf1f3;
+}
 
+.btn-link {
+    color: black;
+}
+
+.btn-link:hover {
+    color: #42929f;
+    text-decoration: none;
+}
 
 #footer {
     background: #42929f;
