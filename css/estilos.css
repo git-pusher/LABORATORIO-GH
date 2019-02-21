@@ -164,6 +164,29 @@ margin: 0;
     text-align: justify;
 }
 
+.indicaciones-medicas {
+    background-color: #eaf1f3;
+    padding-bottom: 60px;
+    padding-top:25px;
+}
+
+#indicaciones {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.indicaciones-medicas img {
+    max-width: 100%;
+}
+
+.indicaciones-medicas-descripcion {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
 #footer {
     background: #42929f;
 }
