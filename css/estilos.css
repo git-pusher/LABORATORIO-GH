@@ -23,6 +23,10 @@ h3 {
     color: white;
 }
 
+.navbar img {
+    padding-bottom: 5px;
+}
+
 #navbarSupportedContent, li {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -151,7 +155,6 @@ h3 {
 }
 
 #paquetes {
-    padding-bottom: 50px;
     padding-top: 30px;
     margin: 50px;
 }
