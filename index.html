@@ -121,13 +121,22 @@
             <li>Indicaciones médicas</li>
           </a>
         </div>
-        <div class="col col-sm-6 formato-im">
-          <a href="#">
-            <li class="far fa-calendar-check" id="mono"></li>
-            <li>Citas</li>
-          </a>
-        </div>
-      </div>
+        <div class="col col-sm-6 formato-im" style="background-color: #42929f">
+        	<!--<a href="#">-->
+		        	<!-- desplegable para citas pacientes -->
+			        <div id="citas" class="dropdown col col-sm-12">
+			        	<li class="far fa-calendar-check" id="mono1">
+				        	<button class="btn btn-link" type="button" data-toggle="dropdown" aria-expanded="true" id="dropdownCitas">Citas
+				        		<span class="caret"></span>
+				        	</button>
+				        	<ul class="dropdown-menu" role="menu">
+				        		<li role="presentes"><a role="menuitem" tabindex="-1" href="catalogo/paciente/formulario_paciente.html">Nueva Cita</a></li>
+				        		<li role="presentes"><a role="menuitem" tabindex="-1" href="catalogo/paciente/lista_citas.html">Mis Citas</a></li>
+				        	</ul>
+			        	</li>
+			        </div>
+			<!--</a>-->
+	    </div>
   </section>
 <!-- /section menú bajo carrusel -->
 
@@ -338,6 +347,11 @@
   </div>  
 </section>
 <!-- /sección indicaciones médicas -->
+
+
+<!-- sección de contacto -->
+
+<!-- /sección de contacto -->
 
   <!-- fotter -->
   <footer id="footer" class="pb-4 pt-4">

@@ -175,6 +175,24 @@ h5 {
     margin-right: 9px;
 }
 
+#mono1{
+    font-size: 35px;
+    margin-right: 9px;
+    margin-top: 8px;
+    margin-left: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+#citas{
+    color: white;
+}
+
+#dropdownCitas{
+    color: white;
+    font-size: 17px;
+}
+
 p{
   font-size: 15px;
 }
@@ -204,6 +222,14 @@ div legend{
 }
 form{
     font-size: 15px; 
+}
+
+#acciones button{
+    margin-left: 30%;
+}
+
+#acciones a{
+    margin-left: 30%;
 }
 
 #descripcion{
@@ -331,6 +357,16 @@ form{
 .btn-link:hover {
     color: #42929f;
     text-decoration: none;
+}
+
+thead {
+    background-color: #dcdcdc;
+    color: black;
+    font-size: 15px;
+}
+
+tbody{
+    font-size: 14px;
 }
 
 #footer {

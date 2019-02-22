@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/ico" href="../../favicon.ico" />
+	    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../css/estilos.css">
+	<title>Lista de Citas</title>
+
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-expand-lg navbar-light" >
+	      <div class="container">
+	        <a class="navbar-brand" href="#">
+	          <img src="../../img/logo.png" alt="Landsteiner Scientific" height="50px">
+	        </a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	          <span class="navbar-toggler-icon"></span>
+	        </button>      
+	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	          <ul class="navbar-nav mr-auto">
+	            <li class="nav-item">
+	              <a class="nav-link" href="#">Inicio </span></a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#">¿Quiénes somos?</a>
+	            </li>
+	            <li class="nav-item dropdown">
+	              <!-- "tex-lands" se crea y se le da el color en el css -->
+	              <a class="nav-link text-lands dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                Exámenes
+	              </a>
+	              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                <a class="dropdown-item" href="#">Hematología completa</a>
+	                <a class="dropdown-item" href="#">Química sanguínea</a>
+	                <a class="dropdown-item" href="#">Análisis de enzimas sanguíneas</a>
+	                <a class="dropdown-item" href="#">Pruebas de coagulación</a>
+	              </div>
+	            </li>
+	            <li class="nav-item dropdown">
+	              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                Resultados
+	              </a>
+	              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                <a class="dropdown-item" href="#">Paciente</a>
+	                <a class="dropdown-item" href="#">Médico</a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">Laboratorio</a>
+	              </div>
+	            </li>
+	            <li class="nav-item">
+	                <a class="nav-link" href="#">Cotizar</a>
+	              </li>
+	            <li class="nav-item">
+	                <a class="nav-link" href="#">Contáctanos</a>
+	              </li>
+	          </ul>
+	          <ul class="nav navbar-nav navbar-right">
+	              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Regístrate</a></li>
+	              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Inicia sesión</a></li>
+	            </ul>
+	        </div>
+	      </div>  
+	    </nav>
+	    <!-- fin menu -->
+
+	    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
+	    	<div class="col"> 
+	    		<legend>Mis Citas</legend>
+	    	<div>
+
+	    	<table class="table">
+			  <thead class="black white-text">
+			    <tr>
+			      <th scope="col"></th>
+			      <th scope="col">Fecha y hora</th>
+			      <th scope="col">Lugar</th>
+			      <th scope="col">Descripción</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>25/Febrero/2019 - 10:00:00 a.m.</td>
+			      <td>Laboratorio</td>
+			      <td>Realización de examen: Química sanguínea</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>26/Febrero/2019 - 10:00:00 a.m.</td>
+			      <td>Laboratorio</td>
+			      <td>Recoger resultados de estudios: Química sanguínea</td>
+			    </tr>
+			     <tr>
+			      <th scope="row">2</th>
+			      <td>27/Febrero/2019 - 12:00:00 p.m.</td>
+			      <td>Hospital</td>
+			      <td>Pasar a consultorio 5</td>
+			    </tr>
+			  </tbody>
+			</table>
+			<br><br>
+			<div class="form-row" id="" >
+				<div class="form-group col-12 col-lg-12" style="align-content: center;">
+					<a class="btn btn-primary btn-lg" href="../../index.html" role="button">Volver</a>
+				</div>		
+			</div>	
+	    </div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	</body>
+</html>
