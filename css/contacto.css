@@ -90,9 +90,20 @@ h5 {
 }
 
 #mapa-contacto {
-    padding-top: 25px;
+    padding-top: 50px;
 }
 
+#datos-de-contacto {
+    margin-top: 20px;
+    border: 2px dotted  #42929f;
+}
+
+.direccion {
+    margin: 50px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #42929f;
+    
+}
 
 
 #footer {
