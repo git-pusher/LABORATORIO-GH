@@ -18,18 +18,57 @@ h3 {
     margin-top: 20px;
 }
 
-.navbar {
-    margin-bottom: 0;
-    color: white;
-}
-
 .navbar img {
     padding-bottom: 5px;
 }
 
-#navbarSupportedContent, li {
+.navbar {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.navbar-nav>li {
+    float: left;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:  15px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    font-size:  15px;
+    padding-left: 5px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: black;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    /* color: #212529; */
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #42929f;
 }
 
 #main {
