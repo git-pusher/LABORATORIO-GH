@@ -369,6 +369,11 @@ tbody{
     font-size: 14px;
 }
 
+#volver{
+    margin-left: 93%;
+    background-color: #B0C4DE;
+}
+
 #footer {
     background: #42929f;
 }
