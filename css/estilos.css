@@ -2,6 +2,37 @@
 /* .text-lands {
     color: red !important;
 } */
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    /* margin-top: 40px; */
+}
+
+h3 {
+    font-size: 30px;
+    /* line-height: 1.5; */
+    margin-top: 20px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 17px;
+}
+
+.navbar img {
+    padding-bottom: 5px;
+}
 
 #men{
     display: flex;
@@ -19,15 +50,56 @@
     background-color: #42929f;
     border-block-end: 1px solid #cfd8dc;
     border-block-start: 1px solid #cfd8dc;
+    margin: 0;
+    border-radius: 0;
+    border: none;
 }
 
-#navbarSupportedContent, li {
+.navbar-nav>li {
+    float: left;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:  15px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    font-size:  15px;
+    padding-left: 5px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: black;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    /* color: #212529; */
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #42929f;
 }
 
 #main {
-margin: 0;
+    margin: 0;
 }
 .btn-lands {
     background-color: #42929f;
@@ -40,7 +112,7 @@ margin: 0;
 
 
 #main .carousel-inner img {
-    max-height: 60vh;
+    max-height: 80vh;
     object-fit: cover;
     filter: grayscale(70%)
 }
@@ -64,23 +136,19 @@ margin: 0;
     height: 100%;
 }
 
-/* #fila {
-     margin: 0%; 
-    border: 2px;
-} */
+.carrusel-detalles {
+    /* text-align: justify; */
+    font-size: 13px;
+    padding-top: 5px;
+    margin-left: 50px;
+}
 
 .menu a {
     background-color: #42929f;
     color: white;
-    /* border-radius: 10%; */
-    /* margin: 10px; */
-    /* width: 100px; */
-    height: 100px;
-    
-    /* font-size: 0.9em; */
+    height: 50px;
     display: flex;
     align-items: center;
-    /* text-align: center; */
     justify-content: center;
     text-decoration: none;
     /* font-family: 'Shadows Into Light', cursive; */
@@ -94,12 +162,10 @@ margin: 0;
     /* font-size: 1em; */
 }
 
-.formato {
-padding-left: 0%;
-padding-right: 0%;
-}
-
-.formato li {
+.formato-im {
+    padding-left: 0%;
+    padding-right: 0%;
+    margin: 0;
     list-style: none;
     font-size: 15px;
 }
@@ -142,6 +208,129 @@ form{
 
 #descripcion{
     text-align : justify;
+    font-size: 20px;
+    margin-right: 9px;
+}
+
+.about {
+    background-color: #fafafa;
+    padding: 60px;
+}
+
+#fila-quienes {
+    background-color: #eaf1f3;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.about img {
+    max-width: 100%;
+}
+
+.quienes {
+    margin-bottom: 15px;
+}
+
+.quienes-descripcion {
+    font-size: 15px;
+    padding-top: 15px;
+    text-align: justify;
+}
+
+#vision-mision {
+    padding-top: 15px;
+}
+
+.vision-mision-detalles {
+    background-color: #eaf1f3;
+    margin-top: 20px;
+    border-radius: 10px;
+    /* border: 1px solid #42929f; */
+    font-size: 15px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.vision-mision-descripcion {
+    padding-top: 10px;
+}
+
+#examenes {
+    padding-top: 30px;
+    margin: 50px;
+}
+
+.conoce-examenes {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+.card-exa {
+    background-color: #eaf1f3;
+}
+
+.card-exa img {
+    max-width: 100%;
+}
+
+.card-title { 
+    padding-top: 7px;
+    font-size: 17px;
+}
+
+.card-text {
+    padding-top: 10px;
+    font-size:  15px;
+    text-align: justify;
+}
+
+.card-body-descripcion-im {
+    background-color: white;
+    padding: 13px;
+    /* padding-bottom: 10px; */
+    font-size: 15px;
+    text-align: justify;
+}
+
+.indicaciones-medicas {
+    background-color: #fafafa;
+    padding-bottom: 60px;
+    padding-top:25px;
+}
+
+#indicaciones {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.indicaciones-medicas img {
+    max-width: 100%;
+}
+
+.indicaciones-medicas-descripcion {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+}
+
+#medical-indication, #card-im {
+    background-color:#eaf1f3;
+}
+
+.btn-link {
+    color: black;
+}
+
+.btn-link:hover {
+    color: #42929f;
+    text-decoration: none;
 }
 
 #footer {
