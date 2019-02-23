@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="././css/estilos.css">
-    <title>Página de práctica</title>
+    <title>Landsteiner Scientific</title>
   </head>
   <body>
 
   <!-- header -->
   <header>    
-    <nav class="navbar navbar-inverse navbar-expand-lg navbar-light" style="background-color: #42929f">
-      <div class="container">
+    <nav class="navbar navbar-inverse fixed-top navbar-expand-lg navbar-light" style="background-color: #42929f">
+      <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="././img/logo.png" alt="Landsteiner Scientific" height="50px">
         </a>
@@ -26,25 +26,25 @@
         </button>      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Inicio </span></a>
+            <li class="nav-item nav-pills">
+              <a class="nav-link" href="#">Inicio </span></a> 
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">¿Quiénes somos?</a>
+            <li class="nav-item nav-pills">
+              <a class="nav-link" href="#quienes-somos">¿Quiénes somos?</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item nav-pills dropdown">
               <!-- "tex-lands" se crea y se le da el color en el css -->
               <a class="nav-link text-lands dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Exámenes
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Hematología completa</a>
-                <a class="dropdown-item" href="#">Química sanguínea</a>
-                <a class="dropdown-item" href="#">Análisis de enzimas sanguíneas</a>
-                <a class="dropdown-item" href="#">Pruebas de coagulación</a>
+                <a class="dropdown-item" href="#c-hematologia">Hematología completa</a>
+                <a class="dropdown-item" href="#c-quimica">Química sanguínea</a>
+                <a class="dropdown-item" href="#c-enzimas">Análisis de enzimas sanguíneas</a>
+                <a class="dropdown-item" href="#c-coagulacion">Pruebas de coagulación</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item nav-pills dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Resultados
               </a>
@@ -55,13 +55,13 @@
                 <a class="dropdown-item" href="#">Laboratorio</a>
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item nav-pills">
                 <a class="nav-link" href="#">Cotizar</a>
               </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contáctanos</a>
+            <li class="nav-item nav-pills">
+                <a class="nav-link" href="contacto.html">Contáctanos</a>
               </li>
-            <!-- <li class="nav-item">
+            <!-- <li class="nav-item nav-pills">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
           </ul>
@@ -93,14 +93,14 @@
           <div class="row align-items-center">
             <div class="col-md-6 offset-md-6 text-center text-md-right">
               <h1>LANDSTEINER SCIENTIFIC</h1>
-              <h2>Laboratorio de hematología</h2>
-              <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> 
-                Ut enim ad minim veniam, quis nos toud duty ullamco laboris nisi ut aliquip ex ea <br>
-                commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. <br>
-                Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt <br>
+              <h4>Laboratorio de hematología</h4>
+              <p class="d-none d-md-block carrusel-detalles">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nos toud duty ullamco laboris nisi ut aliquip ex ea 
+                commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
                 mollit anim id est laborum </p>
-              <a href="#" class="btn btn-outline-light">Exámenes</a>
+              <a href="#examenes" class="btn btn-outline-light">Exámenes</a>
               <button type="button" class="btn btn-lands">Cotizar</button>
             </div>
           </div>
@@ -111,50 +111,107 @@
 </section>
   <!-- /main -->
 
-  <!-- section -->
-  <section class="menu">
+<!-- section menú bajo carrusel -->
+   <section class="menu">
     <div class="container-fluid">
-      <div class="row" id="fila" style="height: 120px;" >
-        <div class="col-sm-3 col formato">          
-          <a href="#">
-            <li class="fas fa-clipboard-list" id="mono"></li>
-            <li>Exámenes</li>
-          </a>
-        </div>
-        <div class="col-sm-3 col formato">
-          <a href="#">
-            <li class="far fa-money-bill-alt" id="mono"></li>
-            <li>Cotizar</li>
-          </a>
-        </div>
-        <div class="col-sm-3 col formato">
-          <a href="#">
+      <div class="row" id="fila">
+        <div class="col col-sm-6 formato-im">
+          <a href="#ind-med">
             <li class="fas fa-user-md" id="mono"></li>
             <li>Indicaciones médicas</li>
           </a>
         </div>
-        <div class="col-sm-3 col formato">
-          <a href="#">
-            <li class="far fa-calendar-check" id="mono"></li>
-            <li>Citas</li>
-          </a>
-        </div>
-      </div>
+        <div class="col col-sm-6 formato-im" style="background-color: #42929f">
+        	<!--<a href="#">-->
+		        	<!-- desplegable para citas pacientes -->
+			        <div id="citas" class="dropdown col col-sm-12">
+			        	<li class="far fa-calendar-check" id="mono1">
+				        	<button class="btn btn-link" type="button" data-toggle="dropdown" aria-expanded="true" id="dropdownCitas">Citas
+				        		<span class="caret"></span>
+				        	</button>
+				        	<ul class="dropdown-menu" role="menu">
+				        		<li role="presentes"><a role="menuitem" tabindex="-1" href="catalogo/paciente/formulario_paciente.html">Nueva Cita</a></li>
+				        		<li role="presentes"><a role="menuitem" tabindex="-1" href="catalogo/paciente/lista_citas.html">Mis Citas</a></li>
+				        	</ul>
+			        	</li>
+			        </div>
+			<!--</a>-->
+	    </div>
   </section>
-  <!-- /section -->
+<!-- /section menú bajo carrusel -->
 
-<!-- paquetes -->
-<section id="paquetes" class="mt-4">
-  <div class="container">
+<!-- sección Quiénes somos -->
+<section id="quienes-somos" class="about">
+  <h2><span>QUIÉNES SOMOS</span></h2>
+    <div class="row" id="fila-quienes">
+      <div class="col-12 col-lg-8">
+        <article class="quienes">
+          <div class="quienes-detalles">
+            <h3 class="quienes-title">Landsteiner Scientific</h3>
+            <p class="quienes-descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+            minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+            ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+            minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+            ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+            minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+            ut hic ducimus nostrum dolorum doloribus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae qui esse accusamus 
+            minus provident! Alias, illum odit velit laborum temporibus nam consequuntur, aspernatur vitae,
+            ut hic ducimus nostrum dolorum doloribus. </p>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-lg-4">
+          <img src="././img/qui-som/exameneslab.jpg" alt="Quiénes somos">
+      </div>
+    </div>
+    <div class="row" id="vision-mision">
+      <div class="col-sm-12 col-lg-6">
+        <h2>VISIÓN</h2>
+          <article>
+            <div class="vision-mision-detalles">
+              <p class="vision-mision-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Quisquam ipsum repudiandae dicta beatae. Sit distinctio rem, 
+                  corporis aliquam sint illum praesentium pariatur! Pariatur, 
+                  deleniti dolor explicabo commodi eligendi esse ratione!</p>
+            </div>
+          </article> 
+      </div>                  
+      <div class="col-sm-12 col-lg-6">
+        <h2>MISIÓN</h2>
+          <article>
+            <div class="vision-mision-detalles">
+              <p class="vision-mision-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Quisquam ipsum repudiandae dicta beatae. Sit distinctio rem, 
+                  corporis aliquam sint illum praesentium pariatur! Pariatur, 
+                  deleniti dolor explicabo commodi eligendi esse ratione!</p>
+            </div>
+          </article> 
+        </div>                  
+      </div>
+</section>
+<!-- /sección Quiénes somos -->
+
+<!-- sección examenes -->
+<section id="examenes" class="mt-4">
+  <div class="container-fluid">
     <div class="row">
       <div class="col text-center text-uppercase">
-        <small>Conoce nuestros</small>
+        <span>Conoce nuestros <br> Exámenes</span>
+       <!--<small>Conoce nuestros</small>
+        <h2>Exámenes</h2>-->
+        <h4>Conoce nuestros</h4>
         <h2>Exámenes</h2>
+        <p class="conoce-examenes">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
+          dolorum cupiditate mollitia commodi perferendis consequatur earum fugiat vitae 
+          quasi voluptas alias nisi! Nesciunt enim dolorem voluptas esse quod. Lorem, ipsum 
+          dolor sit amet consectetur adipisicing elit. Iusto commodi officiis iste harum. 
+          Delectus hic repellat mollitia libero, itaque suscipit soluta quam iste possimus 
+          asperiores dolores natus ex maiores ipsum.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-        <div class="card">
+        <div class="card card-exa"  id="c-hematologia">
           <img class="card-img-top" src="././img/examenes/1hematologia.jpg" alt="Hematología completa">
           <div class="card-body">
             <h5 class="card-title">Hematología completa</h5>
@@ -169,7 +226,7 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-        <div class="card">
+        <div class="card card-exa" id="c-quimica">
           <img class="card-img-top" src="././img/examenes/2quimica.jpg" alt="Química sanguínea">
           <div class="card-body">
             <h5 class="card-title">Química sanguínea</h5>
@@ -182,7 +239,7 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-        <div class="card">
+        <div class="card card-exa" id="c-enzimas">
           <img class="card-img-top" src="././img/examenes/3enzimas.jpg" alt="Enzimas sanguíneas">
           <div class="card-body">
             <h5 class="card-title">Enzimas sanguíneas</h5>
@@ -194,7 +251,7 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-          <div class="card">
+          <div class="card card-exa" id="c-coagulacion">
             <img class="card-img-top" src="././img/examenes/4coagulacion.jpg" alt="Prebas de coagulación">
             <div class="card-body">
               <h5 class="card-title">Pruebas de coagulación</h5>
@@ -210,7 +267,86 @@
   </div>
 
 </section>
-<!-- /paquetes -->
+<!-- /sección examenes -->
+
+<!-- sección indicaciones médicas -->
+<section class="indicaciones-medicas" id="ind-med">
+  <div class="container-fluid">
+    <h2>INDICACIONES MÉDICAS</h2>
+    <p class="indicaciones-medicas-descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
+      dolorum cupiditate mollitia commodi perferendis consequatur earum fugiat vitae 
+      quasi voluptas alias nisi! Nesciunt enim dolorem voluptas esse quod. Lorem, ipsum 
+      dolor sit amet consectetur adipisicing elit. Iusto commodi officiis iste harum. 
+      Delectus hic repellat mollitia libero, itaque suscipit soluta quam iste possimus 
+      asperiores dolores natus ex maiores ipsum.</p>
+    <div class="row">
+      <div class="col-12 col-lg-6 pr-10 align-self-center" id="indicaciones">
+        <div class="accordion" id="medical-indication">
+          <div class="card" id="card-im">
+            <div class="card-header" id="uno">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#hematologia-sanguinea" aria-expanded="false" aria-controls="hematologia-sanguinea">
+                  <h5 class="h5-text-card">Hematología completa</h5>
+                </button>
+              </h5>
+            </div>     
+            <div id="hematologia-sanguinea" class="collapse" aria-labelledby="uno" data-parent="#medical-indication">
+              <div class="card-body-descripcion-im">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card" id="card-im">
+            <div class="card-header" id="dos">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#quimica-sanguinea" aria-expanded="false" aria-controls="quimica-sanguinea">
+                  <h5 class="h5-text-card">Química sanguínea</h5>
+                </button>
+              </h5>
+            </div>
+            <div id="quimica-sanguinea" class="collapse" aria-labelledby="dos" data-parent="#medical-indication">
+              <div class="card-body-descripcion-im">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card" id="card-im">
+            <div class="card-header" id="tres">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#enzima-sanguinea" aria-expanded="false" aria-controls="enzima-sanguinea">
+                  <h5 class="h5-text-card">Enzimas sanguíneas</h5>
+                </button>
+              </h5>
+            </div>
+            <div id="enzima-sanguinea" class="collapse" aria-labelledby="tres" data-parent="#medical-indication">
+              <div class="card-body-descripcion-im">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card" id="card-im">
+            <div class="card-header" id="cuatro">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#prueba-coagula" aria-expanded="false" aria-controls="prueba-coagula">
+                  <h5 class="h5-text-card">Prueba de coagulación</h5>
+                </button>
+              </h5>
+            </div>
+            <div id="prueba-coagula" class="collapse" aria-labelledby="cuatro" data-parent="#medical-indication">
+              <div class="card-body-descripcion-im">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" id="indicaciones">
+        <img src="././img/ind-med/indicaciones-medicas.jpg" alt="Indicaciones médicas">
+      </div>
+    </div>
+  </div>  
+</section>
+<!-- /sección indicaciones médicas -->
 
   <!-- fotter -->
   <footer id="footer" class="pb-4 pt-4">
