@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Paciente from './components/Paciente.js';
-import ListaPacientes from './components/ListaPacientes.js';
-import Menu from './components/Menu.js';
+import Paciente from './components/Paciente.jsx';
+import ListaPacientes from './components/ListaPacientes.jsx';
+import Menu from './components/navbar/Menu.jsx';
 
 function App() {
     return (

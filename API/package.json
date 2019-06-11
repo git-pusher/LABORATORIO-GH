@@ -15,5 +15,10 @@
     "datos"
   ],
   "author": "Karen",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "react": "^16.8.6",
+    "react-router": "^5.0.1"
+  }
 }
