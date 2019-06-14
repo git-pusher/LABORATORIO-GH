@@ -18,9 +18,8 @@ class Examenes extends Component {
             <div id="examenes" className="mt-4">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col text-center text-uppercase">
-                            <h4>Conoce nuestros</h4>
-                            <h2>Exámenes</h2>
+                        <div className="col text-center">
+                            <h2 className="text-uppercase">Conoce nuestros exámenes</h2>
                             <p className="conoce-examenes">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
                                 dolorum cupiditate mollitia commodi perferendis consequatur earum fugiat vitae 
                                 quasi voluptas alias nisi! Nesciunt enim dolorem voluptas esse quod. Lorem, ipsum 
