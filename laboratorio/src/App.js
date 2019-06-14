@@ -5,6 +5,8 @@ import Paciente from './components/Paciente.jsx';
 import ListaPacientes from './components/ListaPacientes.jsx';
 import Menu from './components/navbar/Menu.jsx';
 import Carrusel from './components/carrusel/Carrusel.jsx';
+// import Citas from './components/citas/Citas';
+import Quienes from './components/quienes/Quienes';
 
 function App() {
     return (
@@ -12,6 +14,8 @@ function App() {
         <Router>
           <Menu/>
           <Carrusel/>
+          {/* <Citas/> */}
+          <Quienes/>
           <Route path="/paciente" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>
         </Router>
