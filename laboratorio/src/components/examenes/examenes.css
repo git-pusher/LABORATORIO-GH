@@ -1,0 +1,41 @@
+#examenes {
+    padding-top: 30px;
+    margin: 50px;
+}
+
+.conoce-examenes {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+.card-exa {
+    background-color: #eaf1f3;
+    -webkit-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+    -moz-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+    box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+}
+
+.card-exa img {
+    max-width: 100%;
+}
+
+.card-title { 
+    padding-top: 7px;
+    font-size: 17px;
+}
+
+.card-text {
+    padding-top: 10px;
+    font-size:  15px;
+    text-align: justify;
+}
+
+.card-body-descripcion-im {
+    background-color: white;
+    padding: 13px;
+    /* padding-bottom: 10px; */
+    font-size: 15px;
+    text-align: justify;
+}
