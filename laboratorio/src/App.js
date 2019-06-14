@@ -4,10 +4,11 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Paciente from './components/Paciente.jsx';
 import ListaPacientes from './components/ListaPacientes.jsx';
 import Menu from './components/navbar/Menu.jsx';
-import Carrusel from './components/carrusel/Carrusel.jsx';
-// import Citas from './components/citas/Citas';
+import Carrusel from './components/carrusel/Carrusel.jsx'; //Tiene fallo D:
+// import Citas from './components/citas/Citas'; No sé en qué falla T.T
 import Quienes from './components/quienes/Quienes';
 import Examenes from './components/examenes/Examenes';
+import Indicaciones from './components/indicaciones/Indicaciones';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
           {/* <Citas/> */}
           <Quienes/>
           <Examenes/>
+          <Indicaciones/>
           <Route path="/paciente" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>
         </Router>
