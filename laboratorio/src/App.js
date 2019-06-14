@@ -7,6 +7,7 @@ import Menu from './components/navbar/Menu.jsx';
 import Carrusel from './components/carrusel/Carrusel.jsx';
 // import Citas from './components/citas/Citas';
 import Quienes from './components/quienes/Quienes';
+import Examenes from './components/examenes/Examenes';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
           <Carrusel/>
           {/* <Citas/> */}
           <Quienes/>
+          <Examenes/>
           <Route path="/paciente" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>
         </Router>
