@@ -15,6 +15,7 @@
     -webkit-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
     -moz-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
     box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+    /* display: table-cell; */
 }
 
 .card-exa img {
