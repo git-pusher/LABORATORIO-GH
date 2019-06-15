@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Paciente from './components/Paciente.jsx';
 import ListaPacientes from './components/ListaPacientes.jsx';
-import Menu from './components/navbar/Menu.jsx';
+import Menu from './components/menu/Menu.jsx';
 import Carrusel from './components/carrusel/Carrusel.jsx'; //Tiene fallo D:
 import Citas from './components/citas/Citas'; // No sé en qué falla T.T
 import Quienes from './components/quienes/Quienes';
@@ -16,11 +16,11 @@ function App() {
       <div className="App">
         <Router>
           <Menu/>
-          <Carrusel/>
+          {/* <Carrusel/> */}
           {/* <Citas/> */}
-          <Quienes/>
+          {/* <Quienes/> */}
           <Examenes/>
-          <Indicaciones/>
+          {/* <Indicaciones/> */}
           <Footer/>
           <Route path="/paciente" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>

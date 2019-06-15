@@ -12,7 +12,7 @@ class Indicaciones extends Component {
     render(){
         console.log(this.props.location);
         return (
-            <div id="footer" className="pb-4 pt-4">
+            <div id="footer" className="container-fluid pb-4 pt-4">
                 <div className="container-fluid">
                     <div className="row text-center">
                         <div className="col-12 col-lg">

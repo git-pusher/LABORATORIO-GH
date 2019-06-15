@@ -19,13 +19,11 @@ class Examenes extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col text-center">
-                            <h2 className="text-uppercase">Conoce nuestros exámenes</h2>
+                            <h2 className="text-uppercase">Laboratorio Landsteiner Scientific</h2>
                             <p className="conoce-examenes">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
                                 dolorum cupiditate mollitia commodi perferendis consequatur earum fugiat vitae 
                                 quasi voluptas alias nisi! Nesciunt enim dolorem voluptas esse quod. Lorem, ipsum 
-                                dolor sit amet consectetur adipisicing elit. Iusto commodi officiis iste harum. 
-                                Delectus hic repellat mollitia libero, itaque suscipit soluta quam iste possimus 
-                                asperiores dolores natus ex maiores ipsum.</p>
+                                dolor sit amet consectetur adipisicing elit. </p>
                         </div>
                     </div>
                     <div className="row">
