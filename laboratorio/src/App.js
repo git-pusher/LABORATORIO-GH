@@ -5,22 +5,17 @@ import Paciente from './components/Paciente.jsx';
 import ListaPacientes from './components/ListaPacientes.jsx';
 import Menu from './components/menu/Menu.jsx';
 import Carrusel from './components/carrusel/Carrusel.jsx'; //Tiene fallo D:
-import Citas from './components/citas/Citas'; // No sé en qué falla T.T
-import Quienes from './components/quienes/Quienes';
 import Examenes from './components/examenes/Examenes';
-import Indicaciones from './components/indicaciones/Indicaciones';
 import Footer from './components/footer/Footer';
+// import Login from './components/sesion/Login';
 
 function App() {
     return (
       <div className="App">
         <Router>
           <Menu/>
-          {/* <Carrusel/> */}
-          {/* <Citas/> */}
-          {/* <Quienes/> */}
+          <Carrusel/>
           <Examenes/>
-          {/* <Indicaciones/> */}
           <Footer/>
           <Route path="/paciente" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>

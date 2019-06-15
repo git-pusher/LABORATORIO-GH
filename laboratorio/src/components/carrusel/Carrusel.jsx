@@ -39,8 +39,8 @@ class Carrusel extends Component {
                                             commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. 
                                             Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
                                             mollit anim id est laborum </p>
-                                        <a href="#examenes" className="btn btn-outline-light">Exámenes</a>
-                                        <button type="button" className="btn btn-lands">Cotizar</button>
+                                        {/* <a href="#examenes" className="btn btn-outline-light">Citas</a> */}
+                                        <button type="button" className="btn btn-lands">Citas</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../public/img/logo.png';
+import Login from '../sesion/Login';
 import './menu.css';
 
 class Menu extends Component {
@@ -14,33 +15,32 @@ class Menu extends Component {
         console.log(this.props.location);
         return (
 			<nav className="navbar fixed-top navbar-expand-lg navbar-light" >
-			<div className="container-fluid">
-			  <NavLink className="navbar-brand" to="/">
-				<img src={logo} alt="Landsteiner Scientific" height="50px"/>
-			  </NavLink>
-				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span className="navbar-toggler-icon"></span>
-				</button>     
-			  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul className="navbar-nav mr-auto">
-				  <li className="nav-item nav-pills">
-					<NavLink className="nav-link" to="#">Inicio </NavLink> 
-				  </li>
-				  <li className="nav-item nav-pills">
-					<NavLink className="nav-link" to="">Médicos</NavLink>
-				  </li>
-				  <li className="nav-item nav-pills">
-					  <NavLink className="nav-link" to="">Pacientes</NavLink>
-					</li>
-				  <li className="nav-item nav-pills">
-					  <NavLink className="nav-link" to="">Citas</NavLink>
-					</li>
-				</ul>
-				<ul className="nav navbar-nav navbar-right">
-					{/* <li><NavLink to="#"><span className="glyphicon glyphicon-user"></span> Regístrate</NavLink></li> */}
-					<li><NavLink to="#"><span className="glyphicon glyphicon-log-in"></span> Inicia sesión</NavLink></li>
-				  </ul>
-			  </div>
+				<div className="container-fluid">
+				<Link className="navbar-brand" to="/">
+					<img src={logo} alt="Landsteiner Scientific" height="50px"/>
+				</Link>
+					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+						<span className="navbar-toggler-icon"></span>
+					</button>     
+				<div className="collapse navbar-collapse" id="navbarNavAltMarku">
+					<ul className="navbar-nav mr-auto">
+						<li className="nav-item">
+							<Link activeClassName="active" to="/">Inicio </Link> 
+						</li>
+						<li className="nav-item">
+							<Link active ClassName="active" to="/Medicos">Médicos</Link>
+						</li>
+						<li className="nav-item">
+							<Link active ClassName="active" to="/Pacientes">Pacientes</Link>
+							</li>
+						<li className="nav-item">
+							<Link active ClassName="active" to="/Citas">Citas</Link>
+						</li>
+					</ul>
+					<ul className="nav navbar-nav navbar-right">
+						<li><Link to="#examenes" className="btn btn-outline-light" to="/Login">Inicia sesión</Link></li>
+					</ul>
+				</div>
 			</div>  
 		  </nav>
         );
