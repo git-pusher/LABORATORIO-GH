@@ -11,7 +11,8 @@ function App() {
       <div className="App">
         <Router>
           <Menu/>
-          <Route path="/paciente" Component={Paciente}/>
+          <Paciente/>
+          <Route path="/pacientes" Component={Paciente}/>
           <Route exact path="/" Component={ListaPacientes}/>
         </Router>
       </div>

@@ -14,9 +14,9 @@ app.use(bodyparser.json());
 //CONTRASEÑA
 const PORT = process.env.PORT || 3001;
 
-const URL_MONGO = `mongodb+srv://karen:151111034@cluster0-offbi.mongodb.net/test?retryWrites=true&w=majority`;
+//const URL_MONGO = `mongodb+srv://karen:151111034@cluster0-offbi.mongodb.net/test?retryWrites=true&w=majority`;
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
-//const URL_MONGO =  'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
+const URL_MONGO =  'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
 
 console.log("LOG: ", URL_MONGO);
 
@@ -45,16 +45,20 @@ app.get('/pacientes', (req, res) => {
     })
 });
 
+app.get('/pacientes/:id', (req, res) => {
+    Ctrl.paciente.mostrarPacientes(req.params.id)
+		.then(pct => pct ? res.send(pct) : res.send({}).status(400))
+		.catch(err => res.send(err).status(400));
+});
+
 //POST
-app.post('pacientes', (req, res) => {
-    console.log("Entré a pos :) ");
+app.post('/pacientes', (req, res) => {
+    console.log("entré a POST");
     Paciente(req.body).save((err, paciente) => {
         err ? res.status(400).send({
-            message: 'Checar petición',
+            menssage: "Revisar petición",
             errorMongo: err
         }) : res.status(201).send(paciente);
-        console.log("SAliendo de post");
-        
     });
 });
 
@@ -62,4 +66,4 @@ app.post('pacientes', (req, res) => {
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
     
-})
+});

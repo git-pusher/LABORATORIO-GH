@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
+import API_URL from '../constants'
 
 class Paciente extends Component {
 
@@ -9,80 +10,69 @@ class Paciente extends Component {
     this.state = {}
   }
 
+  guardar = (e) => {
+    e.preventDefault();
+    console.log('Guardando...');   
+    console.log(API_URL+'pacientes', 'P: ', this.state);
+    axios.post(API_URL+'pacientes/', this.state)
+    .then(paciente => {
+      console.log('Paciente registrado correctamente');
+      console.log("Paciente: ", paciente);
+    }).catch(err => {
+      console.log("Ocurrió un error", err);
+    });
+  }
+
+  cambio = (event) => {
+    const {id, value} = event.target;
+
+    this.setState({ [id]: value} )
+    console.log(this.state);
+    
+  }
+
   render() {
-    console.log("Render de Form Pacientes");
     return (
       <div className="contenedor">
-      <form className="containerForm">    
+      <form className="containerForm" onSubmit={this.guardar}>    
             <div className="form-row">
               <div className="form-group col-md-4">
-                <label for="nombre">Nombre</label>
-                <input type="text" className="form-control" id="nombre" placeholder="Nombre(s)"/>
+                <label htmlFor="nombre">Nombre</label>
+                <input type="text" onChange={this.cambio} className="form-control" id="nombre" placeholder="Nombre(s)"/>
               </div>
               <div className="form-group col-md-4">
-                <label for="aPaterno">Apellido Paterno</label>
-                <input type="text" className="form-control" id="aPaterno" placeholder="Apellido Paterno"/>
+                <label htmlFor="apellidoPaterno">Apellido Paterno</label>
+                <input type="text" onChange={this.cambio} className="form-control" id="apellidoPaterno" placeholder="Apellido Paterno"/>
               </div>
               <div className="form-group col-md-4">
-                <label for="aMaterno">Apellido Materno</label>
-                <input type="text" className="form-control" id="aMaterno" placeholder="Apellido Materno"/>
+                <label htmlFor="apellidoMaterno">Apellido Materno</label>
+                <input type="text" onChange={this.cambio} className="form-control" id="apellidoMaterno" placeholder="Apellido Materno"/>
               </div>
             </div>
             <div className="form-row">
-              <div className="form-group col-md-4">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" className="form-control" id="email" placeholder="Ejemplo: correo@algo.com"/>
+            <div className="form-group col-md-4">
+                <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento"/>
               </div>
               <div className="form-group col-md-4">
-                <label for="telefono">Teléfono</label>
-                <input type="text" className="form-control" id="telefono" placeholder="Ejemplo: 55 1122 3344"/>
+                <label htmlFor="correoElectronico">Correo Electrónico</label>
+                <input type="email" onChange={this.cambio} className="form-control" id="correoElectronico" placeholder="Ejemplo: correo@algo.com"/>
               </div>
               <div className="form-group col-md-4">
-                <label for="turno">Turno</label>
-                <select id="turno" className="form-control">
-                  <option selected>Seleccione una opción</option>
-                  <option>Matutino</option>
-                  <option>Vespertino</option>
-                </select>
+                <label htmlFor="telefono">Teléfono</label>
+                <input type="text" onChange={this.cambio} className="form-control" id="telefono" placeholder="Ejemplo: 55 1122 3344"/>
               </div>
             </div>
             <div className="form-row">
-              <div className="form-group col-md-4">
-                <label for="inputCity">Fecha Deseada</label>
-                <input type="date" className="form-control" id="fecha"/>
-              </div>
-              <div className="form-group col-md-4">
-                <label for="inputState">Lugar</label>
-                <select id="inputState" className="form-control">
-                  <option selected>Seleccione una opción</option>
-                  <option>Hospital</option>
-                  <option>Laboratorio</option>
-                </select>
-              </div>
-              <div className="form-group col-md-4">
-                <label for="inputZip">Tipo de Examen</label>
-                <select id="inputState" className="form-control">
-                  <option selected>Seleccione una opción</option>
-                  <option>Hematología Completa</option>
-                  <option>Quémica Sanguínea</option>
-                  <option>Prueba de Coagulación</option>
-                </select>
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="form-group col-md-6">
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="gridCheck"/>
-                  <label className="form-check-label" for="gridCheck">
-                    Recibir notificación
-                  </label>  
-                </div>
+              <div className="form-group col-md-12">
+                <label htmlFor="direccion">Dirección</label>
+                <input type="text" onChange={this.cambio} className="form-control" id="direccion" placeholder="Calle, #int, #ext, Col."/>
               </div>
             </div>
             <div className="form-row">
               <div className="form-group col-md-12">
                 <label>
-                < button type="button" className="btn btn-primary btn-lg">Solicitar Cita
+                <button type="submit" className="btn btn-primary btn-lg">Registrar Paciente 
                 </button>
                 </label>
               </div>
