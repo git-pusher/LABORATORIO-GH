@@ -26,7 +26,7 @@
 
 .navbar-nav>li {
     float: left;
-    padding-left: 5px;
+    padding-left: 30px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -66,3 +66,4 @@
     text-decoration: none;
     background-color: #42929f;
 }
+

@@ -25,7 +25,7 @@ class Menu extends Component {
 				<div className="collapse navbar-collapse" id="navbarNavAltMarku">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<Link activeClassName="active" to="/">Inicio </Link> 
+							<Link active ClassName="active" to="/">Inicio </Link> 
 						</li>
 						<li className="nav-item">
 							<Link active ClassName="active" to="/Medicos">Médicos</Link>

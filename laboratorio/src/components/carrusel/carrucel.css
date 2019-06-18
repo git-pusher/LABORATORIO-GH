@@ -1,8 +1,7 @@
-.carru {
-    margin-top: 55px;
+#main {
+    margin-top: 57px;
     padding: 0;
     width: 100%;
-
 }
 
 #main .carousel-inner img {
