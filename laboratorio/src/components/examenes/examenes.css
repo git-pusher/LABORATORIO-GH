@@ -3,6 +3,16 @@
     margin: 50px;
 }
 
+hr {
+    /* -webkit-box-sizing: content-box;
+    box-sizing: content-box; */
+    height: 0px;
+    width: 100px;
+    /* overflow: visible; */
+    border-color: #42929f;
+
+}
+
 .conoce-examenes {
     font-size: 15px;
     padding-top: 20px;

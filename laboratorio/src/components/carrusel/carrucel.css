@@ -1,11 +1,14 @@
-.main {
-    margin: 0;
+.carru {
+    margin-top: 55px;
+    padding: 0;
+    width: 100%;
+
 }
 
 #main .carousel-inner img {
     max-height: 80vh;
-    filter: grayscale(70%);
     object-fit: cover;
+    filter: grayscale(70%);
 }
 
 #carousel {

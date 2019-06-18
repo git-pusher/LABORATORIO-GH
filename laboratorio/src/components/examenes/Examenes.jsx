@@ -20,6 +20,7 @@ class Examenes extends Component {
                     <div className="row">
                         <div className="col text-center">
                             <h2 className="text-uppercase">Exámenes</h2>
+                            <hr/>
                             <p className="conoce-examenes">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
                                 dolorum cupiditate mollitia commodi perferendis consequatur earum fugiat vitae 
                                 quasi voluptas alias nisi! Nesciunt enim dolorem voluptas esse quod. Lorem, ipsum 

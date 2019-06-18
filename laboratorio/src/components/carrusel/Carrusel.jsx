@@ -15,7 +15,7 @@ class Carrusel extends Component {
     render(){
         console.log(this.props.location);
         return (
-            <div className="container">
+            <div className="container-fluid carru" id="main">
                 <div id="carousel" className="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
@@ -39,7 +39,6 @@ class Carrusel extends Component {
                                             commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. 
                                             Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
                                             mollit anim id est laborum </p>
-                                        {/* <a href="#examenes" className="btn btn-outline-light">Citas</a> */}
                                         <button type="button" className="btn btn-lands">Citas</button>
                                     </div>
                                 </div>

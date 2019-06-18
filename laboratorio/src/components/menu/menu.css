@@ -21,6 +21,7 @@
     margin: 0;
     border-radius: 0;
     border: none;
+    box-shadow: 6px -4px 16px 10px #0e5061;
 }
 
 .navbar-nav>li {
