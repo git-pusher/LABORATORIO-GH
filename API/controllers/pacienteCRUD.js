@@ -16,14 +16,8 @@ paciente.crearPaciente = function(paciente){
 }
 
 //Listar Pacientes
-paciente.mostrarPacientes = function(id = '', populate = false){
-    if(id){
-        return Paciente
-            .findById(id)
-            .exec();
-    }
-    const find = Paciente.find();
-    return find.exec();
+paciente.mostrarPacientes = function(id = ''){
+   return id ? Paciente.findById(id).exec() : Paciente.find().exec();
 }
 
 //Borrar Paciente

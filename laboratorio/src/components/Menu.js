@@ -18,7 +18,8 @@ class Menu extends Component {
 				<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div className="navbar-nav">
 						<NavLink className="nav-item nav-link" exact activeClassName="active" to="/">Inicio</NavLink>
-						<NavLink className="nav-item nav-link" activeClassName="active" to="/pacientes">Paciente</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/pacientes">Registrar Paciente</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaPacientes">Pacientes</NavLink>
 					</div>
 				</div>
 			</nav>
