@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Paciente from './components/Paciente.js';
@@ -11,9 +10,8 @@ function App() {
       <div className="App">
         <Router>
           <Menu/>
-          <ListaPacientes/>
-          <Route path="/pacientes" Component={Paciente}/>
-          <Route exact path="/ListaPacientes" Component={ListaPacientes}/>
+          <Route path="/pacientes" component={Paciente}/>
+          <Route path="/ListaPacientes" component={ListaPacientes}/>
         </Router>
       </div>
     );

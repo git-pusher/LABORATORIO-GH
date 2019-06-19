@@ -8,7 +8,7 @@ class Menu extends Component {
     }
 
     render(){
-        console.log(this.props.location);
+        console.log("ubicación: ",this.props.location);
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<NavLink className="navbar-brand" to="/">Pacientes</NavLink>

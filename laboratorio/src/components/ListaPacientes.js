@@ -66,9 +66,9 @@ class ListaPacientes extends Component {
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
-                        <td> <a href="#"><span class="glyphicon glyphicon-search"></span>Editar</a></td>
-                        <td> <a href="#"><span class="glyphicon glyphicon-search"></span>Borrar</a></td>
-                        <td> <a href="#"><span class="glyphicon glyphicon-search"></span>Ver Citas</a></td>
+                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Editar</a></td>
+                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Borrar</a></td>
+                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Ver Citas</a></td>
                     </tr>	
             );
         }) : <h1>No hay datos para mostrar</h1>
