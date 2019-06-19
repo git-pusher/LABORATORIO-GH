@@ -1,0 +1,27 @@
+.sesion {
+    display: flex;            
+    margin-top: 20px;
+    border: 2px solid blue;
+}
+
+.labo-img {
+    max-width: 100%;
+    /* display: inherit; */
+    /* display: flex; */
+    /* align-items: center */
+}
+
+.fila {
+    padding: 20px 15px;
+    align-items: center;
+    justify-content: center;
+    
+        }
+
+.col-md-4 {
+    border: 3px double #42929f;
+    padding: 50px;
+    margin: 20px;
+}
+
+    
