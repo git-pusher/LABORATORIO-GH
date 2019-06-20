@@ -1,5 +1,4 @@
 import React from 'react';
-import Inicio from './inicio/Inicio'
 import Carrusel from '../components/carrusel/Carrusel';
 import Examenes from '../components/examenes/Examenes';
 import Footer from '../components/footer/Footer'
