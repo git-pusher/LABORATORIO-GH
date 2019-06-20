@@ -20,6 +20,8 @@ class Menu extends Component {
 						<NavLink className="nav-item nav-link" exact activeClassName="active" to="/">Inicio</NavLink>
 						<NavLink className="nav-item nav-link" activeClassName="active" to="/pacientes">Registrar Paciente</NavLink>
 						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaPacientes">Pacientes</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/doctores">Registrar Doctor</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaDoctores">Doctores</NavLink>
 					</div>
 				</div>
 			</nav>

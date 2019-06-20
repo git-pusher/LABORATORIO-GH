@@ -12,12 +12,11 @@ class Paciente extends Component {
 
   guardar = (e) => {
     e.preventDefault();
-    console.log('Guardando...');   
-    console.log(API_URL+'pacientes', 'P: ', this.state);
+    console.log('Guardando...');
     axios.post(API_URL+'pacientes/', this.state)
     .then(paciente => {
-      console.log('Paciente registrado correctamente');
-      console.log("Paciente: ", paciente);
+      console.log('Paciente registrado correctamente: ', paciente);
+      this.props.history.push('/ListaPacientes'); 
     }).catch(err => {
       console.log("Ocurrió un error", err);
     });
@@ -25,10 +24,8 @@ class Paciente extends Component {
 
   cambio = (event) => {
     const {id, value} = event.target;
-
     this.setState({ [id]: value} )
     console.log(this.state);
-    
   }
 
   render() {
@@ -72,7 +69,7 @@ class Paciente extends Component {
             <div className="form-row">
               <div className="form-group col-md-12">
                 <label>
-                <button type="submit" className="btn btn-primary btn-lg">Registrar Paciente 
+                <button type="submit" className="btn btn-primary btn-lg" >Registrar Paciente 
                 </button>
                 </label>
               </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../constants';
 
+import MaterialIcon from 'material-icons-react'
+
 class ListaPacientes extends Component {
 
     constructor(props){
@@ -66,9 +68,9 @@ class ListaPacientes extends Component {
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Editar</a></td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Borrar</a></td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Ver Citas</a></td>
+                        <td> <a href="#"><MaterialIcon icon="create"></MaterialIcon>Editar</a></td>
+                        <td> <a href="#"><MaterialIcon icon="delete"></MaterialIcon>Borrar</a></td>
+                        <td> <a href="#"><MaterialIcon icon="list_alt"></MaterialIcon>Ver Citas</a></td>
                     </tr>	
             );
         }) : <h1>No hay datos para mostrar</h1>

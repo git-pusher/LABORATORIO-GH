@@ -2,7 +2,9 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const Ctrl = require('./controllers/pacienteCRUD.js');
+const CtrlDoc = require('./controllers/doctorCRUD.js');
 const { Paciente } = require('./models/Paciente');
+const { Doctor } = require('./models/Doctor');
 const cors = require('cors');
 
 const app = express();
@@ -29,6 +31,7 @@ mongoose.connect(URL_MONGO, { useNewUrlParser: true}, (err) => {
     }
 });
 
+//PACIENTES
 app.get('/pacientes', (req, res) => {
     Ctrl.paciente.mostrarPacientes()
     .then(pacientes => {
@@ -51,7 +54,7 @@ app.get('/pacientes/:id', (req, res) => {
 		.catch(err => res.send(err).status(400));
 });
 
-//POST
+//POST pacientes
 app.post('/pacientes', (req, res) => {
     console.log("entré a POST");
     Paciente(req.body).save((err, paciente) => {
@@ -62,6 +65,38 @@ app.post('/pacientes', (req, res) => {
     });
 });
 
+//DOCTORES
+app.get('/doctores', (req, res) => {
+    CtrlDoc.doctor.mostrarDoctores()
+    .then(doctores => {
+        if(!doctores){
+            console.log("No hay doctores que mostrar");
+            res.send({mensaje: 'No hay doctores que mostrar'});
+        }else{
+        console.log("Doctores: ", doctores);
+        res.send(doctores).status(200);
+        }
+    }).catch(err => {
+        console.log("Error", err);
+        res.status(500).send({ mensaje: 'Algo salió mal'});
+    })
+});
+
+app.get('/doctores/:id', (req, res) => {
+    CtrlDoc.doctor.mostrarDoctores(req.params.id)
+		.then(doct => doct ? res.send(doct) : res.send({}).status(400))
+		.catch(err => res.send(err).status(400));
+});
+//POST doctores
+app.post('/doctores', (req, res) => {
+    console.log("entré a POST");
+    Doctor(req.body).save((err, doctor) => {
+        err ? res.status(400).send({
+            menssage: "Revisar petición",
+            errorMongo: err
+        }) : res.status(201).send(doctor);
+    });
+});
 
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
