@@ -1,7 +1,11 @@
 .sesion {
     display: flex;            
     margin-top: 20px;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
+    background-color: #eaf1f3;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
 }
 
 .labo-img {
