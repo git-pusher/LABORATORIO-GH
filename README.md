@@ -1,2 +1,7 @@
 # LABORATORIO-LS
-Desarrollo del proyecto en equipo
+## Catálogo Pacientes
+* Listado de Paciente
+* Redireccionamiento entre pag
+## Catálogo de Doctores
+* Listado de Doctores
+* Redireccionamiento entre pag

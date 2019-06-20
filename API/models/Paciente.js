@@ -17,13 +17,16 @@ const pacienteSchema = new Schema({
         type: String
     },
     fechaNacimiento:{
-        type:Date
+        type:Date,
+        required: true
     },
     correoElectronico: {
-        type: String
+        type: String,
+        required: true
     },
     telefono: {
-        type: String
+        type: String,
+        required: true
     }, 
     direccion: {
         type: String

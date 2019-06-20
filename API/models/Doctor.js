@@ -16,7 +16,8 @@ const doctorSchema = new Schema({
         type: String
     },
     correoElectronico: {
-        type: String
+        type: String,
+        required: true
     },
     telefono: {
         type: String
@@ -26,7 +27,8 @@ const doctorSchema = new Schema({
         required: true
     },
     especialidad: {
-        type: String
+        type: String,
+        required: true
     }
     }, {timestamps: true});
 
