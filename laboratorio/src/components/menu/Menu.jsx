@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import Paciente from '../Paciente'
 import labo from '../../../public/img/logo.png';
 import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
@@ -32,7 +32,7 @@ class Menu extends Component {
 							<NavLink active ClassName="active" to="/Medicos">Médicos</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink active ClassName="active" to="/Pacientes">Pacientes</NavLink>
+							<NavLink active ClassName="active" to="/Paciente">Pacientes</NavLink>
 							</li>
 						<li className="nav-item">
 							<NavLink active ClassName="active" to="/Citas">Citas</NavLink>

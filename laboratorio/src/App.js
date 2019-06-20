@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
-// import Paciente from './components/Paciente.jsx';
-// import ListaPacientes from './components/ListaPacientes.jsx';
+import Paciente from './components/Paciente.jsx';
+import ListaPacientes from './components/ListaPacientes.jsx';
 // import Menu from './components/menu/Menu.jsx';
 // import Carrusel from './components/carrusel/Carrusel.jsx'; //Tiene fallo D:
 // import Examenes from './components/examenes/Examenes';
 // import Footer from './components/footer/Footer';
 import Layout from './components/Layout';
+// import Inicio from './pages/inicio/Inicio';
 // import Login from './components/sesion/Login';
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Router>
           <Layout>
             <Switch>
-                <Router exact path="/"/>
-                {/* <Route exact path="/badges/new" component={BadgeNew} /> */}
+            <Route path="/pacientes" component={Paciente}/>
+            <Route path="/ListaPacientes" component={ListaPacientes}/>
             </Switch>
           </Layout>
         </Router>

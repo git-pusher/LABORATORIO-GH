@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import API_URL from '../constants'
 
 class Paciente extends Component {
