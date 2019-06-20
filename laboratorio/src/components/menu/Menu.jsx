@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Paciente from '../Paciente'
+// import Paciente from '../Paciente'
 import labo from '../../../public/img/logo.png';
 import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
@@ -28,12 +28,25 @@ class Menu extends Component {
 						<li className="nav-item">
 							<NavLink active ClassName="active" to="/">Inicio </NavLink> 
 						</li>
-						<li className="nav-item">
-							<NavLink active ClassName="active" to="/Medicos">Médicos</NavLink>
+						<li className="nav-item dropdown">
+							<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Médicos
+							</NavLink>
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<NavLink className="dropdown-item" to="/Listar-Medicos">Listar Médicos</NavLink>
+								<NavLink className="dropdown-item" to="/Medicos">Nuevo Medico</NavLink>
+							</div>							
 						</li>
-						<li className="nav-item">
-							<NavLink active ClassName="active" to="/Paciente">Pacientes</NavLink>
-							</li>
+						<li className="nav-item dropdown">
+							<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pacientes
+							</NavLink>
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<NavLink className="dropdown-item" to="/Listar-Pacientes">Listar Pacientes</NavLink>
+								<NavLink className="dropdown-item" to="/Pacientes">Nuevo Paciente</NavLink>
+							</div>							
+						</li>
+						
 						<li className="nav-item">
 							<NavLink active ClassName="active" to="/Citas">Citas</NavLink>
 						</li>

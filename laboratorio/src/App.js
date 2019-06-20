@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.css';
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
-import Paciente from './components/Paciente.jsx';
-import ListaPacientes from './components/ListaPacientes.jsx';
-// import Menu from './components/menu/Menu.jsx';
-// import Carrusel from './components/carrusel/Carrusel.jsx'; //Tiene fallo D:
-// import Examenes from './components/examenes/Examenes';
-// import Footer from './components/footer/Footer';
+import Medico from './components/medico/Medico';
+import ListaMedicos from './components/listaMedicos/ListaMedicos';
+import Paciente from './components/paciente/Paciente';
+import ListaPacientes from './components/listaPacientes/ListaPacientes';
+
 import Layout from './components/Layout';
-// import Inicio from './pages/inicio/Inicio';
-// import Login from './components/sesion/Login';
+
 
 function App() {
     return (
       <div className="App">
         <Router>
           <Layout>
-            <Switch>
-            <Route path="/pacientes" component={Paciente}/>
-            <Route path="/ListaPacientes" component={ListaPacientes}/>
-            </Switch>
+            <Switch>              
+              <Route path="/Listar-Medicos" component={ListaMedicos}/>
+              <Route path="/Medicos" component={Medico}/>
+              <Route path="/Listar-Pacientes" component={ListaPacientes}/>
+              <Route path="/Pacientes" component={Paciente}/>
+           </Switch>
           </Layout>
         </Router>
 
