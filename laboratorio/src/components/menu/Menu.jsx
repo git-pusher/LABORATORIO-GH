@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-// import Paciente from '../Paciente'
 import labo from '../../../public/img/logo.png';
 import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
@@ -52,7 +51,7 @@ class Menu extends Component {
 						</li>
 					</ul>
 					<ul className="nav navbar-nav navbar-right">
-						<li><NavLink to="#examenes" className="btn btn-outline-light" to="/Login">Inicia sesión</NavLink></li>
+						<li><NavLink to="#examenes" className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>
 					</ul>
 				</div>
 			</div>  

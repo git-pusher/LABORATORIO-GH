@@ -5,8 +5,11 @@ import Medico from './components/medico/Medico';
 import ListaMedicos from './components/listaMedicos/ListaMedicos';
 import Paciente from './components/paciente/Paciente';
 import ListaPacientes from './components/listaPacientes/ListaPacientes';
+import Sesion from './pages/inicio/Inicio'
 
 import Layout from './components/Layout';
+import Laboratorio from './pages/Laboratorio';
+import Inicio from './pages/inicio/Inicio';
 
 
 function App() {
@@ -15,10 +18,12 @@ function App() {
         <Router>
           <Layout>
             <Switch>              
+              <Route exact path="/" component={Laboratorio}/>
               <Route path="/Listar-Medicos" component={ListaMedicos}/>
               <Route path="/Medicos" component={Medico}/>
               <Route path="/Listar-Pacientes" component={ListaPacientes}/>
               <Route path="/Pacientes" component={Paciente}/>
+              <Route path="/sesion" component={Inicio}/>
            </Switch>
           </Layout>
         </Router>

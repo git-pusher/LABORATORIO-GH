@@ -1,6 +1,7 @@
 .sesion {
     display: flex;            
     margin-top: 20px;
+    left: 30%;
     /* border: 2px solid blue; */
     background-color: #eaf1f3;
     -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);

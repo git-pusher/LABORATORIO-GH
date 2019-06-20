@@ -73,7 +73,7 @@ class Paciente extends Component {
             <div className="form-row">
               <div className="form-group col-md-12">
                 <label>
-                <button type="submit" className="btn btn-primary btn-lg">Registrar Paciente 
+                <button type="submit" className="btn btn-lands btn-lg">Registrar Paciente 
                 </button>
                 </label>
               </div>
