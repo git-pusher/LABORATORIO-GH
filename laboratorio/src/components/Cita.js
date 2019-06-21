@@ -11,14 +11,14 @@ class Cita extends Component {
     
     guardar = (e) => {
         e.preventDefault();
+        console.log('Creando cita...');
         axios.post(API_URL+'citas/', this.state)
-        .then(citas => {
-            console.log('Creando cita...');
+        .then(cita => {
+            console.log('Cita creada correctamente: ', cita);
+            this.listaCitas();
         }).catch(err => {
-            console.log('Error...');
-        })
-        
-        
+            console.log('Error...', err);
+        });
     }
 
     cambio = (event) => {
@@ -29,8 +29,10 @@ class Cita extends Component {
     }
 
     listaCitas = ()=>{
-        this.props.history.push('/'); 
+        this.props.history.push('/ListaCitas'); 
       }
+
+    //listarDoctores =()
 
     render(){
         return(
@@ -58,7 +60,13 @@ class Cita extends Component {
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="estudio">Estudio</label>
-                            <input type="text" onChange={this.cambio} className="form-control" id="estudio" />
+                                <select id="estudio" className="form-control" onChange={this.cambio}>
+                                    <option default>Seleccione una opción</option>
+                                    <option value="Hematología Completa">Hematología Completa</option>
+                                    <option value="Química Sanguínea">Química Sanguínea</option>
+                                    <option value="Análisis de Enzimas Sanguíneas">Análisis de Enzimas Sanguíneas</option>
+                                    <option value="Pruebas de Coagulación">Pruebas de Coagulación</option>
+                                </select>
                         </div>
                     </div>
                     <div className="form-row">

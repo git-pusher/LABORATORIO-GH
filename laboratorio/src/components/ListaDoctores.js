@@ -3,7 +3,6 @@ import axios from 'axios';
 import API_URL from '../constants';
 
 import MaterialIcon from 'material-icons-react'
-import { doctor } from '../../../API/controllers/doctorCRUD';
 
 class ListaDoctores extends Component {
 
@@ -48,7 +47,7 @@ class ListaDoctores extends Component {
             console.log("Tabla doctores");
             return(
                     <tr key={doct._id}>
-                        <th></th>
+                        <td></td>
                         <td>{doct.nombre}</td>
                         <td>{doct.apellidoPaterno}</td>
                         <td>{doct.apellidoMaterno}</td>
@@ -89,7 +88,7 @@ class ListaDoctores extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.request ? <p>Cargando...</p> : this.pintarDoctores()}
+                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarDoctores()}
                 </tbody>
                 </table>
             </div>

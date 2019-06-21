@@ -102,7 +102,7 @@ class ListaPacientes extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.request ? <p>Cargando...</p> : this.pintarPacientes()}
+                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
                 </tbody>
                 </table>
             </div>

@@ -70,12 +70,12 @@ class Doctor extends Component {
               <div className="form-group col-md-6">
                 <label htmlFor="noCedula">Cédula Profesional</label>
                 <input type="text" onChange={this.cambio} className="form-control" id="noCedula" placeholder="Min. 7 dígitos, Max. 8 dígitos" pattern="[0-9]+$"/>
-                <small id="noCedula" class="form-text text-muted">Ingresar solo números, completar con ceros a la izquierda en caso de ser menor a los dígitos solicitados</small>
+                <small id="noCedula" className="form-text text-muted">Ingresar solo números, completar con ceros a la izquierda en caso de ser menor a los dígitos solicitados</small>
               </div>
               <div className="form-group col-md-6">
                 <label htmlFor="especialidad">Especialidad</label>
                 <select id="especialidad" className="form-control" onChange={this.cambio}>
-                  <option selected>Seleccione una opción</option>
+                  <option default>Seleccione una opción</option>
                   <option value="Cardiología">Cardiología</option>
                   <option value="Hematología">Hematología</option>
                   <option value="Traumatología">Traumatología</option>

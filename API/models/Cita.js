@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 
 const citaSchema = new Schema({
     paciente: {
-        type: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Paciente'
-        }]
+        type: String,
+        required: true
+        //type: [{
+          //  type: Schema.Types.ObjectId,
+            //ref: 'Paciente'
+        //}]
     },
     fechaCita: {
         type: Date,
@@ -22,10 +24,12 @@ const citaSchema = new Schema({
         required: true
     },
     doctor: {
-        type: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Doctor'
-        }]
+        type: String,
+        required: true
+        //type: [{
+          //  type: Schema.Types.ObjectId,
+            //ref: 'Doctor'
+        //}]
     }
 
 }, {timestamps: true});

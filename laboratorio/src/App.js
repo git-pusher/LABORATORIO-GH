@@ -3,10 +3,10 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Paciente from './components/Paciente.js';
 import Doctor from './components/Doctor.js';
-import Cita from './components/Cita.jsx';
+import Cita from './components/Cita.js';
 import ListaPacientes from './components/ListaPacientes.js';
 import ListaDoctores from './components/ListaDoctores.js';
-import ListaCitas from './components/ListaCitas.jsx';
+import ListaCitas from './components/ListaCitas.js';
 import Menu from './components/Menu.js';
 
 function App() {

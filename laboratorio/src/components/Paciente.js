@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../constants';
 import MaterialIcon from 'material-icons-react';
+//import {toastr} from 'react-redux-toastr'
 
 class Paciente extends Component {
 
@@ -21,7 +22,7 @@ class Paciente extends Component {
     }).catch(err => {
       console.log("Ocurrió un error", err);
     });
-  }
+  }  
 
   cambio = (event) => {
     const {id, value} = event.target;

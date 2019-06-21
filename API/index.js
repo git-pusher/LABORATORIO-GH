@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const Ctrl = require('./controllers/pacienteCRUD.js');
 const CtrlDoc = require('./controllers/doctorCRUD.js');
-const CtrlCita = require('./controllers/citaCRUD.jsx');
+const CtrlCita = require('./controllers/citaCRUD.js');
 const { Paciente } = require('./models/Paciente');
 const { Doctor } = require('./models/Doctor');
 const { Cita } = require('./models/Cita');
@@ -62,7 +62,7 @@ app.post('/pacientes', (req, res) => {
     console.log("entré a POST");
     Paciente(req.body).save((err, paciente) => {
         err ? res.status(400).send({
-            menssage: "Revisar petición",
+            message: "Revisar petición",
             errorMongo: err
         }) : res.status(201).send(paciente);
     });
@@ -96,7 +96,7 @@ app.post('/doctores', (req, res) => {
     console.log("entré a POST");
     Doctor(req.body).save((err, doctor) => {
         err ? res.status(400).send({
-            menssage: "Revisar petición",
+            message: "Revisar petición",
             errorMongo: err
         }) : res.status(201).send(doctor);
     });
@@ -128,23 +128,14 @@ app.get('/citas/:id', (req, res) => {
 
 //POST
 app.post('/citas', (req, res) => {
-    const objCita = req.body;
-
-    //Existe paciente?
-    if(objCita.pacientes){
-        //Existe doctor?
-        if(objCita.doctores){
-            console.log("Cita: ", objCita);
-            
-            Cita(req.body).save((err, ct) => {
-                err ? res.send(err).status(400)
-                    : res.send(ct).status(200);
-            });
-        }
-        res.send("Doctor incorrecto").status(406);
-    }
-    res.send("Paciente incorrecto").status(406);
-});
+    console.log("entre a POST citas");
+    Cita(req.body).save((err, cita) => {
+        err ? res.status(400).send({
+            message: "Revisar petición cita",
+            errorMongo: err
+        }) : res.status(201).send(cita);
+    });
+}); 
 
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
