@@ -22,6 +22,8 @@ class Menu extends Component {
 						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaPacientes">Pacientes</NavLink>
 						<NavLink className="nav-item nav-link" activeClassName="active" to="/doctores">Registrar Doctor</NavLink>
 						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaDoctores">Doctores</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/citas">Registrar Cita</NavLink>
+						<NavLink className="nav-item nav-link" activeClassName="active" to="/ListaCitas">Citas</NavLink>
 					</div>
 				</div>
 			</nav>

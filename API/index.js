@@ -3,8 +3,10 @@ const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const Ctrl = require('./controllers/pacienteCRUD.js');
 const CtrlDoc = require('./controllers/doctorCRUD.js');
+const CtrlCita = require('./controllers/citaCRUD.jsx');
 const { Paciente } = require('./models/Paciente');
 const { Doctor } = require('./models/Doctor');
+const { Cita } = require('./models/Cita');
 const cors = require('cors');
 
 const app = express();
@@ -32,6 +34,7 @@ mongoose.connect(URL_MONGO, { useNewUrlParser: true}, (err) => {
 });
 
 //PACIENTES
+//GET
 app.get('/pacientes', (req, res) => {
     Ctrl.paciente.mostrarPacientes()
     .then(pacientes => {
@@ -54,7 +57,7 @@ app.get('/pacientes/:id', (req, res) => {
 		.catch(err => res.send(err).status(400));
 });
 
-//POST pacientes
+//POST 
 app.post('/pacientes', (req, res) => {
     console.log("entré a POST");
     Paciente(req.body).save((err, paciente) => {
@@ -66,6 +69,7 @@ app.post('/pacientes', (req, res) => {
 });
 
 //DOCTORES
+//GET
 app.get('/doctores', (req, res) => {
     CtrlDoc.doctor.mostrarDoctores()
     .then(doctores => {
@@ -87,7 +91,7 @@ app.get('/doctores/:id', (req, res) => {
 		.then(doct => doct ? res.send(doct) : res.send({}).status(400))
 		.catch(err => res.send(err).status(400));
 });
-//POST doctores
+//POST 
 app.post('/doctores', (req, res) => {
     console.log("entré a POST");
     Doctor(req.body).save((err, doctor) => {
@@ -96,6 +100,50 @@ app.post('/doctores', (req, res) => {
             errorMongo: err
         }) : res.status(201).send(doctor);
     });
+});
+
+//CITAS
+//GET
+app.get('/citas', (req, res) => {
+    CtrlCita.cita.mostrarCitas()
+    .then(citas => {
+        if(!citas) {
+            console.log('No hay citas que mostrar');
+            res.send({ mensaje: 'No hay citas que mostrar'});
+        } else {
+            console.log('Citas: ', citas);
+            res.send(citas).status(200);
+        }
+    }).catch(err => {
+        console.log('Ocurrio un error get: ', err);
+        res.status(500).send({ mensaje: 'Ocurrió un error'});
+    });
+});
+
+app.get('/citas/:id', (req, res) => {
+    CtrlCita.cita.mostrarCitas(req.params.id)
+    .then(ct => ct ? res.send(ct) : res.send({}).status(400))
+    .catch(err => res.send(err).status(400));
+});
+
+//POST
+app.post('/citas', (req, res) => {
+    const objCita = req.body;
+
+    //Existe paciente?
+    if(objCita.pacientes){
+        //Existe doctor?
+        if(objCita.doctores){
+            console.log("Cita: ", objCita);
+            
+            Cita(req.body).save((err, ct) => {
+                err ? res.send(err).status(400)
+                    : res.send(ct).status(200);
+            });
+        }
+        res.send("Doctor incorrecto").status(406);
+    }
+    res.send("Paciente incorrecto").status(406);
 });
 
 app.listen(PORT, () => {

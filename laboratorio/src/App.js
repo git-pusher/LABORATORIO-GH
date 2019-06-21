@@ -3,8 +3,10 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Paciente from './components/Paciente.js';
 import Doctor from './components/Doctor.js';
+import Cita from './components/Cita.jsx';
 import ListaPacientes from './components/ListaPacientes.js';
 import ListaDoctores from './components/ListaDoctores.js';
+import ListaCitas from './components/ListaCitas.jsx';
 import Menu from './components/Menu.js';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route path="/ListaPacientes" component={ListaPacientes}/>
           <Route path="/doctores" component={Doctor}/>
           <Route path="/ListaDoctores" component={ListaDoctores}/>
+          <Route path="/citas" component={Cita}/>
+          <Route path="/ListaCitas" component={ListaCitas}/>
         </Router>
       </div>
     );
