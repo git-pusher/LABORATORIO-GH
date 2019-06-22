@@ -16,14 +16,8 @@ paciente.crearPaciente = function(paciente){
 }
 
 //Listar Pacientes
-paciente.mostrarPacientes = function(id = '', populate = false){
-    if(id){
-        return Paciente
-            .findById(id)
-            .exec();
-    }
-    const find = Paciente.find();
-    return find.exec();
+paciente.mostrarPacientes = function(id = ''){
+   return id ? Paciente.findById(id).exec() : Paciente.find().exec();
 }
 
 //Borrar Paciente
@@ -38,7 +32,7 @@ paciente.borrarPaciente = function (idPaciente){
 paciente.actualizarPaciente = function (idPaciente, paciente){
     Paciente.updateOne({_id: idPaciente}, paciente).exec()
     .then(res => {
-        res ? console.log("respuesta: ", res) : console.log("Noi se encontro paciente para modificar");  
+        res ? console.log("respuesta: ", res) : console.log("No se encontro paciente para modificar");  
     }).catch(err => console.log("Ocurrió un error: ", err));
 }
 

@@ -16,8 +16,8 @@ const pacienteSchema = new Schema({
     apellidoMaterno: {
         type: String
     },
-    curp:{
-        type: String,
+    fechaNacimiento:{
+        type:Date,
         required: true
     },
     correoElectronico: {
@@ -25,9 +25,10 @@ const pacienteSchema = new Schema({
         required: true
     },
     telefono: {
-        type: Number
+        type: String,
+        required: true
     }, 
-    turno: {
+    direccion: {
         type: String
     }
     }, {timestamps: true});
