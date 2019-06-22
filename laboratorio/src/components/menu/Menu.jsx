@@ -32,7 +32,7 @@ class Menu extends Component {
 								Médicos
 							</NavLink>
 							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<NavLink className="dropdown-item" to="/Listar-Medicos">Listar Médicos</NavLink>
+								<NavLink className="dropdown-item" to="/ListaMedicos">Listar Médicos</NavLink>
 								<NavLink className="dropdown-item" to="/Medicos">Nuevo Medico</NavLink>
 							</div>							
 						</li>
@@ -41,13 +41,13 @@ class Menu extends Component {
 								Pacientes
 							</NavLink>
 							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<NavLink className="dropdown-item" to="/Listar-Pacientes">Listar Pacientes</NavLink>
+								<NavLink className="dropdown-item" to="/ListaPacientes">Listar Pacientes</NavLink>
 								<NavLink className="dropdown-item" to="/Pacientes">Nuevo Paciente</NavLink>
 							</div>							
 						</li>
 						
 						<li className="nav-item">
-							<NavLink active ClassName="active" to="/Citas">Citas</NavLink>
+							<NavLink active ClassName="active" to="/ListaCitas">Citas</NavLink>
 						</li>
 					</ul>
 					<ul className="nav navbar-nav navbar-right">

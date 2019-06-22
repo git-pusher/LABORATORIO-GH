@@ -6,7 +6,6 @@ import ListaMedicos from './components/listaMedicos/ListaMedicos';
 import Paciente from './components/paciente/Paciente';
 import ListaPacientes from './components/listaPacientes/ListaPacientes';
 import ListaCitas from './components/citas/ListaCitas'
-import Sesion from './pages/inicio/Inicio'
 
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
@@ -20,11 +19,11 @@ function App() {
           <Layout>
             <Switch>              
               <Route exact path="/" component={Laboratorio}/>
-              <Route path="/Listar-Medicos" component={ListaMedicos}/>
+              <Route path="/ListaMedicos" component={ListaMedicos}/>
               <Route path="/Medicos" component={Medico}/>
-              <Route path="/Listar-Pacientes" component={ListaPacientes}/>
+              <Route path="/ListaPacientes" component={ListaPacientes}/>
               <Route path="/Pacientes" component={Paciente}/>
-              <Route path="/Lista-Citas" component={ListaCitas}/>
+              <Route path="/ListaCitas" component={ListaCitas}/>
               <Route path="/sesion" component={Inicio}/>
            </Switch>
           </Layout>
