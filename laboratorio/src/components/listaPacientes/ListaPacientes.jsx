@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
+import MaterialIcon from 'material-icons-react'
 
 class ListaPacientes extends Component {
 
@@ -54,6 +55,7 @@ class ListaPacientes extends Component {
 				</div>
             );
         }
+
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
             console.log("Tabla pacientes");
             return(
@@ -66,17 +68,25 @@ class ListaPacientes extends Component {
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Editar</a></td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Borrar</a></td>
-                        <td> <a href="#"><span className="glyphicon glyphicon-search"></span>Ver Citas</a></td>
+                        <td> <a href="#"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</a></td>
+                        <td> <a href="#"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Borrar</a></td>
+                        <td> <a href="#"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</a></td>
                     </tr>	
             );
         }) : <h1>No hay datos para mostrar</h1>
     }
 
+    formPacientes = () => {
+        this.props.history.push('/pacientes'); 
+    }
+
     render(){
         return(
             <div className="row md-12">
+                <button className="btn btn-primary" onClick={this.formPacientes}>
+                    <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                    Nuevo Paciente
+                </button>
                 <table className="table">
                 <thead>
                     <tr>
@@ -91,7 +101,7 @@ class ListaPacientes extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.request ? <p>Cargando...</p> : this.pintarPacientes()}
+                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
                 </tbody>
                 </table>
             </div>

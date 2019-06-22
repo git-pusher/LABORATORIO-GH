@@ -11,6 +11,7 @@
     "faker": "^4.1.0",
     "glyphicons": "^0.2.0",
     "i": "^0.3.6",
+    "material-icons-react": "^1.0.4",
     "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

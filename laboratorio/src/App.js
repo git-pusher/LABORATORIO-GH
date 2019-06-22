@@ -5,6 +5,7 @@ import Medico from './components/medico/Medico';
 import ListaMedicos from './components/listaMedicos/ListaMedicos';
 import Paciente from './components/paciente/Paciente';
 import ListaPacientes from './components/listaPacientes/ListaPacientes';
+import ListaCitas from './components/citas/ListaCitas'
 import Sesion from './pages/inicio/Inicio'
 
 import Layout from './components/Layout';
@@ -23,6 +24,7 @@ function App() {
               <Route path="/Medicos" component={Medico}/>
               <Route path="/Listar-Pacientes" component={ListaPacientes}/>
               <Route path="/Pacientes" component={Paciente}/>
+              <Route path="/Lista-Citas" component={ListaCitas}/>
               <Route path="/sesion" component={Inicio}/>
            </Switch>
           </Layout>

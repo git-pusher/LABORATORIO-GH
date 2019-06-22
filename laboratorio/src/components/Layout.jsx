@@ -9,7 +9,7 @@ function Layout(props) {
 
   return (
     <React.Fragment>
-      {/* <Inicio /> */}
+      {/* <Inicio /> .*/}
       <Menu /> 
       {/* <Laboratorio /> */}
       {props.children}

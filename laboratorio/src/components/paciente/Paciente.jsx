@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import ReactDOM from 'react-dom';
+import MaterialIcon from 'material-icons-react'
 import './paciente.css'
 import API_URL from '../../constants'
 
@@ -13,23 +14,25 @@ class Paciente extends Component {
 
   guardar = (e) => {
     e.preventDefault();
-    console.log('Guardando...');   
-    console.log(API_URL+'pacientes', 'P: ', this.state);
+    console.log('Guardando...');
     axios.post(API_URL+'pacientes/', this.state)
     .then(paciente => {
-      console.log('Paciente registrado correctamente');
-      console.log("Paciente: ", paciente);
+      console.log('Paciente registrado correctamente: ', paciente);
+      //this.props.history.push('/ListaPacientes'); 
+      this.listaPacientes();
     }).catch(err => {
       console.log("Ocurrió un error", err);
     });
-  }
+  }  
 
   cambio = (event) => {
     const {id, value} = event.target;
-
     this.setState({ [id]: value} )
     console.log(this.state);
-    
+  }
+
+  listaPacientes = ()=>{
+    this.props.history.push('/ListaPacientes'); 
   }
 
   render() {
@@ -72,10 +75,14 @@ class Paciente extends Component {
             </div>
             <div className="form-row">
               <div className="form-group col-md-12">
-                <label>
-                <button type="submit" className="btn btn-lands btn-lg">Registrar Paciente 
+                <button type="submit" className="btn btn-primary" >
+                  <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
+                  Registrar Paciente 
                 </button>
-                </label>
+                <button type="button" onClick={this.listaPacientes} className="btn btn-danger">
+                    <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
+                    Cancelar
+                </button>
               </div>
             </div>
       </form>
