@@ -1,0 +1,24 @@
+.contenedor {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    display: flex;
+    vertical-align: middle;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
+
+.containerForm {
+    display: inline-block;
+    padding: .2em;
+}
+
+h5{
+     background-color: aqua;
+}
+
+button {
+    text-align: center;
+    align-content: center;
+}
