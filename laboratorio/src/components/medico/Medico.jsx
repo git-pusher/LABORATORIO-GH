@@ -24,7 +24,7 @@ class Medico extends Component {
   }
 
   listaDoctores = ()=>{
-    this.props.history.push('/ListaDoctores'); 
+    this.props.history.push('/ListaMedicos'); 
   }
 
   cambio = (event) => {
