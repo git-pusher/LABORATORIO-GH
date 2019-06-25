@@ -16,7 +16,7 @@ class Registrar extends React.Component {
                     <div className="col-md-6">
                         <img className="labo-img" src={labo} alt="Landsteiner Scientific"/> 
                     </div>
-                    <div className="col-md-4">
+                    <div className="col col-md-4">
                         <h1 className="text-uppercase text-center">Registro</h1>
                         <form>
                             <div className="form-group mt-4">
@@ -34,7 +34,7 @@ class Registrar extends React.Component {
                                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Introducir contraseña"/>
                             </div>                            
                             <div className="form-group">
-                                <label for="exampleInputPassword1">Verificar contraseña</label>
+                                <label for="exampleInputPassword1">Verificar c"ontraseña</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Introducir contraseña"/>
                             </div>                            
                             <button type="submit" className="btn btn-lands">Registrar</button>
