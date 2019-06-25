@@ -15,5 +15,13 @@
     "datos"
   ],
   "author": "Karen",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "material-icons-react": "^1.0.4",
+    "mongoose": "^5.6.0",
+    "react": "^16.8.6",
+    "react-router": "^5.0.1"
+  }
 }
