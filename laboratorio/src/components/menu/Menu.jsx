@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import labo from '../../../public/img/logo.png';
-import Login from '../sesion/Login';
+// import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
 import './menu.css';
 
@@ -51,8 +51,8 @@ class Menu extends Component {
 						</li>
 					</ul>
 					<ul className="nav navbar-nav navbar-right">
-						<li><NavLink to="#examenes" className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>
 					</ul>
+						<li><NavLink to="#examenes" className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>
 				</div>
 			</div>  
 		  </nav>

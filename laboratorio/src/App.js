@@ -10,6 +10,7 @@ import ListaCitas from './components/citas/ListaCitas'
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
 import Inicio from './pages/inicio/Inicio';
+import Registrar from './components/registro/Registrar';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/Pacientes" component={Paciente}/>
               <Route path="/ListaCitas" component={ListaCitas}/>
               <Route path="/sesion" component={Inicio}/>
+              <Route path="/registro" component={Registrar}/>
            </Switch>
           </Layout>
         </Router>

@@ -2,6 +2,7 @@
     display: flex;            
     margin-top: 20px;
     left: 30%;
+    max-height: 50%;
     /* border: 2px solid blue; */
     background-color: #eaf1f3;
     -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
@@ -21,12 +22,8 @@
     align-items: center;
     justify-content: center;
     
-        }
-
-.col-md-4 {
-    border: 3px double #42929f;
-    padding: 50px;
-    margin: 20px;
 }
+
+
 
     
