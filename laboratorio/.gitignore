@@ -8,7 +8,7 @@
 .pnp.js
 
 #dev
-public/*
+public/
 build/static/css/*.map
 build/static/js/*.map
 
