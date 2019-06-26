@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom';
+// import Link from 'react-router-dom';
 import labo from '../../../public/img/labo.png';
 import FormularioSesion from '../../components/formularioSesion/FormularioSesion'
 import './inicio.css'

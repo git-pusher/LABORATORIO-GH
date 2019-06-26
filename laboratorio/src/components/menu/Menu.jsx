@@ -25,7 +25,7 @@ class Menu extends Component {
 				<div className="collapse navbar-collapse" id="navbarNavAltMarku">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<NavLink active ClassName="active" to="/">Inicio </NavLink> 
+							<NavLink className="inicio" to="/">Inicio </NavLink> 
 						</li>
 						<li className="nav-item dropdown">
 							<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

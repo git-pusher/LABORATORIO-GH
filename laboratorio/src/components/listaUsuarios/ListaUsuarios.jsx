@@ -3,13 +3,13 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react'
 
-class ListaPacientes extends Component {
+class ListaUsuarios extends Component {
 
     constructor(props){
         super(props);
         this.state= {
             request: true,
-            pacientes: [],
+            usuarios: [],
             error: ''
         }
     }
@@ -17,27 +17,26 @@ class ListaPacientes extends Component {
     editar = (e) => {
         e.preventDefault();
         if(this.props.type === 'update'){
-            axios.post(API_URL+'pacientes/', this.state)
-            .then(paciente => paciente.json())
+            axios.post(API_URL+'usuarios/', this.state)
+            .then(usuario => usuario.json())
             .then(item => this.props.state.div)
         }else if(this.props.type === 'delete'){
 
         }
-        //axios.post(API_URL+'pacientes/', this.state)
         
       }
 
     componentDidMount(){
-        this.getPacientes();
+        this.getUsuarios();
     }
 
-    getPacientes = () => {
-        console.log("URL: ", API_URL + 'pacientes');
-        axios.get(API_URL + 'pacientes')
+    getUsuarios = () => {
+        console.log("URL: ", API_URL + 'usuarios');
+        axios.get(API_URL + 'usuarios')
         .then(res => {
             console.log("Lista: ", res.data);
-            this.setState({ pacientes: res.data, request: false });
-            console.log("YA QUEDÓ LA LISTA");
+            this.setState({ usuarios: res.data, request: false });
+            console.log("YA QUEDÓ LA LISTA USUARIOS");
         }).catch(err => {
             console.log("Encontré un error :( ");
             
@@ -45,8 +44,8 @@ class ListaPacientes extends Component {
         });
     }
 
-    pintarPacientes = () => {
-        console.log("pintar Pacientes");
+    pintarUsuarios = () => {
+        console.log("pintar usuarios");
         if(this.state.error){
             return(
                 <div>
@@ -56,18 +55,18 @@ class ListaPacientes extends Component {
             );
         }
 
-        return this.state.pacientes.length ? this.state.pacientes.map(pct => {
-            console.log("Tabla pacientes");
+        return this.state.usuarios.length ? this.state.usuarios.map(usu => {
+            console.log("Tabla usuarios");
             return(
-                    <tr key={pct._id}>
+                    <tr key={usu._id}>
                         <th></th>
-                        <td>{pct.nombre}</td>
-                        <td>{pct.apellidoPaterno}</td>
-                        <td>{pct.apellidoMaterno}</td>
-                        <td>{pct.fechaNacimiento}</td>
-                        <td>{pct.correoElectronico}</td>
-                        <td>{pct.telefono}</td>
-                        <td>{pct.direccion}</td>
+                        <td>{usu.nombre}</td>
+                        <td>{usu.apellidoPaterno}</td>
+                        <td>{usu.apellidoMaterno}</td>
+                        <td>{usu.fechaNacimiento}</td>
+                        <td>{usu.correoElectronico}</td>
+                        <td>{usu.telefono}</td>
+                        <td>{usu.direccion}</td>
                         <td> <a href="#"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</a></td>
                         <td> <a href="#"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Borrar</a></td>
                         <td> <a href="#"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</a></td>
@@ -76,14 +75,14 @@ class ListaPacientes extends Component {
         }) : <h1>No hay datos para mostrar</h1>
     }
 
-    formPacientes = () => {
-        this.props.history.push('/pacientes'); 
+    formUsuarios = () => {
+        this.props.history.push('/usuarios'); 
     }
 
     render(){
         return(
             <div className="row md-12">
-                <button className="btn btn-primary" onClick={this.formPacientes}>
+                <button className="btn btn-primary" onClick={this.formUsuarios}>
                     <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                     Nuevo Paciente
                 </button>
@@ -92,16 +91,12 @@ class ListaPacientes extends Component {
                     <tr>
                     <th ></th>
                     <th >Nombre</th>
-                    <th >Apellido Paterno</th>
-                    <th >Apellido Materno</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>correo Electrónico</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
+                    <th >Usuario</th>
+                    <th >Contraseña</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
+                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarUsuarios()}
                 </tbody>
                 </table>
             </div>
@@ -110,4 +105,4 @@ class ListaPacientes extends Component {
     
 }
 
-export default ListaPacientes;
+export default ListaUsuarios;

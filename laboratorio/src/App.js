@@ -32,17 +32,6 @@ function App() {
            </Switch>
           </Layout>
         </Router>
-
-
-        {/* <Router>    
-          <Menu/>
-          <Carrusel/>
-          <Examenes/>
-          <Footer/>
-          <Route path="/paciente" Component={Paciente}/>
-          <Route exact path="/" Component={ListaPacientes}/>
-        </Router> */}
-
       </div>
     );
 }

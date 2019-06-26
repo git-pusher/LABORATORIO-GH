@@ -44,7 +44,7 @@ class Registrar extends Component {
                     </div>
                     <div className="col col-md-4">
                         <h1 className="text-uppercase text-center">Registro</h1>
-                        <form className="containerForm" onSubmit={this.guardar}>
+                        <form className="container" onSubmit={this.guardar}>
                             <div className="form-group mt-4">
                                 <label htmlFor="n">Nombre</label>
                                 <input type="text" onChange={this.cambio} className="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
@@ -64,10 +64,10 @@ class Registrar extends Component {
                                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Introducir contraseña"/>
                             </div>                             */}
                             <div className="form-row">
-                            <div className="form-group col-md-12">
-                                <button type="submit" className="btn btn-primary " >
+                            <div className="form-group">
+                            <button type="submit" className="btn btn-primary " >
                                     <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
-                                    Registrar usuario
+                                    Registrar
                                 </button>
                                 <button type="button" onClick={this.listaDoctores} className="btn btn-danger">
                                     <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>

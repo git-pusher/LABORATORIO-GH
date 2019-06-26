@@ -5,12 +5,12 @@
     padding: 0;
 }
 
-a {
+li {
     color:white;
     text-decoration: none;
 }
 
-a:hover {
+li:hover {
     color: #00050a;
     text-decoration: none;
 }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './footer.css';
 
 
-class Indicaciones extends Component {
+class Footer extends Component {
     constructor(props){
         super(props);
         this.state = {}
@@ -16,13 +16,13 @@ class Indicaciones extends Component {
                 <div className="container-fluid">
                     <div className="row text-center">
                         <div className="col-12 col-lg">
-                            <a href="#">Social media</a>
+                            <li>Social media</li>
                         </div>                  
                         <div className="col-12 col-lg">
-                            <a href="#">Dirección</a>
+                            <li>Dirección</li>
                         </div>                  
                         <div className="col-12 col-lg">
-                            <a href="#">Privacidad</a>
+                            <li>Privacidad</li>
                         </div>
                     </div>                  
                 </div>  
@@ -31,4 +31,4 @@ class Indicaciones extends Component {
     }
 }
 
-export default Indicaciones;
+export default Footer;
