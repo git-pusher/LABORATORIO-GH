@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
-import MaterialIcon from 'material-icons-react'
+import MaterialIcon from 'material-icons-react';
+
+import './listaPaciente.css';
 
 class ListaPacientes extends Component {
 
@@ -68,9 +70,9 @@ class ListaPacientes extends Component {
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
-                        <td> <a href="#"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</a></td>
-                        <td> <a href="#"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Borrar</a></td>
-                        <td> <a href="#"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</a></td>
+                        <td> <button className="acciones"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</button></td>
+                        <td> <button className="acciones"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Desactivar</button></td>
+                        <td> <button className="acciones"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</button></td>
                     </tr>	
             );
         }) : <h1>No hay datos para mostrar</h1>
@@ -82,11 +84,13 @@ class ListaPacientes extends Component {
 
     render(){
         return(
-            <div className="row md-12">
-                <button className="btn btn-primary" onClick={this.formPacientes}>
-                    <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                    Nuevo Paciente
-                </button>
+            <div className="row md-12 contenedor">
+                 <div className="row md-12 containerForm">
+                    <button className="nuevo btn btn-primary" onClick={this.formPacientes}>
+                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                        Nuevo Paciente
+                    </button>
+                </div>
                 <table className="table">
                 <thead>
                     <tr>
@@ -98,6 +102,9 @@ class ListaPacientes extends Component {
                     <th>correo Electrónico</th>
                     <th>Teléfono</th>
                     <th>Dirección</th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
                     </tr>
                 </thead>
                 <tbody>
