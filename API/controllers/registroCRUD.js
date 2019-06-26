@@ -2,7 +2,7 @@ const {Registro} = require('../models/Registro');
 
 const registro = {};
 
-//Agregar Doctor
+//Crear usuario nuevo
 registro.crearRegistro = function(registro){
     const newRegistro = Registro(registro);
 
@@ -16,7 +16,7 @@ registro.crearRegistro = function(registro){
 }
 
 //Listar Usuarios
-registro.mostrarRegistroes = function(id = ''){
+registro.mostrarRegistro = function(id = ''){
    return id ? Registro.findById(id).exec() : Registro.find().exec();
 }
 
