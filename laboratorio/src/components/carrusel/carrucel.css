@@ -1,0 +1,47 @@
+#main {
+    margin-top: 57px;
+    padding: 0;
+    width: 100%;
+}
+
+#main .carousel-inner img {
+    max-height: 80vh;
+    object-fit: cover;
+    filter: grayscale(70%);
+}
+
+#carousel {
+    position: relative;
+}
+
+#carousel .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+    height: 100%;
+    width: 100%;
+}
+
+.carrusel-detalles {
+    /* text-align: justify; */
+    font-size: 13px;
+    padding-top: 5px;
+    margin-left: 50px;
+}
+
+.btn-lands {
+    background-color: #42929f;
+    color: white;
+}
+
+.btn-lands:hover {
+    background-color: #65daed;
+}
