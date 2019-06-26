@@ -3,6 +3,8 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 
+import './citas.css';
+
 
 class ListaCitas extends Component {
 
@@ -48,28 +50,30 @@ class ListaCitas extends Component {
                     <td></td>
                     <td>{ct.paciente}</td>
                     <td>{ct.fechaCita}</td>
-                    <td>{ct.horaCita}</td>
+                    <td>{ct.horaCita} a.m</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
-                    <td> <a href="#"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</a></td>
-                    <td> <a href="#"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Borrar</a></td>
-                    <td> <a href="#"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</a></td>
+                    <td> <button className="acciones"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</button></td>
+                    <td> <button className="acciones"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Cancelar</button></td>
+                    <td> <button className="acciones"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</button></td>
                 </tr>
             );  
         }) : <h1>No hay citas para mostrar</h1>
     }
 
     formCitas = () => {
-        this.props.history.push('/citas');
+        this.props.history.push('/cita');
     }
 
     render(){
         return(
-            <div className="row md-12">
-                <button className="btn btn-primary" onClick={this.formCitas}>
-                    <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                    Nuevo Cita
-                </button>
+            <div className="row md-12 contenedor">
+                <div className="row md-12 containerForm">
+                    <button className="nuevo btn btn-primary" onClick={this.formCitas}>
+                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                        Nuevo Cita
+                    </button>
+                </div> 
                 <table className="table">
                 <thead>
                     <tr>
@@ -79,6 +83,9 @@ class ListaCitas extends Component {
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
                     <th>Nombre del Doctor</th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
                     </tr>
                 </thead>
                 <tbody>

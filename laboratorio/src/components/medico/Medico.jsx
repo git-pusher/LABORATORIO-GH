@@ -36,7 +36,7 @@ class Medico extends Component {
   render() {
     return (
       <div className="contenedor">
-        <form className="containerForm" onSubmit={this.guardar}>    
+        <form className="" onSubmit={this.guardar}>    
             <div className="card">
                 <div className="card-body">
                    <b><h3>Nuevo Doctor</h3></b>
