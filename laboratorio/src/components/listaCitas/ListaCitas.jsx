@@ -3,7 +3,9 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 
-import './citas.css';
+//import './citas.css';
+import '../../App.css';
+
 
 
 class ListaCitas extends Component {
@@ -25,16 +27,14 @@ class ListaCitas extends Component {
         console.log("URL: ", API_URL + 'citas');
         axios.get(API_URL + 'citas')
         .then(res => {
-            console.log("Lista de Citas: ", res.data);
+            console.log("Lista Citas: ", res.data);
             this.setState({ citas: res.data, request: false });     
         }).catch(err => {
-            console.log("Encontré un erro en citas :(");
             this.setState({error: err, request: false});
         });
     }
 
     pintarCitas = () => {
-        console.log("pintando citas");
         if(this.state.error){
             return(
                 <div>
@@ -44,7 +44,6 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
-            console.log("Tabla de citas");
             return(
                 <tr key={ct._id}>
                     <td></td>
@@ -53,9 +52,24 @@ class ListaCitas extends Component {
                     <td>{ct.horaCita} a.m</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
-                    <td> <button className="acciones"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</button></td>
-                    <td> <button className="acciones"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Cancelar</button></td>
-                    <td> <button className="acciones"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</button></td>
+                    <td>
+                        <button className="btn accionEditar">
+                            <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                            Editar
+                        </button>
+                    </td>
+                    <td>
+                         <button className="btn accionDesactivar">
+                            <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
+                            Desactivar
+                        </button>
+                    </td>
+                    <td>
+                        <button className="btn accionCitas">
+                            <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                            Ver Detalles
+                        </button>
+                    </td>
                 </tr>
             );  
         }) : <h1>No hay citas para mostrar</h1>
@@ -69,7 +83,7 @@ class ListaCitas extends Component {
         return(
             <div className="row md-12 contenedor">
                 <div className="row md-12 containerForm">
-                    <button className="nuevo btn btn-primary" onClick={this.formCitas}>
+                    <button className="nuevo btn" onClick={this.formCitas}>
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                         Nuevo Cita
                     </button>
@@ -82,7 +96,7 @@ class ListaCitas extends Component {
                     <th >Fecha de la cita</th>
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
-                    <th>Nombre del Doctor</th>
+                    <th>Nombre del Médico</th>
                     <th ></th>
                     <th ></th>
                     <th ></th>

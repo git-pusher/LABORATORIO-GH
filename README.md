@@ -1,4 +1,9 @@
 # LABORATORIO-LS
+## Diseño y Estilos
+* Catálogos
+* Listados
+* Botones
+* Clases en etiquetas: h3, div
 ## Catálogo Pacientes
 * Listado de Paciente
 * Redireccionamiento entre pag

@@ -2,8 +2,97 @@
   /* text-align: center; */
   font-family: 'Montserrat', sans-serif;
 }
+.contenedor {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
 
+.containerForm {
+  display: inline-block;
+  padding: 2rem 56px 0px 655px;
+  justify-content: center;
+  align-items: center
+}
 
+.nuevo {
+  background-color: #4caaaf;
+  border: none;
+  color: white;
+  padding: 13px 15px 13px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+}
 
+.accionEditar {
+  background-color: #46a4deb3;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
+.accionDesactivar {
+  background-color: #3eb9abb0;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
+.accionCitas {
+  background-color: #de69b2d4;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.accionGuardar {
+  background-color: #4caaaf;
+  border: none;
+  color: white;
+  margin: 20px 20px 20px 20px;
+  padding: 13px 15px 13px 10px;
+}
+
+.accionCancelar {
+  background-color: #bc322ccf;
+  border: none;
+  color: white;
+  margin: 20px 20px 20px 20px;
+  padding: 13px 15px 13px 10px;
+}
+
+.centrarTexto {
+  text-align: center;
+}
+
+.cardBorder {
+  border-right-style: ridge;
+  border-left-style:  ridge;
+  border-top-style:   ridge;
+  border-bottom-style:ridge;
+}

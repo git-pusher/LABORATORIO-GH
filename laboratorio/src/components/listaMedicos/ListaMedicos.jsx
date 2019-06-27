@@ -3,7 +3,8 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 
-import './listaMedicos.css';
+//import './listaMedicos.css';
+import '../../App.css';
 
 class ListaDoctores extends Component {
 
@@ -24,18 +25,14 @@ class ListaDoctores extends Component {
         console.log("URL: ", API_URL + 'doctores');
         axios.get(API_URL + 'doctores')
         .then(res => {
-            console.log("Lista: ", res.data);
+            console.log("Lista Médicos: ", res.data);
             this.setState({ doctores: res.data, request: false });
-            console.log("YA QUEDÓ LA LISTA de Doctores");
         }).catch(err => {
-            console.log("Encontré un error :( ");
-            
             this.setState({error: err, request: false });
         });
     }
 
     pintarDoctores = () => {
-        console.log("pintando Doctores");
         if(this.state.error){
             return(
                 <div>
@@ -45,7 +42,6 @@ class ListaDoctores extends Component {
             );
         }
         return this.state.doctores.length ? this.state.doctores.map(doct => {
-            console.log("Tabla doctores");
             return(
                     <tr key={doct._id}>
                         <td></td>
@@ -56,9 +52,22 @@ class ListaDoctores extends Component {
                         <td>{doct.telefono}</td>
                         <td>{doct.noCedula}</td>
                         <td>{doct.especialidad}</td>
-                        <td> <button className="acciones"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</button></td>
-                        <td> <button className="acciones"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Desactivar</button></td>
-                        <td> <button className="acciones"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</button></td>
+                        <td><button className="btn accionEditar">
+                                <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                Editar
+                            </button>
+                        </td>
+                        <td>
+                            <button className="btn accionDesactivar">
+                                <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
+                                Desactivar
+                            </button>
+                        </td>
+                        <td><button className="btn accionCitas">
+                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                                Citas
+                            </button>
+                        </td>
                     </tr>	
             );
         }) : <h1>No hay datos para mostrar</h1>
@@ -72,9 +81,9 @@ class ListaDoctores extends Component {
         return(
             <div className="row md-12 contenedor">
                 <div className="row md-12 containerForm">
-                    <button className=" nuevo btn btn-primary" onClick={this.formDoctores}>
+                    <button className="nuevo btn" onClick={this.formDoctores}>
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                        Nuevo Doctor
+                        Nuevo Médico
                     </button>
                 </div>
                 <table className="table">
@@ -89,7 +98,7 @@ class ListaDoctores extends Component {
                     <th>Cédula Profesional</th>
                     <th>Especialidad</th>
                     <th ></th>
-                    <th ></th>
+                    <th >Acciones</th>
                     <th ></th>
                     </tr>
                 </thead>
