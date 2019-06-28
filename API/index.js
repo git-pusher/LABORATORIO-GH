@@ -68,6 +68,23 @@ app.post('/pacientes', (req, res) => {
     });
 });
 
+//PUT
+app.put('/pacientes/:id', (req, res) =>{
+    Paciente.findByIdAndUpdate(req.params.id, req.body,
+        { new: true}, (err, paciente) => {
+            err ? res.status(400).send(err) 
+                : res.status(200).send(paciente);
+        });
+});
+
+//DELETE
+app.delete('/pacientes/:id', (req, res) => {
+    Paciente.findByIdAndDelete(req.params.id, (err, borrar) => {
+        err ? res.status(400).send(err)
+            : res.send(borrar);
+    });
+});
+
 //DOCTORES
 //GET
 app.get('/doctores', (req, res) => {
@@ -102,6 +119,15 @@ app.post('/doctores', (req, res) => {
     });
 });
 
+//PUT
+app.put('/doctores/:id', (req, res) =>{
+    Doctor.findByIdAndUpdate(req.params.id, req.body,
+        { new: true}, (err, doctor) => {
+            err ? res.status(400).send(err) 
+                : res.status(200).send(doctor);
+        });
+});
+
 //CITAS
 //GET
 app.get('/citas', (req, res) => {
@@ -111,7 +137,7 @@ app.get('/citas', (req, res) => {
             console.log('No hay citas que mostrar');
             res.send({ mensaje: 'No hay citas que mostrar'});
         } else {
-            console.log('Citas: ', citas);
+            console.log('Citas GET: ', citas);
             res.send(citas).status(200);
         }
     }).catch(err => {

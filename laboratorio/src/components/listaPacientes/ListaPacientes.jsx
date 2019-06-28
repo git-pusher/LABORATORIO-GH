@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { NavLink } from 'react-router-dom';
 
 //import './listaPaciente.css';
 import '../../App.css';
@@ -16,20 +17,7 @@ class ListaPacientes extends Component {
             error: ''
         }
     }
-
-    editar = (e) => {
-        e.preventDefault();
-        if(this.props.type == 'update'){
-            axios.post(API_URL+'pacientes/', this.state)
-            .then(paciente => paciente.json())
-            .then(item => this.props.state.div)
-        }else if(this.props.type == 'delete'){
-
-        }
-        //axios.post(API_URL+'pacientes/', this.state)
-        
-      }
-
+    
     componentDidMount(){
         this.getPacientes();
     }
@@ -65,13 +53,15 @@ class ListaPacientes extends Component {
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
                         <td>
-                            <button className="btn accionEditar">
-                                <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
-                                Editar
-                            </button>
+                            <NavLink to={`/EditarPaciente/${pct._id}`}>
+                                <button className="btn accionEditar">
+                                    <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                    Editar
+                                </button>
+                            </NavLink>
                         </td>
                         <td>
-                            <button className="btn accionDesactivar">
+                            <button className="btn accionDesactivar" type="submit">
                                 <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                                 Desactivar
                             </button>

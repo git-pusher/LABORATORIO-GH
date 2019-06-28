@@ -55,23 +55,26 @@ class ListaCitas extends Component {
                     <td>{ct.doctor}</td>
                     <td>{ct.estado}</td>
                     <td>
-                        <NavLink to={`/DetallesCita/${ct._id}`}><button className="btn accionEditar">
-                            <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
-                            Editar
-                        </button>
+                        <NavLink to={`/EditarCita/${ct._id}`}>
+                            <button className="btn accionEditar">
+                                <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                Editar
+                            </button>
                         </NavLink>
                     </td>
                     <td>
-                         <button className="btn accionDesactivar">
+                         <button className="btn accionDesactivar" id="estado">
                             <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                             Desactivar
                         </button>
                     </td>
                     <td>
-                        <button className="btn accionCitas">
-                            <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
-                            Ver Detalles
-                        </button>
+                        <NavLink to={`/DetallesCita/${ct._id}`}>
+                            <button className="btn accionCitas">
+                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                                Ver Detalles
+                            </button>
+                        </NavLink>
                     </td>
                 </tr>
             );  

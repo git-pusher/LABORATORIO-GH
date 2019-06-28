@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { NavLink } from 'react-router-dom';
 
 //import './listaMedicos.css';
 import '../../App.css';
@@ -50,10 +51,13 @@ class ListaDoctores extends Component {
                         <td>{doct.telefono}</td>
                         <td>{doct.noCedula}</td>
                         <td>{doct.especialidad}</td>
-                        <td><button className="btn accionEditar">
-                                <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
-                                Editar
-                            </button>
+                        <td>
+                            <NavLink to={`/EditarMedico/${doct._id}`}>
+                                <button className="btn accionEditar">
+                                    <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                    Editar
+                                </button>
+                            </NavLink>
                         </td>
                         <td>
                             <button className="btn accionDesactivar">
