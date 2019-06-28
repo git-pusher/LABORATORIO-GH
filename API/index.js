@@ -137,6 +137,15 @@ app.post('/citas', (req, res) => {
     });
 }); 
 
+//PUT
+app.put('/citas/:id', (req, res) =>{
+    Cita.findByIdAndUpdate(req.params.id, req.body,
+        { new: true}, (err, cita) => {
+            err ? res.status(400).send(err) 
+                : res.status(200).send(cita);
+        });
+});
+
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
     

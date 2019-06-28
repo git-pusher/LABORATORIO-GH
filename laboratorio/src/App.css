@@ -96,3 +96,13 @@
   border-top-style:   ridge;
   border-bottom-style:ridge;
 }
+
+.cardCentrado {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+}

@@ -6,6 +6,7 @@ import ListaMedicos from './components/listaMedicos/ListaMedicos';
 import Paciente from './components/paciente/Paciente';
 import ListaPacientes from './components/listaPacientes/ListaPacientes';
 import ListaCitas from './components/listaCitas/ListaCitas';
+import DetallesCita from './components/detallesCita/DetallesCita';
 import Cita from './components/cita/Cita';
 
 import Layout from './components/Layout';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/Cita" component={Cita}/>
               <Route path="/sesion" component={Inicio}/>
               <Route path="/registro" component={Registrar}/>
+              <Route path="/DetallesCita/:id" component={DetallesCita}/>
            </Switch>
           </Layout>
         </Router>
