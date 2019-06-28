@@ -72,7 +72,7 @@ class DetallesCita extends Component {
                                <b>Fecha: </b> {this.state.fechaCita} <br/>
                                <b>Hora: </b> {this.state.horaCita} <br/>
                                <b>Estudio solicitado: </b> {this.state.estudio} <br/>
-                               <b>Médico asignado: </b> {this.state.doctor} <br/>
+                               <b>Médico asignado: </b> {this.state.doctor} <br/><br/>
                                <b>Estado: </b> {this.state.estado}
                             </p>
                         </div>
