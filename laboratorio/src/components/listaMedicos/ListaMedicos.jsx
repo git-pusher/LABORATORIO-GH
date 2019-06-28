@@ -45,9 +45,7 @@ class ListaDoctores extends Component {
             return(
                     <tr key={doct._id}>
                         <td></td>
-                        <td>{doct.nombre}</td>
-                        <td>{doct.apellidoPaterno}</td>
-                        <td>{doct.apellidoMaterno}</td>
+                        <td>{doct.nombre} {doct.apellidoPaterno} {doct.apellidoMaterno}</td>
                         <td>{doct.correoElectronico}</td>
                         <td>{doct.telefono}</td>
                         <td>{doct.noCedula}</td>
@@ -70,7 +68,13 @@ class ListaDoctores extends Component {
                         </td>
                     </tr>	
             );
-        }) : <h1>No hay datos para mostrar</h1>
+        }) : <div className="cardCentrado">
+                <div className="row md-12 card">
+                    <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">No hay datpos para mostrar</h3></b>
+                    </div>
+                </div>
+            </div>
     }
 
     formDoctores = () => {
@@ -90,9 +94,7 @@ class ListaDoctores extends Component {
                 <thead>
                     <tr>
                     <th ></th>
-                    <th >Nombre</th>
-                    <th >Apellido Paterno</th>
-                    <th >Apellido Materno</th>
+                    <th >Nombre Completo</th>
                     <th>correo Electrónico</th>
                     <th>Teléfono</th>
                     <th>Cédula Profesional</th>

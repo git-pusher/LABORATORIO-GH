@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { NavLink } from 'react-router-dom';
 
 //import './citas.css';
 import '../../App.css';
@@ -49,14 +50,16 @@ class ListaCitas extends Component {
                     <td></td>
                     <td>{ct.paciente}</td>
                     <td>{ct.fechaCita}</td>
-                    <td>{ct.horaCita} a.m</td>
+                    <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
+                    <td>{ct.estado}</td>
                     <td>
-                        <button className="btn accionEditar">
+                        <NavLink to={`/DetallesCita/${ct._id}`}><button className="btn accionEditar">
                             <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
                             Editar
                         </button>
+                        </NavLink>
                     </td>
                     <td>
                          <button className="btn accionDesactivar">
@@ -72,7 +75,13 @@ class ListaCitas extends Component {
                     </td>
                 </tr>
             );  
-        }) : <h1>No hay citas para mostrar</h1>
+        }) : <div className="cardCentrado">
+                <div className="row md-12 card">
+                    <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">No hay datos para mostrar</h3></b>
+                    </div>
+                </div>
+            </div>
     }
 
     formCitas = () => {
@@ -87,7 +96,7 @@ class ListaCitas extends Component {
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                         Nuevo Cita
                     </button>
-                </div> 
+                </div>
                 <table className="table">
                 <thead>
                     <tr>
@@ -97,9 +106,10 @@ class ListaCitas extends Component {
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
                     <th>Nombre del Médico</th>
-                    <th ></th>
-                    <th ></th>
-                    <th ></th>
+                    <th>Estado</th>
+                    <th></th>
+                    <th>Acciones</th>
+                    <th></th>
                     </tr>
                 </thead>
                 <tbody>

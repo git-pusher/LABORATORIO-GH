@@ -59,9 +59,7 @@ class ListaPacientes extends Component {
             return(
                     <tr key={pct._id}>
                         <th></th>
-                        <td>{pct.nombre}</td>
-                        <td>{pct.apellidoPaterno}</td>
-                        <td>{pct.apellidoMaterno}</td>
+                        <td>{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
                         <td>{pct.fechaNacimiento}</td>
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
@@ -86,7 +84,13 @@ class ListaPacientes extends Component {
                         </td>
                     </tr>	
             );
-        }) : <h1>No hay datos para mostrar</h1>
+        }) : <div className="cardCentrado">
+                <div className="row md-12 card">
+                    <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">No hay datos para mostrar</h3></b>
+                    </div>
+                </div>
+            </div>
     }
 
     formPacientes = () => {
@@ -106,11 +110,9 @@ class ListaPacientes extends Component {
                 <thead>
                     <tr>
                     <th ></th>
-                    <th >Nombre</th>
-                    <th >Apellido Paterno</th>
-                    <th >Apellido Materno</th>
+                    <th >Nombre Completo</th>
                     <th>Fecha de Nacimiento</th>
-                    <th>correo Electrónico</th>
+                    <th>Correo Electrónico</th>
                     <th>Teléfono</th>
                     <th>Dirección</th>
                     <th ></th>
