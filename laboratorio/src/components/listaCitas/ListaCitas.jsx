@@ -3,6 +3,7 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 //import './citas.css';
 import '../../App.css';
@@ -49,7 +50,7 @@ class ListaCitas extends Component {
                 <tr key={ct._id}>
                     <td></td>
                     <td>{ct.paciente}</td>
-                    <td>{ct.fechaCita}</td>
+                    <td>{moment(ct.fechaCita).format('DD/MM/YYYY')}</td>
                     <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
