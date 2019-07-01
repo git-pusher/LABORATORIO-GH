@@ -14,7 +14,7 @@ import EditarCita from './components/editarCita/EditarCita';
 
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
-import Inicio from './pages/inicio/inicio';
+import Inicio from './pages/inicio/Inicio';
 import Registrar from './components/registro/Registrar';
 
 

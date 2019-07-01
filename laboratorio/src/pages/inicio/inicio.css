@@ -1,4 +1,4 @@
-.sesion {
+.container-sesion {
     display: flex;            
     margin-top: 20px;
     left: 30%;
@@ -11,7 +11,7 @@
 }
 
 .labo-img {
-    max-width: 100%;
+    max-width: 80%;
     /* display: inherit; */
     /* display: flex; */
     /* align-items: center */

@@ -18,20 +18,7 @@ class ListaPacientes extends Component {
             error: ''
         }
     }
-
-    // editar = (e) => {
-    //     e.preventDefault();
-    //     if(this.props.type === 'update'){
-    //         axios.post(API_URL+'pacientes/', this.state)
-    //         .then(paciente => paciente.json())
-    //         .then(item => this.props.state.div)
-    //     }else if(this.props.type === 'delete'){
-
-    //     }
-    //     //axios.post(API_URL+'pacientes/', this.state)
-        
-    //   }
-
+    
     componentDidMount(){
         this.getPacientes();
     }

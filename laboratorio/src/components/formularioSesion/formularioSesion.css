@@ -1,5 +1,13 @@
-.col {
+.form-sesion {
     border: 3px double #42929f;
-    padding: 50px;
-    margin: 20px;
+}
+
+.form-group-usuario {
+
+}
+
+.btn-sesion {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-items: center;
 }

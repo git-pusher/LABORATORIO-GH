@@ -12,13 +12,14 @@ class Inicio extends React.Component {
     
     render () {
         return (
-            <div className="container sesion">
+            <div className="container-sesion">
                 <div className="row fila">
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <img className="labo-img" src={labo} alt="Landsteiner Scientific"/> 
                     </div>
-                    <div className="col-md-4">                        
+                    <div className="col-md-5">                        
                         <FormularioSesion />
+                        {/* cargar formulario de registro en caso de requerir un nuevo usuario */}
                     </div>
                 </div>
             </div>                
