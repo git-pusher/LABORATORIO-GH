@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import moment from 'moment';
 
 const boton={backgroundColor: '#bc322ccf', border: 'none'};
 
@@ -22,7 +23,7 @@ class DetallesCita extends Component {
 
     verDetalles = (e) => { 
         const {id} = this.props.match.params;
-        const cita ={
+        const cita ={// moment(res.data.horacita).format(),
             paciente: this.state.paciente,
             fechaCita: this.state.fechaCita,
             horaCita: this.state.horaCita,
@@ -41,10 +42,10 @@ class DetallesCita extends Component {
             //this.setState({ citas: res.data, request: false });
             this.setState({ 
                 paciente: res.data.paciente,
-                fechaCita:res.data.fechaCita,
-                horaCita: res.data.horacita,
-                estudio:  res.data.estudio,
-                doctor:   res.data.doctor                
+                fechaCita: moment(res.data.fechaCita).format('DD/MM/YYYY'),
+                horaCita: moment(res.data.horacita).format('hh:mm'),
+                estudio: res.data.estudio,
+                doctor: res.data.doctor                
             });
         }).catch(err => {
             console.log("ERROR: ", err);
@@ -67,7 +68,7 @@ class DetallesCita extends Component {
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <p><b>Paciente:</b> {this.state.paciente} <br/>
                                <b>Fecha: </b> {this.state.fechaCita} <br/>
                                <b>Hora: </b> {this.state.horaCita} <br/>
@@ -76,7 +77,7 @@ class DetallesCita extends Component {
                                <b>Estado: </b> {this.state.estado}
                             </p>
                         </div>
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                             <button type="button" className="btn btn-secondary " style={boton} data-dismiss="modal" onClick={this.listaCitas}>Close</button>
                         </div>
                     </div>

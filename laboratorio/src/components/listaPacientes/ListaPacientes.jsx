@@ -3,6 +3,7 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 //import './listaPaciente.css';
 import '../../App.css';
@@ -48,7 +49,7 @@ class ListaPacientes extends Component {
                     <tr key={pct._id}>
                         <th></th>
                         <td>{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
-                        <td>{pct.fechaNacimiento}</td>
+                        <td>{moment(pct.fechaNacimiento).format('DD/MM/YYYY')}</td>
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>

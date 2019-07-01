@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import moment from 'moment';
 
 class EditarCita extends Component {
     constructor(props) {
@@ -31,9 +32,9 @@ class EditarCita extends Component {
         then(res => {
             console.log("Detalles: ", res.data);
             //this.setState({ citas: res.data, request: false });
-            this.setState({ 
+            this.setState({ //moment(post.date).format()
                 paciente: res.data.paciente,
-                fechaCita:res.data.fechaCita,
+                fechaCita:moment(res.data.fechaCita).format('DD/MM/YYYY'),
                 horaCita: res.data.horacita,
                 estudio:  res.data.estudio,
                 doctor:   res.data.doctor
@@ -73,21 +74,15 @@ class EditarCita extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label htmlFor="fechaCita">Fecha de la Cita</label>
-                            <input type="date" onChange={this.cambio} className="form-control" id="fechaCita" value={this.state.fechaCita} />
+                            <input type="text" onChange={this.cambio} className="form-control" id="fechaCita" value={this.state.fechaCita} />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="horaCita">Hora de la Cita</label>
-                            <input type="time" onChange={this.cambio} className="form-control" id="horaCita" value={this.state.horaCita} />
+                            <input type="text" onChange={this.cambio} className="form-control" id="horaCita" value={moment(this.state.horaCita).format('HH:mm')} />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="estudio">Estudio</label>
-                            <select id="estudio" className="form-control" onChange={this.cambio}>
-                                <option default>Seleccione una opción</option>
-                                <option value="Hematología Completa">Hematología Completa</option>
-                                <option value="Química Sanguínea">Química Sanguínea</option>
-                                <option value="Análisis de Enzimas Sanguíneas">Análisis de Enzimas Sanguíneas</option>
-                                <option value="Pruebas de Coagulación">Pruebas de Coagulación</option>
-                            </select>
+                            <input type="text" disabled onChange={this.cambio} className="form-control" id="horaCita" value={this.state.estudio} />
                         </div>
                     </div>
                     <div className="form-row">
