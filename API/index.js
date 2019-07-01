@@ -7,6 +7,7 @@ const CtrlCita = require('./controllers/citaCRUD.js');
 const { Paciente } = require('./models/Paciente');
 const { Doctor } = require('./models/Doctor');
 const { Cita } = require('./models/Cita');
+
 const cors = require('cors');
 
 const app = express();

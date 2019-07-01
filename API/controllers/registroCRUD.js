@@ -1,5 +1,6 @@
 const {Registro} = require('../models/Registro');
 
+//objeto vacío
 const registro = {};
 
 //Crear usuario nuevo
@@ -15,12 +16,12 @@ registro.crearRegistro = function(registro){
     });
 }
 
-//Listar Usuarios
+//Mostrar los usuarios
 registro.mostrarRegistro = function(id = ''){
    return id ? Registro.findById(id).exec() : Registro.find().exec();
 }
 
-//Borrar Registro
+//Borrar un usuario
 registro.borrarRegistro = function (idRegistro){
     Registro.deleteOne({_id: idRegistro}).exec()
     .then(res => {

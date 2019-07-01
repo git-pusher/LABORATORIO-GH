@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// nombre, apellidoP, apellidoM, correo, telefono, turno, 
-//fechaDeseada, lugar, tipoExamen, notificacion
 const registroSchema = new Schema({
     nombre: {
         type: String,
@@ -14,7 +12,8 @@ const registroSchema = new Schema({
         required: true
     },    
     password: {
-        type: String
+        type: String,
+        required: true
     }
     }, {timestamps: true});
 
