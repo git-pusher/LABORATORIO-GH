@@ -37,10 +37,10 @@ class Cita extends Component {
     render(){
         return(
             <div className="contenedor">
-                <form className="containerForm" onSubmit={this.guardar}>    
+                <form className="" onSubmit={this.guardar}>    
                     <div className="card">
-                        <div className="card-body">
-                        <b><h3>Nueva Cita</h3></b>
+                        <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">Solicitar Nueva Cita</h3></b>
                         </div>
                     </div><br/><br/>
                     <div className="form-row">
@@ -71,19 +71,19 @@ class Cita extends Component {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-12">
-                            <label htmlFor="doctor">Nombre del Dotor</label>
+                            <label htmlFor="doctor">Nombre del Médico</label>
                             <input type="text" onChange={this.cambio} className="form-control" id="doctor" placeholder="Nombre completo"/>
                         </div>
                     </div>
                     <div className="form-row">
-                        <div className="form-group col-md-12">
-                            <button type="submit" className="btn btn-primary" >
-                            <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
-                            Solicitar Cita 
+                        <div className="containerForm form-group col-md-12">
+                            <button type="submit" className="btn accionGuardar" >
+                                <MaterialIcon icon="mail" className="material-icons"></MaterialIcon>
+                                &nbsp;Enviar Solicitud 
                             </button>
-                            <button type="button" onClick={this.listaCitas} className="btn btn-danger">
+                            <button type="button" onClick={this.listaCitas} className="btn accionCancelar">
                                 <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
-                                Cancelar
+                                &nbsp;Cancelar
                             </button>
                         </div>
                     </div>

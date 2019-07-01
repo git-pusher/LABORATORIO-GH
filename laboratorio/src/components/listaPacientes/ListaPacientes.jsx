@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
-import MaterialIcon from 'material-icons-react'
+import MaterialIcon from 'material-icons-react';
+import { NavLink } from 'react-router-dom';
+import moment from 'moment';
+
+//import './listaPaciente.css';
+import '../../App.css';
 
 class ListaPacientes extends Component {
 
@@ -14,18 +19,18 @@ class ListaPacientes extends Component {
         }
     }
 
-    editar = (e) => {
-        e.preventDefault();
-        if(this.props.type === 'update'){
-            axios.post(API_URL+'pacientes/', this.state)
-            .then(paciente => paciente.json())
-            .then(item => this.props.state.div)
-        }else if(this.props.type === 'delete'){
+    // editar = (e) => {
+    //     e.preventDefault();
+    //     if(this.props.type === 'update'){
+    //         axios.post(API_URL+'pacientes/', this.state)
+    //         .then(paciente => paciente.json())
+    //         .then(item => this.props.state.div)
+    //     }else if(this.props.type === 'delete'){
 
-        }
-        //axios.post(API_URL+'pacientes/', this.state)
+    //     }
+    //     //axios.post(API_URL+'pacientes/', this.state)
         
-      }
+    //   }
 
     componentDidMount(){
         this.getPacientes();
@@ -35,18 +40,14 @@ class ListaPacientes extends Component {
         console.log("URL: ", API_URL + 'pacientes');
         axios.get(API_URL + 'pacientes')
         .then(res => {
-            console.log("Lista: ", res.data);
+            console.log("Lista Pacientes: ", res.data);
             this.setState({ pacientes: res.data, request: false });
-            console.log("YA QUEDÓ LA LISTA");
         }).catch(err => {
-            console.log("Encontré un error :( ");
-            
             this.setState({error: err, request: false });
         });
     }
 
     pintarPacientes = () => {
-        console.log("pintar Pacientes");
         if(this.state.error){
             return(
                 <div>
@@ -57,23 +58,43 @@ class ListaPacientes extends Component {
         }
 
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
-            console.log("Tabla pacientes");
             return(
                     <tr key={pct._id}>
                         <th></th>
-                        <td>{pct.nombre}</td>
-                        <td>{pct.apellidoPaterno}</td>
-                        <td>{pct.apellidoMaterno}</td>
-                        <td>{pct.fechaNacimiento}</td>
+                        <td>{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
+                        <td>{moment(pct.fechaNacimiento).format('DD/MM/YYYY')}</td>
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>
-                        <td> <a href="#"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</a></td>
-                        <td> <a href="#"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Borrar</a></td>
-                        <td> <a href="#"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</a></td>
+                        <td>
+                            <NavLink to={`/EditarPaciente/${pct._id}`}>
+                                <button className="btn accionEditar">
+                                    <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                    Editar
+                                </button>
+                            </NavLink>
+                        </td>
+                        <td>
+                            <button className="btn accionDesactivar" type="submit">
+                                <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
+                                Desactivar
+                            </button>
+                        </td>
+                        <td>
+                            <button className="btn accionCitas">
+                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                                Citas
+                            </button>
+                        </td>
                     </tr>	
             );
-        }) : <h1>No hay datos para mostrar</h1>
+        }) : <div className="cardCentrado">
+                <div className="row md-12 card">
+                    <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">No hay datos para mostrar</h3></b>
+                    </div>
+                </div>
+            </div>
     }
 
     formPacientes = () => {
@@ -82,22 +103,25 @@ class ListaPacientes extends Component {
 
     render(){
         return(
-            <div className="row md-12">
-                <button className="btn btn-primary" onClick={this.formPacientes}>
-                    <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                    Nuevo Paciente
-                </button>
+            <div className="row md-12 contenedor">
+                 <div className="row md-12 containerForm">
+                    <button className="nuevo btn" onClick={this.formPacientes}>
+                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                        Nuevo Paciente
+                    </button>
+                </div>
                 <table className="table">
                 <thead>
                     <tr>
                     <th ></th>
-                    <th >Nombre</th>
-                    <th >Apellido Paterno</th>
-                    <th >Apellido Materno</th>
+                    <th >Nombre Completo</th>
                     <th>Fecha de Nacimiento</th>
-                    <th>correo Electrónico</th>
+                    <th>Correo Electrónico</th>
                     <th>Teléfono</th>
                     <th>Dirección</th>
+                    <th ></th>
+                    <th >Acciones</th>
+                    <th ></th>
                     </tr>
                 </thead>
                 <tbody>
