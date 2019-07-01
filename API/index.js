@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const Ctrl = require('./controllers/pacienteCRUD.js');
 const CtrlDoc = require('./controllers/doctorCRUD.js');
 const CtrlCita = require('./controllers/citaCRUD.js');
+const CrtlRegistro = require('./controllers/registroCRUD');
 const { Paciente } = require('./models/Paciente');
 const { Doctor } = require('./models/Doctor');
 const { Cita } = require('./models/Cita');
-
+const { Registro } = requiere('./models/Registro.js')
 const cors = require('cors');
 
 const app = express();
@@ -15,16 +16,17 @@ app.use(cors());
 app.use(bodyparser.urlencoded({ extended : true}));
 app.use(bodyparser.json());
 
-//USUARIO
-//CONTRASEÑA
+//Está pendiente crear las variables de entorno para usuario y contraseña
+// const DB_USER = process.env.DB_USER;
+// const DB_PASS = process.env.DB_PASS;
 const PORT = process.env.PORT || 3001;
 
-//const URL_MONGO = `mongodb+srv://karen:151111034@cluster0-offbi.mongodb.net/test?retryWrites=true&w=majority`;
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
 const URL_MONGO =  'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
 
 console.log("LOG: ", URL_MONGO);
 
+//Conexión a mongo
 mongoose.connect(URL_MONGO, { useNewUrlParser: true}, (err) => {
     if(err){
         console.log("Ocurrió un error inesperado", err);
@@ -170,6 +172,50 @@ app.put('/citas/:id', (req, res) =>{
         { new: true}, (err, cita) => {
             err ? res.status(400).send(err) 
                 : res.status(200).send(cita);
+        });
+});
+
+//REGISTRO DE USUARIOS
+//GET - mostrando los registros de usuarios existentes en la colección
+app.get('/registros', (req, res) => {
+    CrtlRegistro.registro.mostrarRegistros()
+    .then(registro => {
+        if(!registro) {
+            console.log('No hay registro que mostrar');
+            res.send({ mensaje: 'No hay registro que mostrar'});
+        } else {
+            console.log('Registro GET: ', registro);
+            res.send(registro).status(200);
+        }
+    }).catch(err => {
+        console.log('Ocurrio un error get: ', err);
+        res.status(500).send({ mensaje: 'Ocurrió un error'});
+    });
+});
+
+app.get('/registros/:id', (req, res) => {
+    CrtlRegistro.registro.mostrarRegistros(req.params.id)
+    .then(ct => ct ? res.send(ct) : res.send({}).status(400))
+    .catch(err => res.send(err).status(400));
+});
+
+//POST
+app.post('/registros', (req, res) => {
+    console.log("entre al POST de registros");
+    Registro(req.body).save((err, registro) => {
+        err ? res.status(400).send({
+            message: "Revisar petición del registro",
+            errorMongo: err
+        }) : res.status(201).send(registro);
+    });
+}); 
+
+//PUT
+app.put('/registros/:id', (req, res) =>{
+    Registro.findByIdAndUpdate(req.params.id, req.body,
+        { new: true}, (err, registro) => {
+            err ? res.status(400).send(err) 
+                : res.status(200).send(registro);
         });
 });
 
