@@ -30,6 +30,10 @@ const citaSchema = new Schema({
           //  type: Schema.Types.ObjectId,
             //ref: 'Doctor'
         //}]
+    },
+    estado: {
+        type: String,
+        default: "A"
     }
 
 }, {timestamps: true});

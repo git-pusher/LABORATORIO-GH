@@ -38,8 +38,8 @@ class Medico extends Component {
       <div className="contenedor">
         <form className="" onSubmit={this.guardar}>    
             <div className="card">
-                <div className="card-body">
-                   <b><h3>Nuevo Doctor</h3></b>
+                <div className="cardBorder card-body">
+                   <b><h3 className="centrarTexto">Registrar Nuevo Médico</h3></b>
                 </div>
             </div><br/><br/>
             <div className="form-row">
@@ -82,15 +82,15 @@ class Medico extends Component {
                 </select>
               </div>
             </div>
-            <div className="form-row">
-              <div className="form-group col-md-12">
-                <button type="submit" className="btn btn-primary " >
-                    <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
-                    Registrar Doctor
+            <div className=" form-row">
+              <div className="containerForm form-group col-md-12">
+                <button type="submit" className="accionGuardar btn" >
+                    <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
+                    &nbsp;Registrar
                 </button>
-                <button type="button" onClick={this.listaDoctores} className="btn btn-danger">
-                    <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
-                    Cancelar
+                <button type="button" onClick={this.listaDoctores} className="accionCancelar btn">
+                    <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
+                    &nbsp;Cancelar
                 </button>
               </div>
             </div>

@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
-import './citas.css';
+//import './citas.css';
+import '../../App.css';
+
 
 
 class ListaCitas extends Component {
@@ -25,16 +29,14 @@ class ListaCitas extends Component {
         console.log("URL: ", API_URL + 'citas');
         axios.get(API_URL + 'citas')
         .then(res => {
-            console.log("Lista de Citas: ", res.data);
+            console.log("Lista Citas: ", res.data);
             this.setState({ citas: res.data, request: false });     
         }).catch(err => {
-            console.log("Encontré un erro en citas :(");
             this.setState({error: err, request: false});
         });
     }
 
     pintarCitas = () => {
-        console.log("pintando citas");
         if(this.state.error){
             return(
                 <div>
@@ -44,21 +46,46 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
-            console.log("Tabla de citas");
             return(
                 <tr key={ct._id}>
                     <td></td>
                     <td>{ct.paciente}</td>
-                    <td>{ct.fechaCita}</td>
-                    <td>{ct.horaCita} a.m</td>
+                    <td>{moment(ct.fechaCita).format('DD/MM/YYYY')}</td>
+                    <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
-                    <td> <button className="acciones"><MaterialIcon icon="create" className="material-icons"></MaterialIcon>Editar</button></td>
-                    <td> <button className="acciones"><MaterialIcon icon="delete" className="material-icons"></MaterialIcon>Cancelar</button></td>
-                    <td> <button className="acciones"><MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>Ver Citas</button></td>
+                    <td>{ct.estado}</td>
+                    <td>
+                        <NavLink to={`/EditarCita/${ct._id}`}>
+                            <button className="btn accionEditar">
+                                <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
+                                Editar
+                            </button>
+                        </NavLink>
+                    </td>
+                    <td>
+                         <button className="btn accionDesactivar" id="estado">
+                            <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
+                            Desactivar
+                        </button>
+                    </td>
+                    <td>
+                        <NavLink to={`/DetallesCita/${ct._id}`}>
+                            <button className="btn accionCitas">
+                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                                Ver Detalles
+                            </button>
+                        </NavLink>
+                    </td>
                 </tr>
             );  
-        }) : <h1>No hay citas para mostrar</h1>
+        }) : <div className="cardCentrado">
+                <div className="row md-12 card">
+                    <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">No hay datos para mostrar</h3></b>
+                    </div>
+                </div>
+            </div>
     }
 
     formCitas = () => {
@@ -69,11 +96,11 @@ class ListaCitas extends Component {
         return(
             <div className="row md-12 contenedor">
                 <div className="row md-12 containerForm">
-                    <button className="nuevo btn btn-primary" onClick={this.formCitas}>
+                    <button className="nuevo btn" onClick={this.formCitas}>
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                         Nuevo Cita
                     </button>
-                </div> 
+                </div>
                 <table className="table">
                 <thead>
                     <tr>
@@ -82,10 +109,11 @@ class ListaCitas extends Component {
                     <th >Fecha de la cita</th>
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
-                    <th>Nombre del Doctor</th>
-                    <th ></th>
-                    <th ></th>
-                    <th ></th>
+                    <th>Nombre del Médico</th>
+                    <th>Estado</th>
+                    <th></th>
+                    <th>Acciones</th>
+                    <th></th>
                     </tr>
                 </thead>
                 <tbody>
