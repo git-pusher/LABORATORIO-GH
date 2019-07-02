@@ -4,12 +4,15 @@ import labo from '../../img/labo.png';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import './registrar.css'
-import Inicio from '../../pages/inicio/Inicio';
+
 
 class Registrar extends Component {
     constructor(props) {
-		super(props);
+        super(props);
+        // nombre, nombreUsuario, password
 		this.state = {}
     }
     
@@ -19,17 +22,13 @@ class Registrar extends Component {
         console.log('Guardando registro...');
         axios.post(API_URL+'registros/', this.state)
         .then(registro => {
+          toast.success('Registro exitoso de: ', registro.name);
           console.log('Usuario registrado correctamente: ', registro);
           this.listaRegistros();
         }).catch(err => {
           console.log("Ocurrió un error", err);
         });
       }
-    
-    inicioSesion = ()=>{
-    console.log('Aquí debe volver al formulario de inicio de sesión');
-
-    }
 
     cambio = (event) => {
     const {id, value} = event.target;
@@ -37,8 +36,24 @@ class Registrar extends Component {
     console.log(this.state);
     }
 
+    listaRegistros = ()=>{
+        this.props.history.push(); 
+      }
+
     render () {
         return (
+            <>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
             <div className="container sesion">
                 <div className="row fila">
                     <div className="col-md-6">
@@ -72,7 +87,7 @@ class Registrar extends Component {
                                         Registrar
                                     </button>
                                     <Link to="/sesion" className="btn btn-danger">
-                                    <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
+                                        <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
                                         Cancelar
                                     </Link>
                                 </div>
@@ -80,7 +95,8 @@ class Registrar extends Component {
                         </form>
                     </div>
                 </div>
-            </div>                
+            </div>   
+            </>             
         );
     }
 }
