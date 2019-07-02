@@ -1,10 +1,11 @@
 import React, { Component} from 'react';
-// import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import labo from '../../img/labo.png';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import './registrar.css'
+import Inicio from '../../pages/inicio/Inicio';
 
 class Registrar extends Component {
     constructor(props) {
@@ -25,8 +26,9 @@ class Registrar extends Component {
         });
       }
     
-    listaRegistros = ()=>{
-    this.props.history.push('/ListaRegistros'); 
+    inicioSesion = ()=>{
+    console.log('Aquí debe volver al formulario de inicio de sesión');
+
     }
 
     cambio = (event) => {
@@ -69,11 +71,10 @@ class Registrar extends Component {
                                         <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
                                         Registrar
                                     </button>
-                                    {/* onClick={this.listaDoctores} */}
-                                    <button type="button"  className="btn btn-danger">
-                                        <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
+                                    <Link to="/sesion" className="btn btn-danger">
+                                    <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
                                         Cancelar
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>                                                                            
                         </form>
