@@ -20,7 +20,7 @@ class Registrar extends Component {
 
     guardar = (e, password, cPassword) => {
         e.preventDefault();
-        // var cPassword = ;
+        // Verificando que las contraseñas coincidan
         if (this.state.password !== this.state.cPassword) {
             toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
         } else {

@@ -6,7 +6,7 @@ import './formularioSesion.css'
 class FormularioSesion extends React.Component {
     constructor(props) {
 		super(props);
-		this.state = {}
+        this.state = {}
     }
     
     render () {
