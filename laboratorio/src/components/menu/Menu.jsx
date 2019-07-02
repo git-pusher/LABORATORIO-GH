@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import labo from '../../../public/img/logo.png';
+import labo from '../../img/logo.png';
 // import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
 import './menu.css';

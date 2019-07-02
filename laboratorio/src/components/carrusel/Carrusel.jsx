@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import carrusel1 from '../../../public/img/carrusel1.jpg';
-import carrusel2 from '../../../public/img/carrusel2.jpg';
-import carrusel3 from '../../../public/img/carrusel3.jpg';
+import carrusel1 from '../../img/carrusel1.jpg';
+import carrusel2 from '../../img/carrusel2.jpg';
+import carrusel3 from '../../img/carrusel3.jpg';
 import './carrucel.css';
 
 

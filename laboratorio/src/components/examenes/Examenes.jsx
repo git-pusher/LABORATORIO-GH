@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import hematologia from '../../../public/img/hematologia.jpg'; 
-import quimica from '../../../public/img/quimica.jpg'; 
-import enzimas from '../../../public/img/enzimas.jpg'; 
-import coagulacion from '../../../public/img/coagulacion.jpg'; 
+import hematologia from '../../img/hematologia.jpg'; 
+import quimica from '../../img/quimica.jpg'; 
+import enzimas from '../../img/enzimas.jpg'; 
+import coagulacion from '../../img/coagulacion.jpg'; 
 import './examenes.css';
 
 
