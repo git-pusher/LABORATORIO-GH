@@ -15,25 +15,25 @@ class Registrar extends Component {
 
     guardar = (e) => {
         e.preventDefault();
-        console.log('Guardando...');
-        axios.post(API_URL+'usuarios/', this.state)
-        .then(usuario => {
-          console.log('Usuario registrado correctamente: ', usuario);
-          this.listaUsuarios();
+        console.log('Guardando registro...');
+        axios.post(API_URL+'registros/', this.state)
+        .then(registro => {
+          console.log('Usuario registrado correctamente: ', registro);
+          this.listaRegistros();
         }).catch(err => {
           console.log("Ocurrió un error", err);
         });
       }
     
-      listaUsuarios = ()=>{
-        this.props.history.push('/ListaUsuarios'); 
-      }
-    
-      cambio = (event) => {
-        const {id, value} = event.target;
-        this.setState({ [id]: value} )
-        console.log(this.state);
-      }
+    listaRegistros = ()=>{
+    this.props.history.push('/ListaRegistros'); 
+    }
+
+    cambio = (event) => {
+    const {id, value} = event.target;
+    this.setState({ [id]: value} )
+    console.log(this.state);
+    }
 
     render () {
         return (
@@ -64,17 +64,18 @@ class Registrar extends Component {
                                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Introducir contraseña"/>
                             </div>                             */}
                             <div className="form-row">
-                            <div className="form-group">
-                            <button type="submit" className="btn btn-primary " >
-                                    <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
-                                    Registrar
-                                </button>
-                                <button type="button" onClick={this.listaDoctores} className="btn btn-danger">
-                                    <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
-                                    Cancelar
-                                </button>
-                            </div>
-                        </div>                                                                            
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-primary " >
+                                        <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
+                                        Registrar
+                                    </button>
+                                    {/* onClick={this.listaDoctores} */}
+                                    <button type="button"  className="btn btn-danger">
+                                        <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>                                                                            
                         </form>
                     </div>
                 </div>

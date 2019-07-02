@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import labo from '../../../public/img/logo.png';
-import Login from '../sesion/Login';
+// import Login from '../sesion/Login';
 // import Contacto from '../../pages/Contacto'
 import './menu.css';
 
@@ -47,7 +47,7 @@ class Menu extends Component {
 						</li>
 						
 						<li className="nav-item">
-							<NavLink active ClassName="active" to="/ListaCitas">Citas</NavLink>
+							<NavLink active className="active" to="/ListaCitas">Citas</NavLink>
 						</li>
 					</ul>
 					<ul className="nav navbar-nav navbar-right">
