@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import hematologia from '../../img/hematologia.jpg'; 
 import quimica from '../../img/quimica.jpg'; 
 import enzimas from '../../img/enzimas.jpg'; 
@@ -39,7 +40,7 @@ class Examenes extends Component {
                                                         lo cual le permite al profesional detectar si el paciente manifiesta alguna 
                                                         enfermedad de la sangre. A partir de la hematología completa se pueden detectar 
                                                         infecciones, anemia, problemas de coagulación, etc.  </p>
-                                    <a href="#" className="btn btn-lands">Cotizar</a>
+                                    <Link to="" className="btn btn-lands">Cotizar</Link>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +53,7 @@ class Examenes extends Component {
                                                         sangre permite medir las sustancias químicas presentes en la sangre utilizando 
                                                         el plasma. Al utilizar el plasma se puede obtener información referida a los 
                                                         huesos, los músculos, el corazón, el hígado y los riñones.</p>
-                                    <a href="#" className="btn btn-lands">Cotizar</a>
+                                    <Link to="" className="btn btn-lands">Cotizar</Link>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +65,7 @@ class Examenes extends Component {
                       <p className="card-text"> A partir de este tipo de analisis de sangre se pueden controlar ciertas
                                             reacciones químicas en el cuerpo. El análisis de enzimas sanguíneas permite 
                                             por ejemplo detectar un ataque al corazón. </p>
-                      <a href="#" className="btn btn-lands">Cotizar</a>
+                      <Link to="" className="btn btn-lands">Cotizar</Link>
                     </div>
                   </div>
                 </div>
@@ -77,7 +78,7 @@ class Examenes extends Component {
                                              del paciente para poder diagnosticar trastornos en la coagulación. Un resultado que arroje un 
                                              nivel anormal de coagulación puede representar un riesgo de sangrado o que se formen coágulos 
                                              en los vasos sanguíneos. lore</p>
-                        <a href="#" className="btn btn-lands">Cotizar</a>
+                        <Link to="" className="btn btn-lands">Cotizar</Link>
                       </div>
                     </div>
                   </div>
