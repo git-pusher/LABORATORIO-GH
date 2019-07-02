@@ -17,18 +17,25 @@ class Registrar extends Component {
     }
     
 
-    guardar = (e) => {
+
+    guardar = (e, password, cPassword) => {
         e.preventDefault();
+        // var cPassword = ;
+        if (this.state.password !== this.state.cPassword) {
+            toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
+        } else {
         console.log('Guardando registro...');
         axios.post(API_URL+'registros/', this.state)
         .then(registro => {
-          toast.success('Registro exitoso de: ', registro.name);
+          toast.success(`Registro correcto del usuario "${this.state.nombre}"`);
           console.log('Usuario registrado correctamente: ', registro);
           this.listaRegistros();
         }).catch(err => {
+            toast.error('Registro no realizado.')
           console.log("Ocurrió un error", err);
         });
       }
+    }
 
     cambio = (event) => {
     const {id, value} = event.target;
@@ -76,10 +83,10 @@ class Registrar extends Component {
                                 <label htmlFor="exampleInputPassword1">Contraseña</label>
                                 <input type="password" onChange={this.cambio} className="form-control" id="password" placeholder="Introducir contraseña"/>
                             </div>                            
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Verificar contraseña</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Introducir contraseña"/>
-                            </div>                             */}
+                                <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
+                            </div>                            
                             <div className="form-row">
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-primary " >
