@@ -1,6 +1,6 @@
 #examenes {
     padding-top: 30px;
-    margin: 50px;
+    /* margin: 50px; */
 }
 
 hr {
@@ -8,7 +8,7 @@ hr {
     box-sizing: content-box; */
     height: 0px;
     width: 100px;
-    /* overflow: visible; */
+    overflow: visible;
     border-color: #42929f;
 
 }
@@ -17,7 +17,8 @@ hr {
     font-size: 15px;
     padding-top: 20px;
     padding-bottom: 20px;
-    text-align: justify;
+    /* text-align: justify; */
+    /* border: none; */
 }
 
 .card-exa {
@@ -35,6 +36,7 @@ hr {
     padding-top: 7px;
     font-size: 17px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .card-text {
@@ -46,7 +48,6 @@ hr {
 .card-body-descripcion-im {
     background-color: white;
     padding: 13px;
-    /* padding-bottom: 10px; */
     font-size: 15px;
     text-align: justify;
 }

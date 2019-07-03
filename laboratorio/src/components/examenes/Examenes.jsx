@@ -19,7 +19,7 @@ class Examenes extends Component {
             <div id="examenes" className="mt-4">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col text-center">
+                        <div className="col-12 text-center">
                             <h2 className="text-uppercase">Exámenes</h2>
                             <hr/>
                             <p className="conoce-examenes">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam tempore, eos, 
