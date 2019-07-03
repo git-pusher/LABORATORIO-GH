@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import { Link } from 'react-router-dom';
-import labo from '../../img/labo.png';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
