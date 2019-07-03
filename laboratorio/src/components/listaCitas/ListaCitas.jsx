@@ -9,8 +9,6 @@ import ModalDetallesCita from '../modals/ModalDetallesCita';
 //import './citas.css';
 import '../../App.css';
 
-
-
 class ListaCitas extends Component {
 
     constructor(props){
@@ -18,6 +16,7 @@ class ListaCitas extends Component {
         this.state= {
             request: true,
             citas: [],
+            cita: [],
             modalDetalleCita: false,
             error: ''  
         }
@@ -26,7 +25,6 @@ class ListaCitas extends Component {
     componentDidMount(){
         this.getCitas();
     }
-
 
     getCitas = () => {
         console.log("URL: ", API_URL + 'citas');
@@ -39,10 +37,21 @@ class ListaCitas extends Component {
         });
     }
     
-    detallesCita = (id, e) => {
-        e.preventDefault();
-        //this.props.history.push(`/ModalDetalleCita/${id}`);
-    }
+    obtenerCita(e, _id) {
+        //e.preventDefault();
+        const cita={}
+        axios.get(API_URL+ `citas/${_id}`, cita)
+        .then( cita => {
+            this.setState({
+                 cita: cita.data,
+                 modalDetalleCita: true
+            })
+             console.log("data: ", cita.data);
+             console.log("PAcietne: ID ", cita.data.pacienteId, cita.data.nombre , cita.data.apellidoPaterno , cita.data.apellidoMaterno);
+        }).catch(err => {
+            console.log("Error: ", err); 
+        });
+     }
 
     pintarCitas = () => {
         if(this.state.error){
@@ -54,7 +63,7 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
-            let modalDetalleCitaClose= () => this.setState({modalDetalleCita: false});
+            let modalDetalleCitaClose = () => this.setState({modalDetalleCita: false});
             return(
                 <tr key={ct._id}>
                     <td></td>
@@ -63,7 +72,6 @@ class ListaCitas extends Component {
                     <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
-                    <td>{ct.estado}</td>
                     <td>
                         <NavLink to={`/EditarCita/${ct._id}`}>
                             <button className="btn accionEditar">
@@ -79,11 +87,11 @@ class ListaCitas extends Component {
                         </button>
                     </td>
                     <td>
-                        <button className="btn accionCitas" >
+                        <button className="btn accionCitas" onClick={e => this.obtenerCita(e, ct._id)}>
                             <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                             Ver Detalles
                         </button>
-                        <ModalDetallesCita show={this.state.modalDetalleCita} onHide={modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
+                        <ModalDetallesCita show={this.state.modalDetalleCita} onHide={this.state.modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
                     </td>
                 </tr>
             );  
@@ -118,7 +126,6 @@ class ListaCitas extends Component {
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
                     <th>Nombre del Médico</th>
-                    <th>Estado</th>
                     <th></th>
                     <th>Acciones</th>
                     <th></th>

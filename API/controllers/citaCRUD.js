@@ -14,11 +14,12 @@ cita.crearCita = function(cita){
     });
 }
 
-cita.mostrarCita = function(id= ''){
-    return id ? Cita.findById(id).exec() : Cita.find().exec();
+cita.mostrarCitas = function(id= ''){
+    return id ? Cita.findById(id).exec() 
+              : Cita.find().exec();
 }
 
-cita.mostrarCitas = function(id = '', populate = false){
+cita.mostrarCita = function(id = '', populate = false){
     if(id){
         return Cita
         .findById(id)

@@ -151,8 +151,12 @@ app.get('/citas', (req, res) => {
 
 app.get('/citas/:id', (req, res) => {
     CtrlCita.cita.mostrarCitas(req.params.id)
-    .then(ct => ct ? res.send(ct) : res.send({}).status(400))
-    .catch(err => res.send(err).status(400));
+        .then(ct => 
+            ct ? res.send(ct) 
+            : res.send({}).status(400))
+        .catch(err => 
+             res.send(err).status(400)
+        );
 });
 
 //POST
@@ -188,6 +192,22 @@ app.put('/citas/:id', (req, res) =>{
             err ? res.status(400).send(err) 
                 : res.status(200).send(cita);
         });
+});
+
+app.put('/citas', (req, res) => {
+    const datos = new Cita(req.body)
+
+    const cita = new Cita({
+        "pacienteId": datos._id,
+        "nombre": datos.nombre,
+        "apellidoPaterno": datos.apellidoPaterno,
+        "apellidoMaterno": datos.apellidoMaterno,
+        "fechaCita": datos.fechaCita,
+        "horaCita": datos.horaCita,   
+        "estudio": datos.estudio,
+        "doctor": datos.doctor
+    })
+
 });
 
 app.listen(PORT, () => {
