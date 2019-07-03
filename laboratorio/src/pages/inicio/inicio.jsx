@@ -12,7 +12,7 @@ class Inicio extends React.Component {
     
     render () {
         return (
-            <div className="container-sesion">
+            <div className="container sesion">
                 <div className="row fila">
                     <div className="col-md-5">
                         <img className="labo-img" src={labo} alt="Landsteiner Scientific"/> 

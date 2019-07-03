@@ -61,7 +61,7 @@ class Registrar extends Component {
                 draggable
                 pauseOnHover
             />
-            <div className="container sesion">
+            <div className="container registro">
                 <div className="row fila">
                     <div className="col-md-6">
                         <img className="labo-img" src={labo} alt="Landsteiner Scientific"/> 
@@ -72,11 +72,11 @@ class Registrar extends Component {
                             <div className="form-group mt-4">
                                 <label htmlFor="n">Nombre</label>
                                 <input type="text" onChange={this.cambio} className="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
-                                <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre para identificarlo.</small>
+                                <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
                             </div>
                             <div className="form-group mt-4">
                                 <label htmlFor="exampleInputEmail1">Nombre de usuario</label>
-                                <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Correo electrónico"/>
+                                <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
                                 <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                             </div>
                             <div className="form-group">
@@ -89,7 +89,7 @@ class Registrar extends Component {
                             </div>                            
                             <div className="form-row">
                                 <div className="form-group">
-                                    <button type="submit" className="btn btn-primary " >
+                                    <button type="submit" className="btn btn-primary btn-reg" >
                                         <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
                                         Registrar
                                     </button>
