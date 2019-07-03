@@ -1,29 +1,18 @@
-.sesion {
-    /* display: flex;             */
-    width: 100%;
+.registro {
+    /* width: 100%;
     height: absolute;
     vertical-align: middle;
-    position: absolute;
-    top: 10%;
-    left: 30%;
+    left: 30%; */
+    /* position: absolute; */
     background-color: #eaf1f3;
     -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
     -moz-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
     box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
     margin-top: 100px;
-}
-
-.labo-img {
-    max-width: 80%;
-   }
-
-.fila {
-    position: relative;
-    padding: 20px 15px;
-    align-items: center;
-    justify-content: center;    
+    /* justify-content: center; */
 }
 
 
 
-    
+
+

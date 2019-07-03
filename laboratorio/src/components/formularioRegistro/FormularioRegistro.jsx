@@ -6,7 +6,7 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import './registrar.css'
+import './formularioRregistro.css'
 
 
 class Registrar extends Component {
@@ -50,59 +50,54 @@ class Registrar extends Component {
     render () {
         return (
             <>
-            <ToastContainer
-                position="bottom-center"
-                autoClose={2000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnVisibilityChange
-                draggable
-                pauseOnHover
-            />
-            <div className="container registro">
-                <div className="row fila">
-                    <div className="col-md-6">
-                        <img className="labo-img" src={labo} alt="Landsteiner Scientific"/> 
-                    </div>
-                    <div className="col col-md-4">
-                        <h1 className="text-uppercase text-center">Registro</h1>
-                        <form className="container" onSubmit={this.guardar}>
-                            <div className="form-group mt-4">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
+                <div className="col">
+                    <h1 className="text-uppercase text-center">Registro</h1>
+                    <form className="" onSubmit={this.guardar}>
+                        <div className="form-row">
+                            <div className="form-group col-md-12">
                                 <label htmlFor="n">Nombre</label>
                                 <input type="text" onChange={this.cambio} className="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
                                 <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
                             </div>
-                            <div className="form-group mt-4">
-                                <label htmlFor="exampleInputEmail1">Nombre de usuario</label>
+                            <div className="form-group col-md-12">
+                                <label htmlFor="nombre-usuario">Nombre de usuario</label>
                                 <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
                                 <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Contraseña</label>
+                            <div className="form-group col-md-12">
+                                <label htmlFor="contrasenia">Contraseña</label>
                                 <input type="password" onChange={this.cambio} className="form-control" id="password" placeholder="Introducir contraseña"/>
                             </div>                            
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Verificar contraseña</label>
+                            <div className="form-group col-md-12">
+                                <label htmlFor="cContrasenia">Verificar contraseña</label>
                                 <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
                             </div>                            
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <button type="submit" className="btn btn-primary btn-reg" >
-                                        <MaterialIcon icon="done_outline" className="material-icons"></MaterialIcon>
-                                        Registrar
-                                    </button>
-                                    <Link to="/sesion" className="btn btn-danger">
-                                        <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
-                                        Cancelar
-                                    </Link>
-                                </div>
-                            </div>                                                                            
-                        </form>
-                    </div>
-                </div>
-            </div>   
+                        </div>
+                        <div className="form-row">
+                            <div className="containerForm form-group col-md-12">
+                                <button type="submit" className="btn btn-primary accionGuardar" >
+                                    <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
+                                    Registrar
+                                </button>
+                                <Link to="/sesion" className="btn accionCancelar">
+                                    <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
+                                    Cancelar
+                                </Link>
+                            </div>
+                        </div>                                                                            
+                    </form>
+                </div>                 
             </>             
         );
     }

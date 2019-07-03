@@ -1,13 +1,5 @@
-.form-sesion {
+.formSesion {
     border: 3px double #42929f;
 }
 
-.form-group-usuario {
 
-}
-
-.btn-sesion {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-items: center;
-}

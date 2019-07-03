@@ -1,0 +1,45 @@
+.sesion-registro {
+    /* width: absolute; */
+    /* vertical-align: middle; 
+    */
+    /* position: absolute; */
+    /* left: 30%;  */
+    /* display: inline-block; */
+    /* margin-top: 100px; */
+    height: 80%;
+    top: 15%;
+    background-color: #eaf1f3;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+}
+
+.labo-img {
+    /* max-width: 80%; */
+    margin: 5px;
+    justify-items: center;
+   }
+
+/* .fila {
+    position: relative;
+    padding: 20px 25px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: inherit;    
+} */
+
+.compSesReg {
+    margin: 20px;
+    justify-content: flex-end
+}
+
+.sesReg {
+    border: 3px double #42929f;
+    padding: 50px;
+    /* position: relative; */
+    /* margin: 20px; */
+    max-width: absolute;
+    flex-wrap: wrap-reverse;
+}
+
+    
