@@ -22,7 +22,9 @@ class EditarCita extends Component {
     verDetalles = (e) => { 
         const {id} = this.props.match.params;
         const cita ={
-            paciente: this.state.paciente,
+            nombre: this.state.nombre,
+            apellidoPaterno: this.state.apellidoPaterno,
+            apellidoMaterno: this.state.apellidoMaterno,
             fechaCita: this.state.fechaCita,
             horaCita: this.state.horaCita,
             estudio: this.state.estudio,
@@ -33,7 +35,9 @@ class EditarCita extends Component {
             console.log("Detalles: ", res.data);
             //this.setState({ citas: res.data, request: false });
             this.setState({ //moment(post.date).format()
-                paciente: res.data.paciente,
+                nombre: res.data.nombre,
+                apellidoPaterno: res.data.apellidoPaterno,
+                apellidoMaterno: res.data.apellidoMaterno,
                 fechaCita:moment(res.data.fechaCita).format('DD/MM/YYYY'),
                 horaCita: res.data.horacita,
                 estudio:  res.data.estudio,
@@ -57,6 +61,7 @@ class EditarCita extends Component {
     }
 
     render(){
+        let paciente = this.state.nombre + ' ' + this.state.apellidoPaterno + ' ' + this.state.apellidoMaterno;
         return(
             <div className="contenedor">
                 <form className="" >
@@ -68,7 +73,7 @@ class EditarCita extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="paciente">Nombre del Paciente</label>
-                            <input type="text" disabled className="form-control" id="paciente" value={this.state.paciente} placeholder="Nombre completo" />
+                            <input type="text" disabled className="form-control" id="paciente" value={paciente} placeholder="Nombre completo" />
                         </div>
                     </div>
                     <div className="form-row">

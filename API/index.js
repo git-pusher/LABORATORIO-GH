@@ -56,8 +56,10 @@ app.get('/pacientes', (req, res) => {
 
 app.get('/pacientes/:id', (req, res) => {
     Ctrl.paciente.mostrarPacientes(req.params.id)
-		.then(pct => pct ? res.send(pct) : res.send({}).status(400))
-		.catch(err => res.send(err).status(400));
+        .then(pct => pct ? res.send(pct) 
+        : res.send({}).status(400))
+        .catch(err => 
+            res.send(err).status(400));
 });
 
 //POST 
@@ -111,6 +113,7 @@ app.get('/doctores/:id', (req, res) => {
 		.then(doct => doct ? res.send(doct) : res.send({}).status(400))
 		.catch(err => res.send(err).status(400));
 });
+
 //POST 
 app.post('/doctores', (req, res) => {
     console.log("entré a POST");
@@ -157,14 +160,29 @@ app.get('/citas/:id', (req, res) => {
 
 //POST
 app.post('/citas', (req, res) => {
-    console.log("entre a POST citas");
-    Cita(req.body).save((err, cita) => {
-        err ? res.status(400).send({
-            message: "Revisar petición cita",
-            errorMongo: err
-        }) : res.status(201).send(cita);
-    });
-}); 
+    const datos = new Cita(req.body)
+
+    const cita = new Cita({
+        "pacienteId": datos._id,
+        "nombre": datos.nombre,
+        "apellidoPaterno": datos.apellidoPaterno,
+        "apellidoMaterno": datos.apellidoMaterno,
+        "fechaCita": datos.fechaCita,
+        "horaCita": datos.horaCita,   
+        "estudio": datos.estudio,
+        "doctor": datos.doctor
+    })
+
+    Cita(req.body).save((err, ct) => {
+            if (err)
+              return res.json({ success: false, err })
+            res.status(200).json({
+              success: true,
+              mensaje: 'Nuevo permiso registrado con éxito',
+              cita: ct
+            })
+    })
+});
 
 //PUT
 app.put('/citas/:id', (req, res) =>{

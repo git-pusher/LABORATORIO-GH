@@ -15,12 +15,17 @@ class Registrar extends Component {
 		this.state = {}
     }
     
-
+       
 
     guardar = (e, password, cPassword) => {
         e.preventDefault();
-        // Verificando que las contraseñas coincidan
-        if (this.state.password !== this.state.cPassword) {
+        // var password = this.state.password;
+        // var cPassword = this.state.cPassword; 
+        // Verificando que las contraseñas coincidan 
+        // this.state.password !== this.state.cPassword
+        // password !== cPassword
+    
+        if (password !== cPassword) {
             toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
         } else {
         console.log('Guardando registro...');
@@ -30,16 +35,16 @@ class Registrar extends Component {
           console.log('Usuario registrado correctamente: ', registro);
           this.listaRegistros();
         }).catch(err => {
-            toast.error('Registro no realizado.')
+            toast.error('Registro no realizado. Inténtalo nuevamente.')
           console.log("Ocurrió un error", err);
         });
       }
     }
 
     cambio = (event) => {
-    const {id, value} = event.target;
-    this.setState({ [id]: value} )
-    console.log(this.state);
+        const {id, value} = event.target;
+        this.setState({ [id]: value} )
+        console.log(this.state);
     }
 
     listaRegistros = ()=>{

@@ -17,12 +17,12 @@ class FormularioSesion extends React.Component {
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                            <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
+                            <input type="email"  className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
                             <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                         </div>
                         <div className="form-group col-md-12">
                                 <label htmlFor="contrasenia">Contraseña</label>
-                                <input type="password" onChange={this.cambio} className="form-control" id="password" placeholder="Introducir contraseña"/>
+                                <input type="password"  className="form-control" id="password" placeholder="Introducir contraseña"/>
                             </div>       
                     </div>
                     <div className="form-row">

@@ -14,20 +14,25 @@ cita.crearCita = function(cita){
     });
 }
 
-cita.mostrarCitas = function(id= ''){
+cita.mostrarCita = function(id= ''){
     return id ? Cita.findById(id).exec() : Cita.find().exec();
 }
 
-cita.mostrarCita = function(id = '', populate = false){
+cita.mostrarCitas = function(id = '', populate = false){
     if(id){
         return Cita
         .findById(id)
         .populate('pacientes')
-        .populate('doctores')
-        .exec();
+        //.populate('doctores')
+        .exec( function (err, Cita){
+            if(err){
+                console.log("PAciente: ",Cita.paciente.nombre);
+                
+            }
+        });
     }
     const find = populate 
-        ? Cita.find().populate('pacientes').populate('doctores')    
+        ? Cita.find().populate('pacientes')
         : Cita.find();
     return find.exec();
 }

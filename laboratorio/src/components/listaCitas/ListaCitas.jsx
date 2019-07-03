@@ -4,6 +4,7 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import ModalDetallesCita from '../modals/ModalCrearCita';
 
 //import './citas.css';
 import '../../App.css';
@@ -17,6 +18,7 @@ class ListaCitas extends Component {
         this.state= {
             request: true,
             citas: [],
+            modalDetalleCita: false,
             error: ''  
         }
     }
@@ -24,7 +26,8 @@ class ListaCitas extends Component {
     componentDidMount(){
         this.getCitas();
     }
-    
+
+
     getCitas = () => {
         console.log("URL: ", API_URL + 'citas');
         axios.get(API_URL + 'citas')
@@ -34,6 +37,11 @@ class ListaCitas extends Component {
         }).catch(err => {
             this.setState({error: err, request: false});
         });
+    }
+    
+    detallesCita = (id, e) => {
+        e.preventDefault();
+        //this.props.history.push(`/ModalDetalleCita/${id}`);
     }
 
     pintarCitas = () => {
@@ -46,10 +54,11 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
+            let modalDetalleCitaClose= () => this.setState({modalDetalleCita: false});
             return(
                 <tr key={ct._id}>
                     <td></td>
-                    <td>{ct.paciente}</td>
+                    <td>{ct.nombre} {ct.apellidoPaterno} {ct.apellidoMaterno}</td>
                     <td>{moment(ct.fechaCita).format('DD/MM/YYYY')}</td>
                     <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
@@ -70,12 +79,11 @@ class ListaCitas extends Component {
                         </button>
                     </td>
                     <td>
-                        <NavLink to={`/DetallesCita/${ct._id}`}>
-                            <button className="btn accionCitas">
-                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
-                                Ver Detalles
-                            </button>
-                        </NavLink>
+                        <button className="btn accionCitas" >
+                            <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                            Ver Detalles
+                        </button>
+                        <ModalDetallesCita show={this.state.modalDetalleCita} onHide={modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
                     </td>
                 </tr>
             );  
