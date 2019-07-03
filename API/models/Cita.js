@@ -3,13 +3,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const citaSchema = new Schema({
-    paciente: {
+    pacienteId: {
         type: String,
         required: true
-        //type: [{
-          //  type: Schema.Types.ObjectId,
-            //ref: 'Paciente'
-        //}]
+        /*type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Paciente'
+        }]*/
+    },
+    nombre: {
+        type: String,
+        required: true
+    },
+    apellidoPaterno: {
+        type: String,
+        required: true
+    },
+    apellidoMaterno: {
+        type: String
     },
     fechaCita: {
         type: Date,
@@ -38,6 +49,6 @@ const citaSchema = new Schema({
 
 }, {timestamps: true});
 
-const Cita = mongoose.model('Cita', citaSchema);
+const Cita = mongoose.model('Cita', citaSchema, 'citas');
 
 module.exports = {Cita};

@@ -21,4 +21,6 @@
 * Redireccionamiento entre pag
 * Pantalla ver detalles v1
 * Accion Editar
+## Modals
+* Crear nueva cita v1
 

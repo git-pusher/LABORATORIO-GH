@@ -70,6 +70,19 @@
   cursor: pointer;
 }
 
+.accionHistorial {
+  background-color: #7d38a79e;
+  border: none;
+  color: white;
+  padding: 5px 15px 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 .accionGuardar {
   background-color: #4caaaf;
   border: none;

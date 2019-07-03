@@ -4,6 +4,7 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import ModalCrearCita from '../modals/ModalCrearCita'
 
 //import './listaPaciente.css';
 import '../../App.css';
@@ -15,6 +16,8 @@ class ListaPacientes extends Component {
         this.state= {
             request: true,
             pacientes: [],
+            paciente:[],
+            modalNuevaCita: false,
             error: ''
         }
     }
@@ -23,6 +26,20 @@ class ListaPacientes extends Component {
         this.getPacientes();
     }
 
+    obtenerPaciente(e, _id) {
+       const paciente={}
+       axios.get(API_URL+ `pacientes/${_id}`, paciente)
+       .then( paciente => {
+           this.setState({
+                paciente: paciente.data,
+                modalNuevaCita: true
+           })
+            console.log("data: ", paciente.data);
+            console.log("PAcietne: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
+       }).catch(err => {
+           console.log("Error: ", err); 
+       });
+    }
     getPacientes = () => {
         console.log("URL: ", API_URL + 'pacientes');
         axios.get(API_URL + 'pacientes')
@@ -43,8 +60,8 @@ class ListaPacientes extends Component {
 				</div>
             );
         }
-
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
+            let modalNuevaCitaClose= () => this.setState({modalNuevaCita: false});
             return(
                     <tr key={pct._id}>
                         <th></th>
@@ -68,10 +85,18 @@ class ListaPacientes extends Component {
                             </button>
                         </td>
                         <td>
-                            <button className="btn accionCitas">
-                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
-                                Citas
+                            <button className="btn accionCitas" onClick={(e) => this.obtenerPaciente(e, pct._id)}>
+                                <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                                Cita
                             </button>
+                            <ModalCrearCita show={this.state.modalNuevaCita} onHide={modalNuevaCitaClose}>{this.state.paciente}</ModalCrearCita>
+                        </td>
+                        <td>
+                            <button className="btn accionHistorial" onClick={(e) => this.obtenerPaciente(e, pct._id)}>
+                                <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
+                                Historial
+                            </button>
+                            <ModalCrearCita show={this.state.modalNuevaCita} onHide={modalNuevaCitaClose}>{this.state.paciente}</ModalCrearCita>
                         </td>
                     </tr>	
             );
@@ -87,7 +112,6 @@ class ListaPacientes extends Component {
     formPacientes = () => {
         this.props.history.push('/pacientes'); 
     }
-
     render(){
         return(
             <div className="row md-12 contenedor">
@@ -108,6 +132,7 @@ class ListaPacientes extends Component {
                     <th>Dirección</th>
                     <th ></th>
                     <th >Acciones</th>
+                    <th ></th>
                     <th ></th>
                     </tr>
                 </thead>

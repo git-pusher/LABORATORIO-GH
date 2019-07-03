@@ -4,6 +4,9 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import moment from 'moment';
 
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form';
+
 const boton={backgroundColor: '#bc322ccf', border: 'none'};
 
 class DetallesCita extends Component {
@@ -59,30 +62,29 @@ class DetallesCita extends Component {
 
     render(){
         return(
-        <div className="contenedor">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Detalles Cita Médica</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.listaCitas}>
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <p><b>Paciente:</b> {this.state.paciente} <br/>
-                               <b>Fecha: </b> {this.state.fechaCita} <br/>
-                               <b>Hora: </b> {this.state.horaCita} <br/>
-                               <b>Estudio solicitado: </b> {this.state.estudio} <br/>
-                               <b>Médico asignado: </b> {this.state.doctor} <br/><br/>
-                               <b>Estado: </b> {this.state.estado}
-                            </p>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary " style={boton} data-dismiss="modal" onClick={this.listaCitas}>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <section>
+                <Modal
+                    {...this.props}
+                    size="lg"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title className="centrarTexto">Detalles Cita Médica</Modal.Title>
+                    </Modal.Header>
+                            <div className="modal-body">
+                                <p><b>Paciente:</b> {this.state.paciente} <br/>
+                                <b>Fecha: </b> {this.state.fechaCita} <br/>
+                                <b>Hora: </b> {this.state.horaCita} <br/>
+                                <b>Estudio solicitado: </b> {this.state.estudio} <br/>
+                                <b>Médico asignado: </b> {this.state.doctor} <br/><br/>
+                                <b>Estado: </b> {this.state.estado}
+                                </p>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" style={boton} data-dismiss="modal" onClick={this.listaCitas}>Close</button>
+                            </div>
+                        
+                </Modal>
+            </section>
 
             );
         

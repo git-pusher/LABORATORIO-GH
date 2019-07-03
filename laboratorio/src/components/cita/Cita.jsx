@@ -3,18 +3,19 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
+
 class Cita extends Component {
-    constructor(props) {
-		super(props);
-		this.state = {}		
-    }
-    
+
     guardar = (e) => {
         e.preventDefault();
         console.log('Creando cita...');
         axios.post(API_URL+'citas/', this.state)
         .then(cita => {
-            console.log('Cita creada correctamente: ', cita);
+            console.log('Cita creada correctamente: ', cita, this.state);
             this.listaCitas();
         }).catch(err => {
             console.log('Error...', err);
@@ -34,12 +35,13 @@ class Cita extends Component {
 
     //listarDoctores =()
 
-    render(){
+    render(){  
+          //let paciente = this.props.children.nombre + ' ' + this.props.children.apellidoPaterno + ' ' + this.props.children.apellidoMaterno;
         return(
             <div className="contenedor">
                 <form className="" onSubmit={this.guardar}>    
                     <div className="card">
-                        <div className="cardBorder card-body">
+                        <div className=" card-body">
                         <b><h3 className="centrarTexto">Solicitar Nueva Cita</h3></b>
                         </div>
                     </div><br/><br/>
