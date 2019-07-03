@@ -17,7 +17,7 @@ registro.crearRegistro = function(registro){
 }
 
 //Mostrar los  registros de usuarios
-registro.mostrarRegistro = function(id = ''){
+registro.mostrarRegistros = function(id = ''){
    return id ? Registro.findById(id).exec() : Registro.find().exec();
 }
 

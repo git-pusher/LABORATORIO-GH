@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const Ctrl = require('./controllers/pacienteCRUD.js');
 const CtrlDoc = require('./controllers/doctorCRUD.js');
 const CtrlCita = require('./controllers/citaCRUD.js');
-const CrtlRegistro = require('./controllers/registroCRUD');
+const CrtlRegistro = require('./controllers/registroCRUD.js');
 const { Paciente } = require('./models/Paciente');
 const { Doctor } = require('./models/Doctor');
 const { Cita } = require('./models/Cita');
-const { Registro } = requiere('./models/Registro.js')
+const { Registro } = require('./models/Registro')
 const cors = require('cors');
 
 const app = express();
@@ -175,7 +175,10 @@ app.put('/citas/:id', (req, res) =>{
         });
 });
 
-//REGISTRO DE USUARIOS
+/////////////////////////////////////
+////////REGISTRO DE USUARIOS////////
+///////////////////////////////////
+
 //GET - mostrando los registros de usuarios existentes en la colección
 app.get('/registros', (req, res) => {
     CrtlRegistro.registro.mostrarRegistros()
