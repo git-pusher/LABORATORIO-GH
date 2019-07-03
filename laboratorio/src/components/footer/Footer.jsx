@@ -14,7 +14,7 @@ class Footer extends Component {
         return (
             <div id="footer" className="container-fluid pb-4 pt-4">
                 <div className="container-fluid">
-                    <div className="row text-center">
+                    <div className="row text-center foo">
                         <div className="col-12 col-lg">
                             <li>Social media</li>
                         </div>                  
