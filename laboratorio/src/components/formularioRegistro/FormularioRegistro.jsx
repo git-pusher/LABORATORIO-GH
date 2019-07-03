@@ -17,28 +17,28 @@ class Registrar extends Component {
     
        
 
-    guardar = (e, password, cPassword) => {
+    guardar = (e) => {
         e.preventDefault();
         // var password = this.state.password;
         // var cPassword = this.state.cPassword; 
         // Verificando que las contraseñas coincidan 
         // this.state.password !== this.state.cPassword
-        // password !== cPassword
-    
-        if (password !== cPassword) {
-            toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
-        } else {
+        // password !== cPassword    
+        // if (password !== cPassword) {
+            // toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
+        // } else {
         console.log('Guardando registro...');
         axios.post(API_URL+'registros/', this.state)
-        .then(registro => {
-          toast.success(`Registro correcto del usuario "${this.state.nombre}"`);
-          console.log('Usuario registrado correctamente: ', registro);
-          this.listaRegistros();
-        }).catch(err => {
-            toast.error('Registro no realizado. Inténtalo nuevamente.')
-          console.log("Ocurrió un error", err);
-        });
-      }
+            .then(registro => {
+            toast.success(`Registro correcto del usuario "${this.state.nombre}"`);
+            // Limpiar el formulario
+            console.log('Usuario registrado correctamente: ', registro);
+            this.listaRegistros();
+            }).catch(err => {
+                // toast.error('Registro no realizado. Inténtalo nuevamente.')
+            console.log("Ocurrió un error", err);
+            });
+    //   }
     }
 
     cambio = (event) => {

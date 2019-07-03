@@ -2,14 +2,15 @@
     padding-bottom: 3px;
 } */
 
-#men{
+/* #men{
     display: flex;
     flex: 0 0 auto;
     background-color: #42929f;
     color: #fff;
     border-bottom: 1px solid #cfd8dc;
     width: 100%;
-}
+} */
+
 .navbar {
     color: #fdfeff;
     font-size: medium;
