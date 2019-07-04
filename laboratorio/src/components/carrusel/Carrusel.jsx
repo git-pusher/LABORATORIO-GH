@@ -40,6 +40,7 @@ class Carrusel extends Component {
                                             Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
                                             mollit anim id est laborum </p>
                                         <button type="button" className="btn btn-lands">Citas</button>
+                                        
                                     </div>
                                 </div>
                             </div>

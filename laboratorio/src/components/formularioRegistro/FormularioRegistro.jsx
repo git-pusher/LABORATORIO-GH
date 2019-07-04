@@ -66,7 +66,7 @@ class Registrar extends Component {
                     pauseOnHover
                 />
                 <div className="col">
-                    <h1 className="text-uppercase text-center">Registro</h1>
+                    <h1 className="text-uppercase text-center pb-2 registrar">Registro</h1>
                     <form className="" onSubmit={this.guardar}>
                         <div className="form-row">
                             <div className="form-group col-md-12">

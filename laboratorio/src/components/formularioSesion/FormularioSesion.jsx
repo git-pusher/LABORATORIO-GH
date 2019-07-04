@@ -11,8 +11,8 @@ class FormularioSesion extends React.Component {
     
     render () {
         return (
-            <div className="col">
-                <h1 className="text-uppercase text-center">Bienvenido</h1>
+            <div className="col-12">
+                <h1 className="text-uppercase text-center pb-2 bienvenido">Bienvenido</h1>
                 <form className="" >
                     <div className="form-row">
                         <div className="form-group col-md-12">
@@ -26,7 +26,7 @@ class FormularioSesion extends React.Component {
                             </div>       
                     </div>
                     <div className="form-row">
-                        <div className="containerForm form-group col-md-12">
+                        <div className="containerForm registro form-group col-md-12">
                             <button type="submit" className="btn btn-lands accionGuardar">Iniciar sesión</button>
                             <Link to="/registro" className="text-muted small" >Registrar</Link>                        
                         </div>
