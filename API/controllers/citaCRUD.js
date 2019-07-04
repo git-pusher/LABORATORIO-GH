@@ -38,4 +38,15 @@ cita.mostrarCita = function(id = '', populate = false){
     return find.exec();
 }
 
+cita.actualizarCita = function(id, cita){
+    Cita.updateOne({_id: id}, cita).exec()
+    .then(res => {
+        res ? console.log("respuesta: ", res)
+            : console.log("No hay cita para modificar");
+    }).catch(err => {
+        console.log("Ocurrió un error: ", err);
+    })
+   
+}
+
 exports.cita = cita;

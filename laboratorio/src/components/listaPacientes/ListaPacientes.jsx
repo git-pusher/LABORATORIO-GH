@@ -76,6 +76,10 @@ class ListaPacientes extends Component {
         });
     }
 
+    eliminarPaciente(e, _id){
+        
+    }
+
     pintarPacientes = () => {
         if(this.state.error){
             return(

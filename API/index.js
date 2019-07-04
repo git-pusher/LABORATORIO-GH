@@ -234,35 +234,6 @@ app.put('/citas/:id', (req, res) =>{
         });
 });
 
-app.put('/citas', (req, res) => {
-    const datos = new Cita(req.body)
-
-    const cita = new Cita({
-        "pacienteId": datos._id,
-        "nombre": datos.nombre,
-        "apellidoPaterno": datos.apellidoPaterno,
-        "apellidoMaterno": datos.apellidoMaterno,
-        "fechaCita": datos.fechaCita,
-        "horaCita": datos.horaCita,   
-        "estudio": datos.estudio,
-        "doctor": datos.doctor,
-        "consultorio": datos.consultorio,
-        "estado": datos.estado
-    })
-    Cita.findByIdAndUpdate(req.params.id, req.body,
-        { new: true}, (err, cita) => {
-            err ? res.status(400).json({
-                success: false,
-                err
-            })
-            : res.status(200).json({
-                success: true,
-                mensaje: "La cita se actualizó correctamente",
-                cita: cita
-            });
-        });
-});
-
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
     
