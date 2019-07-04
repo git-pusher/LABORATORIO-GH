@@ -45,7 +45,6 @@ app.get('/pacientes', (req, res) => {
             console.log("No hay pacientes que mostrar");
             res.send({mensaje: 'No hay pacientes que mostrar'});
         }else{
-        console.log("Pacientes: ", pacientes);
         res.send(pacientes).status(200);
         }
     }).catch(err => {
@@ -56,10 +55,19 @@ app.get('/pacientes', (req, res) => {
 
 app.get('/pacientes/:id', (req, res) => {
     Ctrl.paciente.mostrarPacientes(req.params.id)
+<<<<<<< HEAD
         .then(pct => pct ? res.send(pct) 
         : res.send({}).status(400))
         .catch(err => 
             res.send(err).status(400));
+=======
+        .then(pct => 
+            pct ? res.send(pct) 
+            : res.send({}).status(400)
+        ).catch(err =>
+             res.send(err).status(400)
+        );
+>>>>>>> devReact
 });
 
 //POST 
@@ -154,8 +162,12 @@ app.get('/citas', (req, res) => {
 
 app.get('/citas/:id', (req, res) => {
     CtrlCita.cita.mostrarCitas(req.params.id)
-    .then(ct => ct ? res.send(ct) : res.send({}).status(400))
-    .catch(err => res.send(err).status(400));
+        .then(ct => 
+            ct ? res.send(ct) 
+            : res.send({}).status(400))
+        .catch(err => 
+             res.send(err).status(400)
+        );
 });
 
 //POST

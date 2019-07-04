@@ -9,8 +9,6 @@ import ModalDetallesCita from '../modals/ModalCrearCita';
 //import './citas.css';
 import '../../App.css';
 
-
-
 class ListaCitas extends Component {
 
     constructor(props){
@@ -26,7 +24,6 @@ class ListaCitas extends Component {
     componentDidMount(){
         this.getCitas();
     }
-
 
     getCitas = () => {
         console.log("URL: ", API_URL + 'citas');
@@ -63,7 +60,6 @@ class ListaCitas extends Component {
                     <td>{ct.horaCita}</td>
                     <td>{ct.estudio}</td>
                     <td>{ct.doctor}</td>
-                    <td>{ct.estado}</td>
                     <td>
                         <NavLink to={`/EditarCita/${ct._id}`}>
                             <button className="btn accionEditar">
@@ -118,7 +114,6 @@ class ListaCitas extends Component {
                     <th >Hora</th>
                     <th>Estudio a realizar</th>
                     <th>Nombre del Médico</th>
-                    <th>Estado</th>
                     <th></th>
                     <th>Acciones</th>
                     <th></th>

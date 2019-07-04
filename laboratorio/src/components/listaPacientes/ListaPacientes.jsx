@@ -6,6 +6,9 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import ModalCrearCita from '../modals/ModalCrearCita';
 
+import ModalCrearCita from '../modals/ModalCrearCita';
+import ModalHistorialCitas from '../modals/ModalHistorialCitas';
+
 //import './listaPaciente.css';
 import '../../App.css';
 
