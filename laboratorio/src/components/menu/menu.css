@@ -1,17 +1,13 @@
 .navbar {
     background-color: #42929f;
+    height: 50px;
     box-shadow: 6px -4px 16px 10px #0e5061;
 }
 
-.navbar-nav>ul>li>a {
+.navbar-light .navbar-nav .nav-link {
     color: white;
     font-size:  15px;
-    padding-left: 5px;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    /* color: yellow; */
-    font-size:  15px;
+    /* padding-left: 5px; */
 }
 
 
@@ -25,6 +21,12 @@
 
 .dropdown-item:hover {
     color: #16181b;
+    text-decoration: none;
+    background-color: #42929f;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
     text-decoration: none;
     background-color: #42929f;
 }

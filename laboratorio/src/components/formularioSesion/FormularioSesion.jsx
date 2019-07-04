@@ -28,7 +28,7 @@ class FormularioSesion extends React.Component {
                     <div className="form-row">
                         <div className="containerForm registro form-group col-md-12">
                             <button type="submit" className="btn btn-lands accionGuardar">Iniciar sesión</button>
-                            <Link to="/registro" className="text-muted small" >Registrar</Link>                        
+                            <Link to="/ListaCitas" className="text-muted small" >Registrar</Link>                        
                         </div>
                     </div>                     
                 </form>

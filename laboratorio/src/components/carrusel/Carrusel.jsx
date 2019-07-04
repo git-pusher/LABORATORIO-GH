@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import carrusel1 from '../../img/carrusel1.jpg';
 import carrusel2 from '../../img/carrusel2.jpg';
@@ -39,8 +40,8 @@ class Carrusel extends Component {
                                             commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. 
                                             Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
                                             mollit anim id est laborum </p>
-                                        <button type="button" className="btn btn-lands">Citas</button>
-                                        
+                                        {/* <button type="button" onClick={this.listaCitas} className="btn btn-lands">Citas</button> */}
+                                        <Link to="/ListaCitas" className="btn btn-lands" >Citas</Link>
                                     </div>
                                 </div>
                             </div>
