@@ -24,7 +24,6 @@ class ModalCrearCita extends Component {
     getMedicos = () => {
         axios.get(API_URL + 'doctores')
         .then(res => {
-            console.log("Médicos: ", res.data);
             this.setState({medicos: res.data, request: false});
         }).catch(err => {
             this.setState({error: err, request: false});
@@ -88,9 +87,9 @@ class ModalCrearCita extends Component {
         return this.state.medicos.length ? this.state.medicos.map(md => {
             let doc= md.nombre +' '+ md.apellidoPaterno+ ' '+ md.apellidoMaterno;
             return(
-                <option key={md.key} value={doc}>{doc}</option>
+                <option key={md._id} value={doc}>{doc}</option>
+                //<input id="doctorId" hidden value={md._id}/>
             );
-           
         }) : <div>Nada</div>
     }
 

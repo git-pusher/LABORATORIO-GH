@@ -19,7 +19,7 @@ class ListaPacientes extends Component {
             request: true,
             pacientes: [],
             paciente:[],
-            citas: [],
+            historialCitas: [],
             cita: [],
             modalNuevaCita: false,
             modalHistorialPaciente: false,
@@ -32,6 +32,7 @@ class ListaPacientes extends Component {
     }
 
     obtenerPaciente(e, _id) {
+        e.preventDefault();
        const paciente={}
        axios.get(API_URL+ `pacientes/${_id}`, paciente)
        .then( paciente => {
@@ -39,23 +40,26 @@ class ListaPacientes extends Component {
                 paciente: paciente.data,
                 modalNuevaCita: true
            })
-            console.log("data: ", paciente.data);
+            console.log("data para crear cita: ", paciente.data);
             console.log("PAcietne: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
        }).catch(err => {
            console.log("Error: ", err); 
        });
     }
 
-    historialPaciente(e, _id){
-        const paciente={}
-        axios.get(API_URL+ `pacientes/${_id}`, paciente)
-        .then( paciente => {
-           this.setState({
-                paciente: paciente.data,
+    historialPaciente(e, pacienteId){
+        e.preventDefault();
+        console.log("ID Paciente:", pacienteId);
+        
+        axios.get(API_URL+ `citasPacientes/${pacienteId}`)
+        .then( res => {
+           if(res.data.success){
+            this.setState({
+                historialCitas: res.data.citas,
                 modalHistorialPaciente: true
-           })
-            console.log("data: ", paciente.data);
-            console.log("Historial: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
+            });
+           }
+            console.log("data para historial: ", this.state.historialCitas);
         }).catch(err => {
            console.log("Error: ", err); 
         });
@@ -118,7 +122,7 @@ class ListaPacientes extends Component {
                                 <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                                 Historial
                             </button>
-                            {/*<ModalHistorialCitas show={this.state.modalHistorialPaciente} onHide={modalHistorialPacienteClose}>{this.state.citas}</ModalHistorialCitas>*/}
+                            <ModalHistorialCitas show={this.state.modalHistorialPaciente} onHide={modalHistorialPacienteClose}>{this.state.historialCitas}</ModalHistorialCitas>
                         </td>
                     </tr>	
             );
