@@ -4,10 +4,9 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
-import ModalCrearCita from '../modals/ModalCrearCita';
 
 import ModalCrearCita from '../modals/ModalCrearCita';
-import ModalHistorialCitas from '../modals/ModalHistorialCitas';
+// import ModalHistorialCitas from '../modals/ModalHistorialCitas';
 
 //import './listaPaciente.css';
 import '../../App.css';
