@@ -29,6 +29,7 @@ class ListaPacientes extends Component {
     }
 
     obtenerPaciente(e, _id) {
+        e.preventDefault();
        const paciente={}
        axios.get(API_URL+ `pacientes/${_id}`, paciente)
        .then( paciente => {
@@ -36,7 +37,7 @@ class ListaPacientes extends Component {
                 paciente: paciente.data,
                 modalNuevaCita: true
            })
-            console.log("data: ", paciente.data);
+            console.log("data para crear cita: ", paciente.data);
             console.log("PAcietne: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
        }).catch(err => {
            console.log("Error: ", err); 
@@ -51,6 +52,10 @@ class ListaPacientes extends Component {
         }).catch(err => {
             this.setState({error: err, request: false });
         });
+    }
+
+    eliminarPaciente(e, _id){
+        
     }
 
     pintarPacientes = () => {

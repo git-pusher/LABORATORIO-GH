@@ -37,7 +37,7 @@ mongoose.connect(URL_MONGO, { useNewUrlParser: true}, (err) => {
 });
 
 //PACIENTES
-//GET
+//GET todos los pacientes
 app.get('/pacientes', (req, res) => {
     Ctrl.paciente.mostrarPacientes()
     .then(pacientes => {
@@ -53,12 +53,32 @@ app.get('/pacientes', (req, res) => {
     })
 });
 
+//GET un paciente en especifico
 app.get('/pacientes/:id', (req, res) => {
     Ctrl.paciente.mostrarPacientes(req.params.id)
         .then(pct => pct ? res.send(pct) 
         : res.send({}).status(400))
         .catch(err => 
             res.send(err).status(400));
+});
+
+//GET para recuperar citas por paciente 
+app.get('/citasPacientes/:pacienteId', (req, res) => {
+    const detallesCita = req.params.pacienteId;
+    console.log("ID paciente: ", detallesCita);
+    Cita.find({pacienteId: detallesCita}).exec(
+        (err, citas) => {
+            if(err){
+                return res.status(400).send(err);
+            }else{
+                res.status(200).json({
+                    success: true,
+                    mensaje: 'Citas del paciente: ' + detallesCita.pacienteId + ' recuperada con éxito',
+                    citas: citas
+                });
+            }
+    });
+    
 });
 
 //POST 

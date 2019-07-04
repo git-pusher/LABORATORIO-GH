@@ -22,4 +22,11 @@
 * Pantalla ver detalles v1
 * Accion Editar
 ## Modals
+<<<<<<< HEAD
 * Crear nueva cita v1
+=======
+* Crear nueva cita
+* Ver detalles de cada cita
+* Ver historial de citas de cada paciente
+
+>>>>>>> devReact

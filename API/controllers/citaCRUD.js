@@ -14,11 +14,12 @@ cita.crearCita = function(cita){
     });
 }
 
-cita.mostrarCita = function(id= ''){
-    return id ? Cita.findById(id).exec() : Cita.find().exec();
+cita.mostrarCitas = function(id= ''){
+    return id ? Cita.findById(id).exec() 
+              : Cita.find().exec();
 }
 
-cita.mostrarCitas = function(id = '', populate = false){
+cita.mostrarCita = function(id = '', populate = false){
     if(id){
         return Cita
         .findById(id)
@@ -35,6 +36,17 @@ cita.mostrarCitas = function(id = '', populate = false){
         ? Cita.find().populate('pacientes')
         : Cita.find();
     return find.exec();
+}
+
+cita.actualizarCita = function(id, cita){
+    Cita.updateOne({_id: id}, cita).exec()
+    .then(res => {
+        res ? console.log("respuesta: ", res)
+            : console.log("No hay cita para modificar");
+    }).catch(err => {
+        console.log("Ocurrió un error: ", err);
+    })
+   
 }
 
 exports.cita = cita;
