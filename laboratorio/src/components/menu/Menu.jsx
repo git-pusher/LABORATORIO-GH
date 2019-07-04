@@ -45,9 +45,15 @@ class Menu extends Component {
 									<NavLink className="dropdown-item" to="/Pacientes">Nuevo Paciente</NavLink>
 								</div>							
 							</li>							
-							<li className="nav-item nav-link">
-								<NavLink className="" to="/ListaCitas">Citas</NavLink>
-							</li>
+							<li className="nav-item nav-link dropdown">
+								<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Citas
+								</NavLink>
+								<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+									<NavLink className="dropdown-item" to="/ListaCitas">Listar Citas</NavLink>
+									<NavLink className="dropdown-item" to="/Cita">Nueva Cita</NavLink>
+								</div>							
+							</li>														
 						</ul>
 						<ul className="nav navbar-nav navbar-right">
 							<li><NavLink to="#examenes" className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>

@@ -4,7 +4,7 @@ import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
-import ModalDetallesCita from '../modals/ModalCrearCita';
+import ModalDetallesCita from '../modals/ModalDetallesCita';
 
 //import './citas.css';
 import '../../App.css';
@@ -16,6 +16,7 @@ class ListaCitas extends Component {
         this.state= {
             request: true,
             citas: [],
+            cita: [],
             modalDetalleCita: false,
             error: ''  
         }
@@ -36,10 +37,21 @@ class ListaCitas extends Component {
         });
     }
     
-    detallesCita = (id, e) => {
-        e.preventDefault();
-        //this.props.history.push(`/ModalDetalleCita/${id}`);
-    }
+    obtenerCita(e, _id) {
+        //e.preventDefault();
+        const cita={}
+        axios.get(API_URL+ `citas/${_id}`, cita)
+        .then( cita => {
+            this.setState({
+                 cita: cita.data,
+                 modalDetallesCita: true
+            })
+             console.log("data: ", cita.data);
+             console.log("PAcietne: ID ", cita.data.pacienteId, cita.data.nombre , cita.data.apellidoPaterno , cita.data.apellidoMaterno);
+        }).catch(err => {
+            console.log("Error: ", err); 
+        });
+     }
 
     pintarCitas = () => {
         if(this.state.error){
@@ -51,7 +63,7 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
-            let modalDetalleCitaClose= () => this.setState({modalDetalleCita: false});
+            let modalDetalleCitaClose = () => this.setState({modalDetallesCita: false});
             return(
                 <tr key={ct._id}>
                     <td></td>
@@ -75,7 +87,7 @@ class ListaCitas extends Component {
                         </button>
                     </td>
                     <td>
-                        <button className="btn accionCitas" >
+                        <button className="btn accionCitas" onClick={e => this.obtenerCita(e, ct._id)}>
                             <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                             Ver Detalles
                         </button>

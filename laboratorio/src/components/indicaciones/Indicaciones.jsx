@@ -83,7 +83,7 @@ class Indicaciones extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6" id="indicaciones">
+                        <div className="col-12 col-lg-6" id="indicaciones">
                             <img src={indicaciones} alt="Indicaciones médicas"/>
                         </div>
                 </div>

@@ -11,6 +11,7 @@ class ListaRegistros extends Component {
         this.state= {
             request: true,
             registros: [],
+            registro: [],
             error: ''
         }
     }
@@ -28,7 +29,7 @@ class ListaRegistros extends Component {
                  modalNuevaCita: true
             })
              console.log("data: ", registro.data);
-             console.log("PAcietne: ", registro.data.nombre , registro.data.apellidoPaterno , registro.data.apellidoMaterno);
+             console.log("Registro: ", registro.data.nombre);
         }).catch(err => {
             console.log("Error: ", err); 
         });
@@ -67,7 +68,7 @@ class ListaRegistros extends Component {
                         <td>{rgt.nombreUsuario}</td>
                         <td>{rgt.password}</td>
                         <td>
-                            <NavLink to={`/EditarRegistro/${rgt._id}`}>
+                            <NavLink to={`/EditarRegistros/${rgt._id}`}>
                                 <button className="btn accionEditar">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
                                     Editar
@@ -101,7 +102,7 @@ class ListaRegistros extends Component {
                 <div className="row md-12 containerForm">
                     <button className="nuevo btn" onClick={this.formRegistros}>
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                        Nuevo Registro de usuario
+                        Nuevo Registro de Usuario
                     </button>
                 </div>
                 <table className="table">

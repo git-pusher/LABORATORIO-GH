@@ -55,19 +55,10 @@ app.get('/pacientes', (req, res) => {
 
 app.get('/pacientes/:id', (req, res) => {
     Ctrl.paciente.mostrarPacientes(req.params.id)
-<<<<<<< HEAD
         .then(pct => pct ? res.send(pct) 
         : res.send({}).status(400))
         .catch(err => 
             res.send(err).status(400));
-=======
-        .then(pct => 
-            pct ? res.send(pct) 
-            : res.send({}).status(400)
-        ).catch(err =>
-             res.send(err).status(400)
-        );
->>>>>>> devReact
 });
 
 //POST 
