@@ -14,7 +14,7 @@ class Registrar extends Component {
         // nombre, nombreUsuario, password
 		this.state = {}
     }
-    
+
        
 
     guardar = (e) => {

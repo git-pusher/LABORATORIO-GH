@@ -24,10 +24,10 @@ class Menu extends Component {
 					</button>     
 					<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<ul className="navbar-nav mr-auto">
-							<li className="nav-link nav-item">
-								<NavLink className="inicio" to="/">Inicio </NavLink> 
+							<li className="nav-item nav-link">
+								<NavLink className="" to="/">Inicio </NavLink> 
 							</li>
-							<li className="nav-lik nav-item dropdown">
+							<li className="nav-item nav-link dropdown">
 								<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Médicos
 								</NavLink>
@@ -36,7 +36,7 @@ class Menu extends Component {
 									<NavLink className="dropdown-item" to="/Medicos">Nuevo Medico</NavLink>
 								</div>							
 							</li>
-							<li className="nav-item dropdown">
+							<li className="nav-item nav-link dropdown">
 								<NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Pacientes
 								</NavLink>
@@ -45,8 +45,8 @@ class Menu extends Component {
 									<NavLink className="dropdown-item" to="/Pacientes">Nuevo Paciente</NavLink>
 								</div>							
 							</li>							
-							<li className="nav-link nav-item">
-								<NavLink active className="active" to="/ListaCitas">Citas</NavLink>
+							<li className="nav-item nav-link">
+								<NavLink className="" to="/ListaCitas">Citas</NavLink>
 							</li>
 						</ul>
 						<ul className="nav navbar-nav navbar-right">
