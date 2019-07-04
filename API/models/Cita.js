@@ -42,6 +42,10 @@ const citaSchema = new Schema({
             //ref: 'Doctor'
         //}]
     },
+    consultorio:{
+        type: String,
+        required: true
+    },
     estado: {
         type: String,
         default: "A"

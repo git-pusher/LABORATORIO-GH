@@ -28,7 +28,8 @@ class EditarCita extends Component {
             fechaCita: this.state.fechaCita,
             horaCita: this.state.horaCita,
             estudio: this.state.estudio,
-            doctor: this.state.doctor
+            doctor: this.state.doctor,
+            consultorio: this.state.consultorio
         }
         axios.put(API_URL + `citas/${id}`, cita).
         then(res => {
@@ -41,7 +42,8 @@ class EditarCita extends Component {
                 fechaCita:moment(res.data.fechaCita).format('DD/MM/YYYY'),
                 horaCita: res.data.horacita,
                 estudio:  res.data.estudio,
-                doctor:   res.data.doctor
+                doctor:   res.data.doctor,
+                consultorio: res.data.consultorio
 
             });
         }).catch(err => {
@@ -91,10 +93,21 @@ class EditarCita extends Component {
                         </div>
                     </div>
                     <div className="form-row">
-                        <div className="form-group col-md-12">
+                        <div className="form-group col-md-6">
                             <label htmlFor="doctor">Nombre del Médico</label>
-                            <input type="text" onChange={this.cambio} className="form-control" id="doctor" placeholder="Nombre completo" value={this.state.doctor} />
+                            <input type="text" readOnly onChange={this.cambio} className="form-control" id="doctor" placeholder="Nombre completo" value={this.state.doctor} />
                         </div>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="consultorio">Consultorio</label>
+                                <select id="consultorio" className="form-control" onChange={e => this.cambio}>
+                                    <option defaultValue>{this.state.consultorio}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
                     </div>
                     <div className="form-row">
                         <div className="containerForm form-group col-md-12">

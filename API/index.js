@@ -179,7 +179,7 @@ app.post('/citas', (req, res) => {
               return res.json({ success: false, err })
             res.status(200).json({
               success: true,
-              mensaje: 'Nuevo permiso registrado con éxito',
+              mensaje: 'Nueva cita registrada con éxito',
               cita: ct
             })
     })

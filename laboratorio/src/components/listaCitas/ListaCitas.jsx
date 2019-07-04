@@ -91,7 +91,7 @@ class ListaCitas extends Component {
                             <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                             Ver Detalles
                         </button>
-                        <ModalDetallesCita show={this.state.modalDetalleCita} onHide={this.state.modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
+                        <ModalDetallesCita show={this.state.modalDetalleCita} onHide={modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
                     </td>
                 </tr>
             );  

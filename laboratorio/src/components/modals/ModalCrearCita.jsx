@@ -8,6 +8,29 @@ import Form from 'react-bootstrap/Form';
 
 class ModalCrearCita extends Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            request: true,
+            medicos: [],
+            medico: [],
+            error: ''
+        }
+    }
+    componentDidMount(){
+        this.getMedicos();
+    }
+
+    getMedicos = () => {
+        axios.get(API_URL + 'doctores')
+        .then(res => {
+            console.log("Médicos: ", res.data);
+            this.setState({medicos: res.data, request: false});
+        }).catch(err => {
+            this.setState({error: err, request: false});
+        });
+    }
+
     solicitarCita = (e) => {
         e.preventDefault();
 
@@ -21,7 +44,8 @@ class ModalCrearCita extends Component {
             "fechaCita": document.getElementById("fechaCita").value,
             "horaCita": document.getElementById("horaCita").value,
             "estudio": document.getElementById("estudio").value,
-            "doctor": document.getElementById("doctor").value
+            "doctor": document.getElementById("doctor").value,
+            "consultorio": document.getElementById("consultorio").value
         })
             .then(cita => {
                 console.log('Cita status ', cita.data);
@@ -47,10 +71,27 @@ class ModalCrearCita extends Component {
     modDoctor(e) {
         document.getElementById("doctor").value = e.target.value;
     }
-
+    modConsultorio(e) {
+        document.getElementById("consultorio").value = e.target.value;
+    }
 
     listaCitas = () => {
         this.props.history.push('/ListaCitas');
+    }
+
+    cargarSelect = () => {
+        if(this.state.error){
+            return(
+                <option>No hay opciones</option>
+            );
+        }
+        return this.state.medicos.length ? this.state.medicos.map(md => {
+            let doc= md.nombre +' '+ md.apellidoPaterno+ ' '+ md.apellidoMaterno;
+            return(
+                <option key={md.key} value={doc}>{doc}</option>
+            );
+           
+        }) : <div>Nada</div>
     }
 
     render() {
@@ -95,9 +136,24 @@ class ModalCrearCita extends Component {
                                 </div>
                             </div>
                             <div className="form-row">
-                                <div className="form-group col-md-12">
+                                <div className="form-group col-md-6">
                                     <label htmlFor="doctor">Nombre del Médico</label>
-                                    <input type="text" onChange={e => this.modDoctor(e)} className="form-control" id="doctor" placeholder="Nombre completo" />
+                                    <select id="doctor" className="form-control" onChange={e => this.modDoctor(e)}>
+                                        <option default>Seleccione una opción</option>
+                                        {this.state.request ? <option>Cargando...</option> : this.cargarSelect()}
+                                    </select>
+                                    {/*<input type="text" onChange={e => this.modDoctor(e)} className="form-control" id="doctor" placeholder="Nombre completo" />*/}
+                                </div>
+                                <div className="form-group col-md-6">
+                                    <label htmlFor="consultorio">Consultorio</label>
+                                    <select id="consultorio" className="form-control" onChange={e => this.modConsultorio(e)}>
+                                        <option default>Seleccione una opción</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
                                 </div>
                             </div>
                         </Form>

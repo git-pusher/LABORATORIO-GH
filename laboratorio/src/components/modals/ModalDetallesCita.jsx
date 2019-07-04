@@ -36,7 +36,8 @@ class ModalDetallesCita extends Component {
                                 <h5><b>Fecha: </b> {moment(this.props.children.fechaCita).format('DD/MM/YYYY')} </h5>
                                 <h5><b>Hora: </b> {this.props.children.horaCita} </h5>
                                 <h5><b>Estudio solicitado: </b> {this.props.children.estudio} </h5>
-                                <h5><b>Médico asignado: </b> {medico} </h5><br/>
+                                <h5><b>Médico asignado: </b> {medico} </h5>
+                                <h5><b>Consultorio asignado: </b> {this.props.children.consultorio} </h5><br/>
                                 <h5><b>Estado: </b> {estadoC}</h5>
                             </p>
                         </div>
@@ -46,7 +47,7 @@ class ModalDetallesCita extends Component {
                             <button type="button" onClick={this.props.onHide} className="btn accionCancelar">
                                 <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
                                 &nbsp;Cancelar
-                                </button>
+                            </button>
                         </div>
                     </Modal.Footer>
                 </Modal>

@@ -82,7 +82,7 @@ class ListaPacientes extends Component {
             );
         }
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
-            let modalNuevaCitaClose= () => this.setState({modalNuevaCita: false});
+            let modalNuevaCitaClose = () => this.setState({modalNuevaCita: false});
             let modalHistorialPacienteClose = () => this.setState({modalHistorialPaciente: false});
             return(
                     <tr key={pct._id}>
