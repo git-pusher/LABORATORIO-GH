@@ -8,7 +8,7 @@ import moment from 'moment';
 import ModalCrearCita from '../modals/ModalCrearCita';
 // import ModalHistorialCitas from '../modals/ModalHistorialCitas';
 
-//import './listaPaciente.css';
+import './listaPaciente.css';
 import '../../App.css';
 
 class ListaPacientes extends Component {

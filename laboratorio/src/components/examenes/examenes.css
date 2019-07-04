@@ -1,11 +1,8 @@
 #examenes {
     padding-top: 30px;
-    /* margin: 50px; */
 }
 
 hr {
-    /* -webkit-box-sizing: content-box;
-    box-sizing: content-box; */
     height: 0px;
     width: 100px;
     overflow: visible;
@@ -17,8 +14,6 @@ hr {
     font-size: 15px;
     padding-top: 20px;
     padding-bottom: 20px;
-    /* text-align: justify; */
-    /* border: none; */
 }
 
 .card-exa {

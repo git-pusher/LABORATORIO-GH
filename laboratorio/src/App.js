@@ -13,6 +13,7 @@ import EditarCita from './components/editarCita/EditarCita';
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
 import SesionRegistro from './pages/sesionRegistro/SesionRegistro';
+import ListaRegistros from './components/listaRegistros/ListaRegistros';
 import FormularioRegistro from './components/formularioRegistro/FormularioRegistro';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -56,6 +57,7 @@ class App extends Component {
               <Route path="/Cita" component={Cita}/>
               <Route path="/sesion" component={SesionRegistro}/>
               <Route path="/registro" component={FormularioRegistro}/>
+              <Route path="/ListaRegistros" component={ListaRegistros}/>
               <Route path="/DetallesCita/:id" component={DetallesCita}/>
               <Route path="/EditarCita/:id" component={EditarCita}/>
            </Switch>

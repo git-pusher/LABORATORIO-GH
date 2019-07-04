@@ -5,6 +5,14 @@
     padding: 0;
 }
 
+#footer hr {
+    height: 0px;
+    width: 100px;
+    overflow: visible;
+    border-color: white;
+    margin: 5px auto;
+}
+
  li {
     color:white;
     text-decoration: none;
@@ -13,4 +21,17 @@
 li:hover {
     color: #00050a;
     text-decoration: none;
+}
+
+.hca {
+    color: white;
+}
+
+.FSJS {
+    color: white;
+}
+
+.FSJS:hover {
+    text-decoration: none;
+    color: black;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
+import { NavLink } from 'react-router-dom';
 import MaterialIcon from 'material-icons-react'
 
 class ListaRegistros extends Component {
@@ -14,21 +15,24 @@ class ListaRegistros extends Component {
         }
     }
 
-    // editar = (e) => {
-    //     e.preventDefault();
-    //     if(this.props.type === 'update'){
-    //         axios.post(API_URL+'registros', this.state)
-    //         .then(usuario => usuario.json())
-    //         .then(item => this.props.state.div)
-    //     }else if(this.props.type === 'delete'){
-
-    //     }
-        
-    //   }
-
     componentDidMount(){
         this.getRegistros();
     }
+
+    obtenerRegistro(e, _id) {
+        const registro={}
+        axios.get(API_URL+ `registros/${_id}`, registro)
+        .then( registro => {
+            this.setState({
+                 registro: registro.data,
+                 modalNuevaCita: true
+            })
+             console.log("data: ", registro.data);
+             console.log("PAcietne: ", registro.data.nombre , registro.data.apellidoPaterno , registro.data.apellidoMaterno);
+        }).catch(err => {
+            console.log("Error: ", err); 
+        });
+     }
 
     getRegistros = () => {
         console.log("URL: ", API_URL + 'registros');
@@ -38,8 +42,7 @@ class ListaRegistros extends Component {
             this.setState({ registros: res.data, request: false });
             console.log("YA QUEDÓ EL LISTADO DE REGISTROS DE USUARIO");
         }).catch(err => {
-            console.log("Encontré un error :( ");
-            
+            console.log("Encontré un error :( ");            
             this.setState({error: err, request: false });
         });
     }
@@ -64,7 +67,7 @@ class ListaRegistros extends Component {
                         <td>{rgt.nombreUsuario}</td>
                         <td>{rgt.password}</td>
                         <td>
-                            <NavLink to={`/EditarRegistro/${pct._id}`}>
+                            <NavLink to={`/EditarRegistro/${rgt._id}`}>
                                 <button className="btn accionEditar">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
                                     Editar
@@ -94,11 +97,13 @@ class ListaRegistros extends Component {
 
     render(){
         return(
-            <div className="row md-12">
-                <button className="btn btn-primary" onClick={this.formRegistros}>
-                    <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                    Nuevo Registro de usuario
-                </button>
+            <div className="row md-12 contenedor">
+                <div className="row md-12 containerForm">
+                    <button className="nuevo btn" onClick={this.formRegistros}>
+                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                        Nuevo Registro de usuario
+                    </button>
+                </div>
                 <table className="table">
                 <thead>
                     <tr>
@@ -106,6 +111,10 @@ class ListaRegistros extends Component {
                     <th >Nombre</th>
                     <th >Usuario</th>
                     <th >Contraseña</th>
+                    <th ></th>
+                    <th >Acciones</th>
+                    <th ></th>
+                    <th ></th>
                     </tr>
                 </thead>
                 <tbody>

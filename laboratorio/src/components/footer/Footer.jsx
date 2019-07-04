@@ -14,16 +14,18 @@ class Footer extends Component {
         return (
             <div id="footer" className="container-fluid pb-4 pt-4">
                 <div className="container-fluid">
+                    <hr/>
                     <div className="row text-center foo">
                         <div className="col-12 col-lg">
-                            <li>Social media</li>
-                        </div>                  
-                        <div className="col-12 col-lg">
-                            <li>Dirección</li>
-                        </div>                  
-                        <div className="col-12 col-lg">
-                            <li>Privacidad</li>
-                        </div>
+                            <span className="hca">Hecho con </span>
+                            <span className="hca">💙</span>
+                            <span className="hca"> para el curso de 
+                                <a 
+                                href="https://bedu.org/producto/full-stack-javascript/"
+                                target= "_blank"
+                                className="FSJS"> FSJS</a>.
+                            </span>                            
+                        </div>             
                     </div>                  
                 </div>  
             </div>            

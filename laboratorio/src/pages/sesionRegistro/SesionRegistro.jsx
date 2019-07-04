@@ -19,8 +19,8 @@ class Inicio extends React.Component {
                         <img className="labo-img d-none d-md-block" src={labo} alt="Landsteiner Scientific"/> 
                     </div>
                     <div className="form-group col-12 col-md-6 col-lg-6 sesReg ">                        
-                        {/* <FormularioSesion /> */}
-                        <FormularioRegistro />
+                        <FormularioSesion />
+                        {/* <FormularioRegistro /> */}
                     </div>
                 </div>
             </div>                
