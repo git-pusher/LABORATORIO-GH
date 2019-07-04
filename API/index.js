@@ -245,9 +245,22 @@ app.put('/citas', (req, res) => {
         "fechaCita": datos.fechaCita,
         "horaCita": datos.horaCita,   
         "estudio": datos.estudio,
-        "doctor": datos.doctor
+        "doctor": datos.doctor,
+        "consultorio": datos.consultorio,
+        "estado": datos.estado
     })
-
+    Cita.findByIdAndUpdate(req.params.id, req.body,
+        { new: true}, (err, cita) => {
+            err ? res.status(400).json({
+                success: false,
+                err
+            })
+            : res.status(200).json({
+                success: true,
+                mensaje: "La cita se actualizó correctamente",
+                cita: cita
+            });
+        });
 });
 
 app.listen(PORT, () => {

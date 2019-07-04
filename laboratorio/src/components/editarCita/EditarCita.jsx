@@ -10,6 +10,8 @@ class EditarCita extends Component {
         this.state = {
             request: true,
             citas: [],
+            medicos: [],
+            medico: [],
             error: ''
         };
         this.verDetalles = this.verDetalles.bind(this);
@@ -17,6 +19,7 @@ class EditarCita extends Component {
     }
     componentDidMount() {
         this.verDetalles();
+        this.getMedicos();
     }
 
     verDetalles = (e) => { 
@@ -29,7 +32,8 @@ class EditarCita extends Component {
             horaCita: this.state.horaCita,
             estudio: this.state.estudio,
             doctor: this.state.doctor,
-            consultorio: this.state.consultorio
+            consultorio: this.state.consultorio,
+            estado: this.state.estado
         }
         axios.put(API_URL + `citas/${id}`, cita).
         then(res => {
@@ -43,9 +47,10 @@ class EditarCita extends Component {
                 horaCita: res.data.horacita,
                 estudio:  res.data.estudio,
                 doctor:   res.data.doctor,
-                consultorio: res.data.consultorio
-
+                consultorio: res.data.consultorio,
+                estado: res.data.estado
             });
+            console.log("BIEN: ", res.data);
         }).catch(err => {
             console.log("ERROR: ", err);
             this.setState({error: err, request: false});
@@ -62,11 +67,35 @@ class EditarCita extends Component {
         console.log(this.state);
     }
 
+    getMedicos = () => {
+        axios.get(API_URL + 'doctores')
+        .then(res => {
+            this.setState({medicos: res.data, request: false});
+        }).catch(err => {
+            this.setState({error: err, request: false});
+        });
+    }
+
+    cargarSelect = () => {
+        if(this.state.error){
+            return(
+                <option>No hay opciones</option>
+            );
+        }
+        return this.state.medicos.length ? this.state.medicos.map(md => {
+            let doc= md.nombre +' '+ md.apellidoPaterno+ ' '+ md.apellidoMaterno;
+            return(
+                <option key={md._id} value={doc}>{doc}</option>
+                //<input id="doctorId" hidden value={md._id}/>
+            );
+        }) : <div>Nada</div>
+    }
+
     render(){
         let paciente = this.state.nombre + ' ' + this.state.apellidoPaterno + ' ' + this.state.apellidoMaterno;
         return(
             <div className="contenedor">
-                <form className="" >
+                <form className="" onSubmit={this.verDetalles}>
                     <div className="card">
                         <div className="cardBorder card-body">
                         <b><h3 className="centrarTexto">Editar Cita</h3></b>
@@ -81,11 +110,11 @@ class EditarCita extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label htmlFor="fechaCita">Fecha de la Cita</label>
-                            <input type="text" onChange={this.cambio} className="form-control" id="fechaCita" value={this.state.fechaCita} />
+                            <input type="date" onChange={this.cambio} className="form-control" id="fechaCita" value={this.state.fechaCita} />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="horaCita">Hora de la Cita</label>
-                            <input type="text" onChange={this.cambio} className="form-control" id="horaCita" value={moment(this.state.horaCita).format('HH:mm')} />
+                            <input type="time" onChange={this.cambio} className="form-control" id="horaCita" value={moment(this.state.horaCita).format('HH:mm')} />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="estudio">Estudio</label>
@@ -95,12 +124,15 @@ class EditarCita extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="doctor">Nombre del Médico</label>
-                            <input type="text" readOnly onChange={this.cambio} className="form-control" id="doctor" placeholder="Nombre completo" value={this.state.doctor} />
+                            <select id="doctor" className="form-control" onChange={this.cambio}>
+                                <option default>{this.state.doctor}</option>
+                                {this.state.request ? <option>Cargando...</option> : this.cargarSelect()}
+                             </select>
                         </div>
                         <div className="form-group col-md-6">
                             <label htmlFor="consultorio">Consultorio</label>
                                 <select id="consultorio" className="form-control" onChange={e => this.cambio}>
-                                    <option defaultValue>{this.state.consultorio}</option>
+                                    <option default>{this.state.consultorio}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
