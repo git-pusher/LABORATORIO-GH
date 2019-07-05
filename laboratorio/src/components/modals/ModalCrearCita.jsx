@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import API_URL from '../../constants';
-import { Redirect } from 'react-router-dom';
 import MaterialIcon from 'material-icons-react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 class ModalCrearCita extends Component {
 
@@ -18,6 +20,7 @@ class ModalCrearCita extends Component {
             medico: [],
             error: ''
         }
+        //this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount() {
         this.getMedicos();
@@ -63,8 +66,8 @@ class ModalCrearCita extends Component {
             });
     }
 
-    modfechaCita(e) {
-        document.getElementById("fechaCita").value = e.target.value;
+    modfechaCita(date) {
+        this.setState({fechaNacimiento: date});
     }
     modHoraCita(e) {
         document.getElementById("horaCita").value = e.target.value;
@@ -133,7 +136,13 @@ class ModalCrearCita extends Component {
                             <div className="form-row">
                                 <div className="form-group col-md-4">
                                     <label htmlFor="fechaCita">Fecha de la Cita</label>
-                                    <input type="date" onChange={e => this.modfechaCita(e)} className="form-control" id="fechaCita" />
+                                    {/*<input type="date" onChange={e => this.modfechaCita(e)} className="form-control" id="fechaCita" />*/}
+                                    <DatePicker 
+                                        selected={this.state.fechaCita} 
+                                        onChange={this.handleChange} 
+                                        className="form-control" 
+                                        placeholderText="Seleccione una fecha"
+                                    />
                                 </div>
                                 <div className="form-group col-md-4">
                                     <label htmlFor="horaCita">Hora de la Cita</label>
