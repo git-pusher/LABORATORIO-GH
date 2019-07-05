@@ -68,7 +68,7 @@ class ListaRegistros extends Component {
                         <td>{rgt.nombreUsuario}</td>
                         <td>{rgt.password}</td>
                         <td>
-                            <NavLink to={`/EditarRegistros/${rgt._id}`}>
+                            <NavLink to={`/EditarRegistro/${rgt._id}`}>
                                 <button className="btn accionEditar">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
                                     Editar

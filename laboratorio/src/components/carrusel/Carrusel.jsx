@@ -39,14 +39,16 @@ class Carrusel extends Component {
                                             Ut enim ad minim veniam, quis nos toud duty ullamco laboris nisi ut aliquip ex ea 
                                             commodoregur. Velit esse cillum dolore eu fugiat nulla pariatur. 
                                             Excepteur sint occaecat cupidatat no proidente, sol en la culpa qui officia deserunt 
-                                            mollit anim id est laborum </p>
-                                        {/* <button type="button" onClick={this.listaCitas} className="btn btn-lands">Citas</button> */}
+                                            mollit anim id est laborum </p>                                        
                                         <Link to="/ListaCitas" className="btn btn-lands" >Citas</Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>  
+                </div>
+                <div className="container-fluid debajoCarrusel">
+                    <div className="row bc"> <br/> </div>
                 </div>
             </div>
             

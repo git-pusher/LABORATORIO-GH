@@ -19,6 +19,7 @@ class EditarPaciente extends Component {
 
     componentDidMount() {
         this.editarRegistro();
+        
     }
 
     editarRegistro = (e) => {

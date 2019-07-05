@@ -12,7 +12,7 @@ class Footer extends Component {
     render(){
         console.log(this.props.location);
         return (
-            <div id="footer" className="container-fluid pb-4 pt-4">
+            <div id="footer" className="container-fluid pt-2 pb-2">
                 <div className="container-fluid">
                     <hr/>
                     <div className="row text-center foo">

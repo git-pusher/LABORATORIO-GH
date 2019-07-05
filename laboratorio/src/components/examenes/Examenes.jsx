@@ -15,7 +15,7 @@ class Examenes extends Component {
     render(){
         console.log(this.props.location);
         return (
-            <div id="examenes" className="mt-4">
+            <div id="examenes" className="examens mt-4">
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-12 text-center">
@@ -27,7 +27,7 @@ class Examenes extends Component {
                                 dolor sit amet consectetur adipisicing elit. </p>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row cards-examenes">
                         <div className="col-sm-12 col-md-6 col-lg-3 mb-4">
                             <div className="card card-exa"  id="c-hematologia">
                                 <img className="card-img-top" src={hematologia} alt="Hematología completa"/>
