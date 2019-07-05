@@ -73,7 +73,7 @@ class ListaPacientes extends Component {
                     <tr key={pct._id}>
                         <th></th>
                         <td>{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
-                        <td>{moment(pct.fechaNacimiento).format('DD/MM/YYYY')}</td>
+                        <td>{moment(pct.fechaNacimiento).format('DD-MM-YYYY')}</td>
                         <td>{pct.correoElectronico}</td>
                         <td>{pct.telefono}</td>
                         <td>{pct.direccion}</td>

@@ -55,6 +55,17 @@ class ModalCrearCita extends Component{
         let paciente = this.props.children.nombre + ' ' + this.props.children.apellidoPaterno + ' ' + this.props.children.apellidoMaterno;
         return(
             <section className="contendor">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <Modal
                     {...this.props}
                     size="lg"

@@ -15,8 +15,14 @@ class Cita extends Component {
         console.log('Creando cita...');
         axios.post(API_URL+'citas/', this.state)
         .then(cita => {
-            console.log('Cita creada correctamente: ', cita, this.state);
-            this.listaCitas();
+            if (cita.data.success) {
+                console.log('Cita creada correctamente: ', cita, this.state);
+                toast.success( cita.data.mensaje);
+            }else if(cita.data.err){
+                console.log('Error...');
+                toast.error(cita.data.mensaje);
+            }
+            //this.listaCitas();
         }).catch(err => {
             console.log('Error...', err);
         });
@@ -38,7 +44,19 @@ class Cita extends Component {
     render(){  
           //let paciente = this.props.children.nombre + ' ' + this.props.children.apellidoPaterno + ' ' + this.props.children.apellidoMaterno;
         return(
+            
             <div className="contenedor">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <form className="" onSubmit={this.guardar}>    
                     <div className="card">
                         <div className=" card-body">
