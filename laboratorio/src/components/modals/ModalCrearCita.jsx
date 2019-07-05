@@ -5,29 +5,31 @@ import { Redirect } from 'react-router-dom';
 import MaterialIcon from 'material-icons-react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 class ModalCrearCita extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             request: true,
             medicos: [],
             medico: [],
             error: ''
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getMedicos();
     }
 
     getMedicos = () => {
         axios.get(API_URL + 'doctores')
-        .then(res => {
-            this.setState({medicos: res.data, request: false});
-        }).catch(err => {
-            this.setState({error: err, request: false});
-        });
+            .then(res => {
+                this.setState({ medicos: res.data, request: false });
+            }).catch(err => {
+                this.setState({ error: err, request: false });
+            });
     }
 
     solicitarCita = (e) => {
@@ -49,11 +51,14 @@ class ModalCrearCita extends Component {
             .then(cita => {
                 console.log('Cita status ', cita.data);
                 if (cita.data.success) {
-                    alert("Cita creada correctamente");
+                    toast.success( cita.data.mensaje);
+                }else if(cita.data.err){
+                    toast.error(cita.data.mensaje);
                 }
-                window.location.reload(true);
+                //window.location.reload(true);
                 //return <Redirect to='/Citas' /> 
             }).catch(err => {
+                toast.error("Algo salió mal");
                 console.log('Error...', err);
             });
     }
@@ -79,14 +84,14 @@ class ModalCrearCita extends Component {
     }
 
     cargarSelect = () => {
-        if(this.state.error){
-            return(
+        if (this.state.error) {
+            return (
                 <option>No hay opciones</option>
             );
         }
         return this.state.medicos.length ? this.state.medicos.map(md => {
-            let doc= md.nombre +' '+ md.apellidoPaterno+ ' '+ md.apellidoMaterno;
-            return(
+            let doc = md.nombre + ' ' + md.apellidoPaterno + ' ' + md.apellidoMaterno;
+            return (
                 <option key={md._id} value={doc}>{doc}</option>
                 //<input id="doctorId" hidden value={md._id}/>
             );
@@ -97,6 +102,17 @@ class ModalCrearCita extends Component {
         let paciente = this.props.children.nombre + ' ' + this.props.children.apellidoPaterno + ' ' + this.props.children.apellidoMaterno;
         return (
             <section className="contendor">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <Modal
                     {...this.props}
                     size="lg"

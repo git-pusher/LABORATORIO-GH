@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 class EditarPaciente extends Component {
     constructor(props) {
@@ -24,7 +27,7 @@ class EditarPaciente extends Component {
             nombre: this.state.nombre,
             apellidoPaterno: this.state.apellidoPaterno,
             apellidoMaterno: this.state.apellidoMaterno,
-            fechaNaciemiento: this.state.fechaNacimiento,
+            fechaNacimiento: this.state.fechaNacimiento,
             correoElectronico: this.state.correoElectronico,
             telefono: this.state.telefono,
             direccion: this.state.direccion
@@ -37,13 +40,15 @@ class EditarPaciente extends Component {
                     nombre: res.data.nombre,
                     apellidoPaterno: res.data.apellidoPaterno,
                     apellidoMaterno: res.data.apellidoMaterno,
-                    fechaNaciemiento: res.data.fechaNacimiento,
+                    fechaNacimiento: moment(res.data.fechaNacimiento).format('YYYY-MM-DD'),
                     correoElectronico: res.data.correoElectronico,
                     telefono: res.data.telefono,
                     direccion: res.data.direccion
                 });
+                toast.success(res.data.mensaje);
             }).catch(err => {
                 console.log("ERROR: ", err);
+                toast.success("ERROR: ", err);
                 this.setState({ error: err, request: false });
             });
 
@@ -56,13 +61,24 @@ class EditarPaciente extends Component {
     cambio = (event) => {
         const { id, value } = event.target;
         this.setState({ [id]: value });
-        
+
         console.log(this.state);
     }
 
     render() {
         return (
             <div className="contenedor">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <form className="" onSubmit={this.editarRegistro}>
                     <div className="card">
                         <div className="cardBorder card-body">
@@ -86,7 +102,7 @@ class EditarPaciente extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
-                            <input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento" value={this.state.fechaNacimiento}/>
+                            <input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento" value={this.state.fechaNacimiento} />
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="correoElectronico">Correo Electrónico</label>
