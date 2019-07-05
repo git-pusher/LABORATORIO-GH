@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_URL from '../../constants';
 import MaterialIcon from 'material-icons-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 class EditarMedico extends Component {
     constructor(props) {
@@ -42,8 +44,10 @@ class EditarMedico extends Component {
                 noCedula: res.data.noCedula,
                 especialidad : res.data.especialidad
             });
+            toast.success("Médico actualizado con éxito");
         }).catch(err => {
             console.log("ERROR: ", err);
+            toast.error("ERROR al actualizar médico");
             this.setState({error: err, request: false});
         });
     }
@@ -61,6 +65,17 @@ class EditarMedico extends Component {
     render(){
         return(
             <div className="contenedor">
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <form className="" onSubmit={this.editarRegistro}>    
                     <div className="card">
                         <div className="cardBorder card-body">
@@ -68,44 +83,44 @@ class EditarMedico extends Component {
                         </div>
                     </div><br/><br/>
                     <div className="form-row">
-                    <div className="form-group col-md-4">
-                        <label htmlFor="nombre">Nombre</label>
-                        <input type="text" onChange={this.cambio} className="form-control" id="nombre" value={this.state.nombre} placeholder="Nombre(s)"/>
-                    </div>
-                    <div className="form-group col-md-4">
-                        <label htmlFor="apellidoPaterno">Apellido Paterno</label>
-                        <input type="text" onChange={this.cambio} className="form-control" id="apellidoPaterno" value={this.state.apellidoPaterno} placeholder="Apellido Paterno"/>
-                    </div>
-                    <div className="form-group col-md-4">
-                        <label htmlFor="apellidoMaterno">Apellido Materno</label>
-                        <input type="text" onChange={this.cambio} className="form-control" id="apellidoMaterno" value={this.state.apellidoMaterno} placeholder="Apellido Materno"/>
-                    </div>
-                    </div>
-                    <div className="form-row">
-                    <div className="form-group col-md-6">
-                        <label htmlFor="correoElectronico">Correo Electrónico</label>
-                        <input type="email" onChange={this.cambio} className="form-control" id="correoElectronico" value={this.state.correoElectronico} placeholder="Ejemplo: correo@algo.com"/>
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label htmlFor="telefono">Teléfono</label>
-                        <input type="text" onChange={this.cambio} className="form-control" id="telefono" value={this.state.telefono} placeholder="Ejemplo: 55 1122 3344"/>
-                    </div>
+                        <div className="form-group col-md-4">
+                            <label htmlFor="nombre">Nombre</label>
+                            <input type="text" onChange={this.cambio} className="form-control" id="nombre" value={this.state.nombre} placeholder="Nombre(s)"/>
+                        </div>
+                        <div className="form-group col-md-4">
+                            <label htmlFor="apellidoPaterno">Apellido Paterno</label>
+                            <input type="text" onChange={this.cambio} className="form-control" id="apellidoPaterno" value={this.state.apellidoPaterno} placeholder="Apellido Paterno"/>
+                        </div>
+                        <div className="form-group col-md-4">
+                            <label htmlFor="apellidoMaterno">Apellido Materno</label>
+                            <input type="text" onChange={this.cambio} className="form-control" id="apellidoMaterno" value={this.state.apellidoMaterno} placeholder="Apellido Materno"/>
+                        </div>
                     </div>
                     <div className="form-row">
-                    <div className="form-group col-md-6">
-                        <label htmlFor="noCedula">Cédula Profesional</label>
-                        <input type="text" onChange={this.cambio} className="form-control" id="noCedula" value={this.state.noCedula} placeholder="Min. 7 dígitos, Max. 8 dígitos" pattern="[0-9]+$"/>
-                        <small id="noCedula" className="form-text text-muted">Ingresar solo números, completar con ceros a la izquierda en caso de ser menor a los dígitos solicitados</small>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="correoElectronico">Correo Electrónico</label>
+                            <input type="email" onChange={this.cambio} className="form-control" id="correoElectronico" value={this.state.correoElectronico} placeholder="Ejemplo: correo@algo.com"/>
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="telefono">Teléfono</label>
+                            <input type="text" onChange={this.cambio} className="form-control" id="telefono" value={this.state.telefono} placeholder="Ejemplo: 55 1122 3344"/>
+                        </div>
                     </div>
-                    <div className="form-group col-md-6">
-                        <label htmlFor="especialidad">Especialidad</label>
-                        <select id="especialidad" className="form-control" onChange={this.cambio}>
-                        <option default value={this.state.especialidad}>Seleccione una opción</option>
-                        <option value="Cardiología">Cardiología</option>
-                        <option value="Hematología">Hematología</option>
-                        <option value="Traumatología">Traumatología</option>
-                        </select>
-                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                            <label htmlFor="noCedula">Cédula Profesional</label>
+                            <input type="text" onChange={this.cambio} className="form-control" id="noCedula" value={this.state.noCedula} placeholder="Min. 7 dígitos, Max. 8 dígitos" pattern="[0-9]+$"/>
+                            <small id="noCedula" className="form-text text-muted">Ingresar solo números, completar con ceros a la izquierda en caso de ser menor a los dígitos solicitados</small>
+                        </div>
+                        <div className="form-group col-md-6">
+                            <label htmlFor="especialidad">Especialidad</label>
+                            <select id="especialidad" className="form-control" onChange={this.cambio}>
+                            <option default>{this.state.especialidad}</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Hematología">Hematología</option>
+                            <option value="Traumatología">Traumatología</option>
+                            </select>
+                        </div>
                     </div>
                     <div className=" form-row">
                         <div className="containerForm form-group col-md-12">

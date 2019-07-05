@@ -45,10 +45,10 @@ class EditarPaciente extends Component {
                     telefono: res.data.telefono,
                     direccion: res.data.direccion
                 });
-                toast.success(res.data.mensaje);
+                toast.success("Paciente actualizado con éxito");
             }).catch(err => {
                 console.log("ERROR: ", err);
-                toast.success("ERROR: ", err);
+                toast.success("ERROR al actualizar paciente");
                 this.setState({ error: err, request: false });
             });
 

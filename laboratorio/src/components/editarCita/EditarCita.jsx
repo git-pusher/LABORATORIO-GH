@@ -48,6 +48,7 @@ class EditarCita extends Component {
                 toast.success("Editado correctamente");
             }).catch(err => {
                 console.log("ERROR: ", err);
+                toast.error("ERROR al actualizar cita");
                 this.setState({ error: err, request: false });
             });
     }
