@@ -34,7 +34,7 @@ class Registrar extends Component {
             console.log('Usuario registrado correctamente: ', registro);
             this.listaRegistros();
             }).catch(err => {
-                // toast.error('Registro no realizado. Inténtalo nuevamente.')
+                toast.error('Registro no realizado. Inténtalo nuevamente.')
             console.log("Ocurrió un error", err);
             });
     //   }
@@ -58,7 +58,7 @@ class Registrar extends Component {
                     autoClose={2000}
                     hideProgressBar
                     newestOnTop={false}
-                    closeOnClick
+                    // closeOnClick
                     rtl={false}
                     pauseOnVisibilityChange
                     draggable
