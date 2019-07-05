@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import MaterialIcon from 'material-icons-react'
 import API_URL from '../../constants'
 import './paciente.css'

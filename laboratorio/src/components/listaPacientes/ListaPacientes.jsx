@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
 import ModalCrearCita from '../modals/ModalCrearCita';
-// import ModalHistorialCitas from '../modals/ModalHistorialCitas';
+import ModalHistorialCitas from '../modals/ModalHistorialCitas';
 
-import './listaPaciente.css';
+// import './listaPaciente.css';
 import '../../App.css';
 
 class ListaPacientes extends Component {
@@ -19,7 +19,10 @@ class ListaPacientes extends Component {
             request: true,
             pacientes: [],
             paciente:[],
+            historialCitas: [],
+            cita: [],
             modalNuevaCita: false,
+            modalHistorialPaciente: false,
             error: ''
         }
     }
@@ -43,6 +46,25 @@ class ListaPacientes extends Component {
            console.log("Error: ", err); 
        });
     }
+
+    historialPaciente(e, pacienteId){
+        e.preventDefault();
+        console.log("ID Paciente:", pacienteId);
+        
+        axios.get(API_URL+ `citasPacientes/${pacienteId}`)
+        .then( res => {
+           if(res.data.success){
+            this.setState({
+                historialCitas: res.data.citas,
+                modalHistorialPaciente: true
+            });
+           }
+            console.log("data para historial: ", this.state.historialCitas);
+        }).catch(err => {
+           console.log("Error: ", err); 
+        });
+    }
+
     getPacientes = () => {
         console.log("URL: ", API_URL + 'pacientes');
         axios.get(API_URL + 'pacientes')
@@ -68,7 +90,8 @@ class ListaPacientes extends Component {
             );
         }
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
-            let modalNuevaCitaClose= () => this.setState({modalNuevaCita: false});
+            let modalNuevaCitaClose = () => this.setState({modalNuevaCita: false});
+            let modalHistorialPacienteClose = () => this.setState({modalHistorialPaciente: false});
             return(
                     <tr key={pct._id}>
                         <th></th>
@@ -99,11 +122,11 @@ class ListaPacientes extends Component {
                             <ModalCrearCita show={this.state.modalNuevaCita} onHide={modalNuevaCitaClose}>{this.state.paciente}</ModalCrearCita>
                         </td>
                         <td>
-                            <button className="btn accionHistorial" onClick={(e) => this.obtenerPaciente(e, pct._id)}>
+                            <button className="btn accionHistorial" onClick={(e) => this.historialPaciente(e, pct._id)}>
                                 <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                                 Historial
                             </button>
-                            <ModalCrearCita show={this.state.modalNuevaCita} onHide={modalNuevaCitaClose}>{this.state.paciente}</ModalCrearCita>
+                            <ModalHistorialCitas show={this.state.modalHistorialPaciente} onHide={modalHistorialPacienteClose}>{this.state.historialCitas}</ModalHistorialCitas>
                         </td>
                     </tr>	
             );

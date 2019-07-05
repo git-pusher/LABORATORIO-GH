@@ -93,7 +93,7 @@ class ListaRegistros extends Component {
     }
 
     formRegistros = () => {
-        this.props.history.push('/registros'); 
+        this.props.history.push('/registrar'); 
     }
 
     render(){

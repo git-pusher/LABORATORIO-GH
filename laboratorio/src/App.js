@@ -12,6 +12,7 @@ import Cita from './components/cita/Cita';
 import ListaCitas from './components/listaCitas/ListaCitas';
 import DetallesCita from './components/detallesCita/DetallesCita';
 import EditarCita from './components/editarCita/EditarCita';
+import Registrar from './components/registrar/Registrar';
 import SesionRegistro from './pages/sesionRegistro/SesionRegistro';
 import ListaRegistros from './components/listaRegistros/ListaRegistros';
 import EditarRegistros from './components/editarRegistro/EditarRegistros';
@@ -60,6 +61,7 @@ class App extends Component {
               <Route path="/EditarCita/:id" component={EditarCita}/>
               <Route path="/sesion" component={SesionRegistro}/>
               <Route path="/registro" component={SesionRegistro}/>
+              <Route path="/registrar" component={Registrar}/>
               <Route path="/ListaRegistros" component={ListaRegistros}/>
               <Route path="/EditarRegistro/:id" component={EditarRegistros}/>
            </Switch>
