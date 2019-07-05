@@ -21,12 +21,11 @@
 * Redireccionamiento entre pag
 * Pantalla ver detalles v1
 * Accion Editar
+##Catálogo de registros de usuario
+* Formulario
+* Listado de usuarios registrados
+* Redireccionamiento entre pag
 ## Modals
-<<<<<<< HEAD
-* Crear nueva cita v1
-=======
 * Crear nueva cita
 * Ver detalles de cada cita
 * Ver historial de citas de cada paciente
-
->>>>>>> devReact
