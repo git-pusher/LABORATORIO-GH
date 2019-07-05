@@ -4,14 +4,21 @@ import axios from 'axios';
 import MaterialIcon from 'material-icons-react'
 import './paciente.css'
 import API_URL from '../../constants'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 class Paciente extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      //fechaNacimiento: new Date()
+    }
+    this.handleChange = this.handleChange.bind(this);
   }
 
   guardar = (e) => {
@@ -37,6 +44,12 @@ class Paciente extends Component {
     const { id, value } = event.target;
     this.setState({ [id]: value })
     console.log(this.state);
+  }
+
+  handleChange(date){
+    this.setState({
+      fechaNacimiento: date
+    });
   }
 
   listaPacientes = () => {
@@ -79,8 +92,14 @@ class Paciente extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-4">
-              <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
-              <input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento" />
+              <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label><br></br>
+              {/*<input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento" />*/}
+              <DatePicker 
+                selected={this.state.fechaNacimiento} 
+                onChange={this.handleChange} 
+                className="form-control" 
+                placeholderText="Seleccione una fecha"
+              />
             </div>
             <div className="form-group col-md-4">
               <label htmlFor="correoElectronico">Correo Electrónico</label>
