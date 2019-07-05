@@ -38,8 +38,8 @@ class Examenes extends Component {
                                                         expone la cantidad de glóbulos rojos, glóbulos blancos, plaquetas y hemoglobina, 
                                                         lo cual le permite al profesional detectar si el paciente manifiesta alguna 
                                                         enfermedad de la sangre. A partir de la hematología completa se pueden detectar 
-                                                        infecciones, anemia, problemas de coagulación, etc.  </p>
-        
+                                                        infecciones, anemia, problemas de coagulación, etc.  
+                                    </p>        
                                 </div>
                             </div>
                         </div>
@@ -51,8 +51,8 @@ class Examenes extends Component {
                                     <p className="card-text">También se lo denomina panel metabólico básico (BMP). Este tipo de análisis de 
                                                         sangre permite medir las sustancias químicas presentes en la sangre utilizando 
                                                         el plasma. Al utilizar el plasma se puede obtener información referida a los 
-                                                        huesos, los músculos, el corazón, el hígado y los riñones.</p>
-        
+                                                        huesos, los músculos, el corazón, el hígado y los riñones.
+                                    </p>        
                                 </div>
                             </div>
                         </div>
@@ -60,10 +60,11 @@ class Examenes extends Component {
                   <div className="card card-exa" id="c-enzimas">
                     <img className="card-img-top" src={enzimas} alt="Enzimas sanguíneas"/>
                     <div className="card-body">
-                      <h5 className="card-title">Enzimas sanguíneas</h5>
-                      <p className="card-text"> A partir de este tipo de analisis de sangre se pueden controlar ciertas
+                        <h5 className="card-title">Enzimas sanguíneas</h5>
+                        <p className="card-text"> A partir de este tipo de analisis de sangre se pueden controlar ciertas
                                             reacciones químicas en el cuerpo. El análisis de enzimas sanguíneas permite 
-                                            por ejemplo detectar un ataque al corazón. </p>
+                                            por ejemplo detectar un ataque al corazón. 
+                        </p>
                     </div>
                   </div>
                 </div>
@@ -75,7 +76,8 @@ class Examenes extends Component {
                         <p className="card-text">Mediante este tipo de análisis se busca determinar el nivel de coagulación 
                                              del paciente para poder diagnosticar trastornos en la coagulación. Un resultado que arroje un 
                                              nivel anormal de coagulación puede representar un riesgo de sangrado o que se formen coágulos 
-                                             en los vasos sanguíneos. lore</p>
+                                             en los vasos sanguíneos. lore
+                        </p>
                       </div>
                     </div>
                   </div>
