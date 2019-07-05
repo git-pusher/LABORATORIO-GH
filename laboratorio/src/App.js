@@ -59,7 +59,7 @@ class App extends Component {
               <Route path="/DetallesCita/:id" component={DetallesCita}/>
               <Route path="/EditarCita/:id" component={EditarCita}/>
               <Route path="/sesion" component={SesionRegistro}/>
-              <Route path="/registro" component={FormularioRegistro}/>
+              <Route path="/registro" component={SesionRegistro}/>
               <Route path="/ListaRegistros" component={ListaRegistros}/>
               <Route path="/EditarRegistro/:id" component={EditarRegistros}/>
            </Switch>

@@ -26,9 +26,9 @@
 }
 
 .dropdown-item.active, .dropdown-item:active {
-    color: #fff;
+    color: black;
     text-decoration: none;
-    background-color: #42929f;
+    background-color: white;
 }
 
 /* .navbar-inverse .navbar-nav>li>a {
