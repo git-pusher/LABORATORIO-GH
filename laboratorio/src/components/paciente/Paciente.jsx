@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import MaterialIcon from 'material-icons-react'
-import './paciente.css'
 import API_URL from '../../constants'
+import './paciente.css'
 
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
