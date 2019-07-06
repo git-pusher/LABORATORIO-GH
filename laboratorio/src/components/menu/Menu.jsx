@@ -24,11 +24,11 @@ class Menu extends Component {
 					</button>     
 					<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<ul className="navbar-nav mr-auto">
-								<NavLink className="nav-link" to="/">Inicio </NavLink> 
-								<NavLink className="nav-link" to="/ListaMedicos">Médicos </NavLink> 
-								<NavLink className="nav-link" to="/ListaPacientes">Pacientes </NavLink> 
-								<NavLink className="nav-link" to="/ListaCitas">Citas </NavLink> 
-								<NavLink className="nav-link" to="/ListaRegistros">Registros </NavLink>
+								<NavLink className="nav-item nav-link" to="/">Inicio </NavLink> 
+								<NavLink className="nav-item nav-link" to="/ListaMedicos">Médicos </NavLink> 
+								<NavLink className="nav-item nav-link" to="/ListaPacientes">Pacientes </NavLink> 
+								<NavLink className="nav-item nav-link" to="/ListaCitas">Citas </NavLink> 
+								<NavLink className="nav-item nav-link" to="/ListaRegistros">Usuarios </NavLink>
 						</ul>
 						<ul className="nav navbar-nav navbar-right">
 							<li><NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>

@@ -20,16 +20,14 @@ class EditarRegistros extends Component {
     }
 
     editarRegistroUsuario = (e) => {
-        
+        e.preventDefault()
         const { id } = this.props.match.params;
         const registro = {
             nombre: this.state.nombre,
             nombreUsuario: this.state.nombreUsuario,
             password: this.state.password
-        }
-        // e.preventDefault();
+        }        
         console.log(API_URL + `registros/${id}`, registro);
-        // e.preventDefault();
         axios.put(API_URL + `registros/${id}`, registro).
             then(res => {
                 this.setState({
@@ -73,7 +71,7 @@ class EditarRegistros extends Component {
                 <form className="" onSubmit={this.editarRegistroUsuario}>
                     <div className="card">
                         <div className="cardBorder card-body">
-                            <b><h3 className="centrarTexto">Editar Registro: {this.state.nombre}</h3></b>
+                            <b><h3 className="centrarTexto">Editar Usuario: {this.state.nombre}</h3></b>
                         </div>
                     </div><br /><br />
                     <div className="form-row">

@@ -86,7 +86,7 @@ class ListaRegistros extends Component {
         }) : <div className="cardCentrado">
                 <div className="row md-12 card">
                     <div className="cardBorder card-body">
-                        <b><h3 className="centrarTexto">No hay registros para mostrar.</h3></b>
+                        <b><h3 className="centrarTexto">No hay usuarios para mostrar.</h3></b>
                     </div>
                 </div>
             </div>
@@ -102,27 +102,27 @@ class ListaRegistros extends Component {
                 <div className="row md-12 containerForm">
                     <button className="nuevo btn" onClick={this.formRegistros}>
                         <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                        Nuevo Registro de Usuario
+                        Nuevo Usuario
                     </button>
                 </div>
-                <table className="table">
-                <thead>
-                    <tr>
-                    <th ></th>
-                    <th >Nombre</th>
-                    <th >Usuario</th>
-                    <th >Contraseña</th>
-                    <th ></th>
-                    <th >Acciones</th>
-                    <th ></th>
-                    <th ></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarRegistros()}
-                </tbody>
-                </table>
-            </div>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Contraseña</th>
+                                <th scope="col"></th>
+                                <th scope="col">Acciones</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.request ? <tr><td scope="row">Cargando... </td></tr> : this.pintarRegistros()}
+                        </tbody>
+                    </table>
+                </div>
             );
     }
     
