@@ -41,6 +41,7 @@ class EditarMedico extends Component {
     }
 
     editarRegistro = (e) => { 
+        e.preventDefault();
         const {id} = this.props.match.params;
         axios.put(API_URL + `doctores/${id}`, {
             nombre: this.state.nombre,

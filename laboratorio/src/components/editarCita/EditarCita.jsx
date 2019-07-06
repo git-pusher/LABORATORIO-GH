@@ -50,6 +50,7 @@ class EditarCita extends Component {
     }
 
     editarRegistro = (e) => {
+        e.preventDefault();
         const { id } = this.props.match.params;
         axios.put(API_URL + `citas/${id}`, {
             pacienteId: this.state.pacienteId,
@@ -65,7 +66,13 @@ class EditarCita extends Component {
         }).
             then(res => {
                 //this.setState({ citas: res.data, request: false });
-                toast.success("Editado correctamente");
+                if(res.data.success){
+                    toast.success("Cita actualizada correctamente");
+                    this.listaCitas();
+                }else{
+                    toast.error("ERROR al actualizar cita");
+                }
+                
             }).catch(err => {
                 console.log("ERROR: ", err);
                 toast.error("ERROR al actualizar cita");
