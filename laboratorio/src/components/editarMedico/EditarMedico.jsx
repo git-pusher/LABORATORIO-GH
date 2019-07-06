@@ -13,29 +13,18 @@ class EditarMedico extends Component {
             doctores: [],
             error: ''
         };
-        this.editarRegistro = this.editarRegistro.bind(this);
+        //this.editarRegistro = this.editarRegistro.bind(this);
     }
 
     componentDidMount() {
-        this.editarRegistro();
+        this.obtenerMedicos();
     }
 
-    editarRegistro = (e) => { 
-        const {id} = this.props.match.params;
-        const doctor ={
-            nombre: this.state.nombre,
-            apellidoPaterno: this.state.apellidoPaterno,
-            apellidoMaterno: this.state.apellidoMaterno,
-            correoElectronico: this.state.correoElectronico,
-            telefono: this.state.telefono,
-            noCedula : this.state.noCedula,
-            especialidad : this.state.especialidad
-        }
-        console.log(API_URL + `doctores/${id}`, doctor);
-        axios.put(API_URL + `doctores/${id}`, doctor).
-        then(res => {
-            console.log("Detalles: ", res.data);
-            this.setState({ 
+    obtenerMedicos = e => {
+        const { id } = this.props.match.params;
+        axios.get(API_URL+`doctores/${id}`)
+        .then(res => {
+            this.setState({
                 nombre: res.data.nombre,
                 apellidoPaterno: res.data.apellidoPaterno,
                 apellidoMaterno: res.data.apellidoMaterno,
@@ -43,7 +32,27 @@ class EditarMedico extends Component {
                 telefono: res.data.telefono,              
                 noCedula: res.data.noCedula,
                 especialidad : res.data.especialidad
-            });
+            })
+        }).catch(error => {
+            console.log("ERROR: ", error);
+            toast.success("ERROR al actualizar médico");
+            this.setState({ error: error, request: false });
+        });
+    }
+
+    editarRegistro = (e) => { 
+        const {id} = this.props.match.params;
+        axios.put(API_URL + `doctores/${id}`, {
+            nombre: this.state.nombre,
+            apellidoPaterno: this.state.apellidoPaterno,
+            apellidoMaterno: this.state.apellidoMaterno,
+            correoElectronico: this.state.correoElectronico,
+            telefono: this.state.telefono,              
+            noCedula: this.state.noCedula,
+            especialidad: this.state.especialidad
+        }).
+        then(res => {
+            console.log("éxito en Detalles: ", res.data);
             toast.success("Médico actualizado con éxito");
         }).catch(err => {
             console.log("ERROR: ", err);

@@ -20,7 +20,7 @@ class ModalCrearCita extends Component {
             medico: [],
             error: ''
         }
-        //this.handleChange = this.handleChange.bind(this);
+        this.modFechaCita = this.modFechaCita.bind(this);
     }
     componentDidMount() {
         this.getMedicos();
@@ -37,15 +37,13 @@ class ModalCrearCita extends Component {
 
     solicitarCita = (e) => {
         e.preventDefault();
-
-        //console.log("params: ",params);
-
+        console.log("fecha: ",this.state.fechaCita);
         axios.post(API_URL + 'citas/', {
             "pacienteId": this.props.children._id,
             "nombre": this.props.children.nombre,
             "apellidoPaterno": this.props.children.apellidoPaterno,
             "apellidoMaterno": this.props.children.apellidoMaterno,
-            "fechaCita": document.getElementById("fechaCita").value,
+            "fechaCita": this.state.fechaCita,//document.getElementById("fechaCita").value,
             "horaCita": document.getElementById("horaCita").value,
             "estudio": document.getElementById("estudio").value,
             "doctor": document.getElementById("doctor").value,
@@ -66,8 +64,8 @@ class ModalCrearCita extends Component {
             });
     }
 
-    modfechaCita(date) {
-        this.setState({fechaNacimiento: date});
+    modFechaCita(date) {
+        this.setState({fechaCita: date});
     }
     modHoraCita(e) {
         document.getElementById("horaCita").value = e.target.value;
@@ -138,8 +136,9 @@ class ModalCrearCita extends Component {
                                     <label htmlFor="fechaCita">Fecha de la Cita</label>
                                     {/*<input type="date" onChange={e => this.modfechaCita(e)} className="form-control" id="fechaCita" />*/}
                                     <DatePicker 
+                                        id="fechaCita"
                                         selected={this.state.fechaCita} 
-                                        onChange={this.handleChange} 
+                                        onChange={this.modFechaCita} 
                                         className="form-control" 
                                         placeholderText="Seleccione una fecha"
                                     />

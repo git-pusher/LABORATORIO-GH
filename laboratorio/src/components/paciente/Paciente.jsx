@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import ReactDOM from 'react-dom';
 import MaterialIcon from 'material-icons-react'
 import './paciente.css'
 import API_URL from '../../constants'

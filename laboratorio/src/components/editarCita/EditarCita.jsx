@@ -16,35 +16,55 @@ class EditarCita extends Component {
             medico: [],
             error: ''
         };
-        this.verDetalles = this.verDetalles.bind(this);
+        //this.verDetalles = this.verDetalles.bind(this);
 
     }
     componentDidMount() {
-        this.verDetalles();
+        this.obtenerCita();
         this.getMedicos();
     }
 
-    verDetalles = (e) => {
-        
+    obtenerCita = e => {
         const { id } = this.props.match.params;
-        const cita = {
+        axios.get(API_URL+`citas/${id}`)
+        .then(res => {
+            this.setState({
+                pacienteId: res.data.pacienteId,
+                nombre: res.data.nombre,
+                apellidoPaterno: res.data.apellidoPaterno,
+                apellidoMaterno: res.data.apellidoMaterno,
+                fechaCita: moment(res.data.fechaCita).format('YYYY-MM-DD'),
+                horaCita: moment(res.data.horacita).format("HH:mm"),
+                estudio: res.data.estudio,
+                doctor: res.data.doctor,
+                consultorio: res.data.consultorio,
+                estado: res.data.estado
+            })
+            console.log(res.data);
             
-        }
-        axios.put(API_URL + `citas/${id}`, cita).
+        }).catch(error => {
+            console.log("ERROR: ", error);
+            toast.success("ERROR al actualizar médico");
+            this.setState({ error: error, request: false });
+        })
+    }
+
+    editarRegistro = (e) => {
+        const { id } = this.props.match.params;
+        axios.put(API_URL + `citas/${id}`, {
+            pacienteId: this.state.pacienteId,
+            nombre: this.state.nombre,
+            apellidoPaterno: this.state.apellidoPaterno,
+            apellidoMaterno: this.state.apellidoMaterno,
+            fechaCita: moment(this.state.fechaCita).format('YYYY-MM-DD'),
+            horaCita: moment(this.state.horacita).format("HH:mm"),
+            estudio: this.state.estudio,
+            doctor: this.state.doctor,
+            consultorio: this.state.consultorio,
+            estado: this.state.estado
+        }).
             then(res => {
                 //this.setState({ citas: res.data, request: false });
-                this.setState({ //moment(post.date).format()
-                    pacienteId: res.data.pacienteId,
-                    nombre: res.data.nombre,
-                    apellidoPaterno: res.data.apellidoPaterno,
-                    apellidoMaterno: res.data.apellidoMaterno,
-                    fechaCita: moment(res.data.fechaCita).format('YYYY-MM-DD'),
-                    horaCita: moment(res.data.horacita).format("HH:mm"),
-                    estudio: res.data.estudio,
-                    doctor: res.data.doctor,
-                    consultorio: res.data.consultorio,
-                    estado: res.data.estado
-                });
                 toast.success("Editado correctamente");
             }).catch(err => {
                 console.log("ERROR: ", err);
@@ -102,7 +122,7 @@ class EditarCita extends Component {
                     draggable
                     pauseOnHover
                 />
-                <form className="" onSubmit={this.verDetalles}>
+                <form className="" onSubmit={this.editarRegistro}>
                     <div className="card">
                         <div className="cardBorder card-body">
                             <b><h3 className="centrarTexto">Editar Cita</h3></b>
