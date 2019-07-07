@@ -1,0 +1,33 @@
+.navbar {
+    box-shadow: 6px -4px 16px 10px #0e5061;
+    background-color: #42929f;
+    height: 67px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-size:  15px;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav>a {
+    color: white;
+    font-size:  15px;
+    padding-left: 5px;
+}
+
+.navbar-collapse {
+    background-color: #42929f;
+    margin: -15px;
+    padding: 10px;
+}
+
+/* ////////////////////// 
+Corregir porque al colaposarse no se oculta al seleccionar*/
+
+
+ 

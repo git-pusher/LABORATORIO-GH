@@ -1,0 +1,34 @@
+.sesion-registro {
+    display: flex;
+    height: 80%;
+    top: 15%;
+    background-color: #eaf1f3;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);
+    box-shadow: 10px 10px 20px 0px rgba(66,146,159,0.62);    
+}
+
+.labo-img {
+    margin: 5px;
+    padding: 10px;
+    justify-items: center;
+    display: cover;
+   }
+
+.compSesReg {
+    margin: 20px 10px;
+    justify-content: flex-end;
+    flex-wrap: inherit;    
+}
+
+.sesReg {
+    border: 3px double #42929f;
+    padding: 20px;
+    max-width: absolute;   
+    margin: 0; 
+}
+
+.registro {
+    padding: 0;
+    margin: 0;
+}

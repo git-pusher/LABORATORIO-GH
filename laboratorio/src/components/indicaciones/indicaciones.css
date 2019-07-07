@@ -1,0 +1,48 @@
+.indicaciones-medicas {
+    padding-bottom: 60px;
+    padding-top:25px;
+}
+
+#indicaciones {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.indicaciones-medicas img {
+    max-width: 100%;
+}
+
+.indicaciones-medicas-descripcion {
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+}
+
+#medical-indication, #card-im {
+    background-color:#eaf1f3;
+    -webkit-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+    -moz-box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+    box-shadow: 15px 15px 14px -6px rgba(0,0,0,0.35);
+}
+
+.btn-link {
+    color: black;
+}
+
+.btn-link:hover {
+    color: #42929f;
+    text-decoration: none;
+}
+
+/* thead {
+    background-color: #dcdcdc;
+    color: rgb(253, 6, 6);
+    font-size: 15px;
+}
+
+tbody{
+    font-size: 14px;
+} */
