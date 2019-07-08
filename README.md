@@ -1,7 +1,4 @@
 # LABORATORIO-LS
-<<<<<<< HEAD
-Desarrollo del proyecto en equipo para el curso de Full Stack JavaScript 2019.
-=======
 ## Diseño y Estilos
 * Catálogos
 * Listados
@@ -32,4 +29,4 @@ Desarrollo del proyecto en equipo para el curso de Full Stack JavaScript 2019.
 * Crear nueva cita
 * Ver detalles de cada cita
 * Ver historial de citas de cada paciente
->>>>>>> 4c0ea82c4053c0512cd3ba900cb5362d7aeb7900
+

@@ -35,12 +35,12 @@
   background-color: #46a4deb3;
   border: none;
   color: white;
-  padding: 5px 15px 5px 5px;
+  padding: 2px 7px 2px 2px;
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 2px 2px;
   cursor: pointer;
 }
 
@@ -48,12 +48,12 @@
   background-color: #3eb9abb0;
   border: none;
   color: white;
-  padding: 5px 15px 5px 5px;
+  padding: 2px 7px 2px 2px;
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 2px 2px;
   cursor: pointer;
 }
 
@@ -61,12 +61,12 @@
   background-color: #de69b2d4;
   border: none;
   color: white;
-  padding: 5px 15px 5px 5px;
+  padding: 2px 7px 2px 2px;
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 2px 2px;
   cursor: pointer;
 }
 
@@ -74,12 +74,12 @@
   background-color: #7d38a79e;
   border: none;
   color: white;
-  padding: 5px 15px 5px 5px;
+  padding: 2px 7px 2px 2px;
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 2px 2px;
   cursor: pointer;
 }
 
@@ -118,4 +118,10 @@
   position: absolute;
   top: 70%;
   left: 10%;
+}
+
+.espacios{
+  border-collapse: separate;
+	border-spacing: 5px;
+	border: 1px solid #000;
 }

@@ -5,6 +5,8 @@ import MaterialIcon from 'material-icons-react';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 class EditarPaciente extends Component {
     constructor(props) {
@@ -12,19 +14,41 @@ class EditarPaciente extends Component {
         this.state = {
             request: true,
             pacientes: [],
-            errr: ''
+            err: ''
         };
-        this.editarRegistro = this.editarRegistro.bind(this);
+        //this.editarRegistro = this.editarRegistro.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
-        this.editarRegistro();
-        
+        this.obtenerPaciente();
+    }
+
+    obtenerPaciente = e => {
+        const { id } = this.props.match.params;
+        axios.get(API_URL + `pacientes/${id}`)
+            .then(res => {
+                this.setState({
+                    nombre: res.data.nombre,
+                    apellidoPaterno: res.data.apellidoPaterno,
+                    apellidoMaterno: res.data.apellidoMaterno,
+                    fechaNacimiento: moment(res.data.fechaNacimiento).format("YYYY-MM-DD"),
+                    correoElectronico: res.data.correoElectronico,
+                    telefono: res.data.telefono,
+                    direccion: res.data.direccion
+                })
+                console.log("datos recuperados en get: ", res.data);
+                console.log("fechaNacimiento en get: ", moment(res.data.fechaNacimiento).format("YYYY-MM-DD"));
+            }).catch(err => {
+                console.log("error: ", err);
+            });
     }
 
     editarRegistro = (e) => {
+        e.preventDefault();
         const { id } = this.props.match.params;
-        const paciente = {
+        const paciente = {};
+        axios.put(API_URL + `pacientes/${id}`, {
             nombre: this.state.nombre,
             apellidoPaterno: this.state.apellidoPaterno,
             apellidoMaterno: this.state.apellidoMaterno,
@@ -32,20 +56,9 @@ class EditarPaciente extends Component {
             correoElectronico: this.state.correoElectronico,
             telefono: this.state.telefono,
             direccion: this.state.direccion
-        }
-        console.log(API_URL + `pacientes/${id}`, paciente);
-
-        axios.put(API_URL + `pacientes/${id}`, paciente).
+        }).
             then(res => {
-                this.setState({
-                    nombre: res.data.nombre,
-                    apellidoPaterno: res.data.apellidoPaterno,
-                    apellidoMaterno: res.data.apellidoMaterno,
-                    fechaNacimiento: moment(res.data.fechaNacimiento).format('YYYY-MM-DD'),
-                    correoElectronico: res.data.correoElectronico,
-                    telefono: res.data.telefono,
-                    direccion: res.data.direccion
-                });
+                console.log("Paciente actualizado con éxito");                
                 toast.success("Paciente actualizado con éxito");
             }).catch(err => {
                 console.log("ERROR: ", err);
@@ -64,6 +77,10 @@ class EditarPaciente extends Component {
         this.setState({ [id]: value });
 
         console.log(this.state);
+    }
+
+    handleChange(date){
+        this.setState({ fechaNacimiento: date});
     }
 
     render() {
@@ -104,6 +121,15 @@ class EditarPaciente extends Component {
                         <div className="form-group col-md-4">
                             <label htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
                             <input type="date" onChange={this.cambio} className="form-control" id="fechaNacimiento" value={this.state.fechaNacimiento} />
+                            {/*<DatePicker
+                                id="fechaNacimiento"
+                                value={this.state.fechaNacimiento}
+                                selected={this.state.fechaNacimiento} 
+                                onChange={this.handleChange}
+                                dateFormat="yyyy/MM/dd"
+                                className="form-control" 
+                                placeholderText="Seleccione una fecha"
+                            />*/}
                         </div>
                         <div className="form-group col-md-4">
                             <label htmlFor="correoElectronico">Correo Electrónico</label>
