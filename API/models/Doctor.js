@@ -29,6 +29,10 @@ const doctorSchema = new Schema({
     especialidad: {
         type: String,
         required: true
+    },
+    estado: {
+        type: String,
+        default: "A"
     }
     }, {timestamps: true});
 

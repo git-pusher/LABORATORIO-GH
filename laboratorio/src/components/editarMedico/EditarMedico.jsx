@@ -31,7 +31,8 @@ class EditarMedico extends Component {
                 correoElectronico: res.data.correoElectronico,
                 telefono: res.data.telefono,              
                 noCedula: res.data.noCedula,
-                especialidad : res.data.especialidad
+                especialidad : res.data.especialidad,
+                estado: res.data.estado
             })
         }).catch(error => {
             console.log("ERROR: ", error);
@@ -50,7 +51,8 @@ class EditarMedico extends Component {
             correoElectronico: this.state.correoElectronico,
             telefono: this.state.telefono,              
             noCedula: this.state.noCedula,
-            especialidad: this.state.especialidad
+            especialidad: this.state.especialidad,
+            estado: this.state.estado
         }).
         then(res => {
             if(res.data.success){

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 //import './listaMedicos.css';
 import '../../App.css';
-import ModalCambiarEstado from '../modals/ModalCambiarEstado';
+import ModalCambiarEstadoM from '../modals/ModalCambiarEstadoM';
 
 class ListaDoctores extends Component {
 
@@ -38,14 +38,14 @@ class ListaDoctores extends Component {
 
     cambiarEstado(e, _id) {
         e.preventDefault();
-        const paciente = {};
-        axios.get(API_URL + `doctores/${_id}`, paciente)
+        const medicos = {};
+        axios.get(API_URL + `doctores/${_id}`, medicos)
             .then(res => {
                 this.setState({
                     cambiarEstado: res.data,
                     modalCambiarEstadoMedico: true
                 })
-                console.log("Médico obtenido correctamente para estado ", res.data);
+                console.log("Médico obtenido correctamente para estado ", res.data, "valor: ");
             }).catch(error => {
                 console.log("Error en estado: ", error);
             })
@@ -60,7 +60,7 @@ class ListaDoctores extends Component {
                 </div>
             );
         }
-        return this.state.doctores.length ? this.state.doctores.map(doct => {
+        return this.state.doctores.length ? this.state.doctores.map(doct => {            
             let modalCambiarEstadoMedicoClose = () => this.setState({modalCambiarEstadoMedico: false});
             return (
                 <tr key={doct._id}>
@@ -70,6 +70,10 @@ class ListaDoctores extends Component {
                     <td>{doct.telefono}</td>
                     <td>{doct.noCedula}</td>
                     <td>{doct.especialidad}</td>
+                    <td>{doct.estado === "I" 
+                        ? <MaterialIcon icon ="block" className="material-icons"></MaterialIcon> 
+                        : <MaterialIcon icon ="check" className="material-icons"></MaterialIcon>}
+                    </td>
                     <td>
                         <NavLink to={`/EditarMedico/${doct._id}`}>
                             <button className="btn accionEditar">
@@ -78,13 +82,20 @@ class ListaDoctores extends Component {
                                 </button>
                         </NavLink>
                     </td>
-                    <td>
+                    <td>{doct.estado === "A"
+                        ?
                         <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, doct._id)}>
                             <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                             Desactivar
                         </button>
-                        <ModalCambiarEstado show={this.state.modalCambiarEstadoMedico} onHide={modalCambiarEstadoMedicoClose}>{this.state.cambiarEstado}</ModalCambiarEstado>
+                        :
+                        <button className="btn accionActivar" onClick={(e) => this.cambiarEstado(e, doct._id)}>
+                            <MaterialIcon icon="toggle_on" className="material-icons"></MaterialIcon>
+                            Activar
+                        </button>}
+                        <ModalCambiarEstadoM show={this.state.modalCambiarEstadoMedico} onHide={modalCambiarEstadoMedicoClose}>{this.state.cambiarEstado}</ModalCambiarEstadoM>
                     </td>
+                    
                 </tr>
             );
         }) : <div className="cardCentrado">
@@ -118,6 +129,7 @@ class ListaDoctores extends Component {
                             <th>Teléfono</th>
                             <th>Cédula Profesional</th>
                             <th>Especialidad</th>
+                            <th>Estado</th>
                             <th ></th>
                             <th >Acciones</th>
 

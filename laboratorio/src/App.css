@@ -32,7 +32,7 @@
 }
 
 .accionEstatus {
-  background-color: #46a4deb3;
+  background-color: #3eb9abb0;
   border: none;
   color: white;
   padding: 2px 7px 2px 2px;
@@ -70,6 +70,18 @@
   cursor: pointer;
 }
 
+.accionActivar {
+  background-color: #abbbb9b0;
+  border: none;
+  color: white;
+  padding: 2px 7px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 14px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
 .accionDesactivar {
   background-color: #3eb9abb0;
   border: none;

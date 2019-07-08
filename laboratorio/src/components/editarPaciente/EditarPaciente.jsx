@@ -47,7 +47,6 @@ class EditarPaciente extends Component {
     editarRegistro = (e) => {
         e.preventDefault();
         const { id } = this.props.match.params;
-        const paciente = {};
         axios.put(API_URL + `pacientes/${id}`, {
             nombre: this.state.nombre,
             apellidoPaterno: this.state.apellidoPaterno,
@@ -55,7 +54,8 @@ class EditarPaciente extends Component {
             fechaNacimiento: this.state.fechaNacimiento,
             correoElectronico: this.state.correoElectronico,
             telefono: this.state.telefono,
-            direccion: this.state.direccion
+            direccion: this.state.direccion,
+            estado: this.state.estado
         }).
             then(res => {
                 if(res.data.success){

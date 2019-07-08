@@ -30,6 +30,10 @@ const pacienteSchema = new Schema({
     }, 
     direccion: {
         type: String
+    },
+    estado:{
+        type: String,
+        default: "A"
     }
     }, {timestamps: true});
 
