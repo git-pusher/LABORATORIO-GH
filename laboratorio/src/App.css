@@ -161,3 +161,12 @@
   margin:0 15px;  
   word-wrap:break-word;
 }
+
+.btn-nuevo-usuario {
+/* justify-items: right; */
+}
+
+.administrador {
+  width: 100%;
+ 
+}

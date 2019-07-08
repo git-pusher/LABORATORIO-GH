@@ -63,7 +63,7 @@ class ListaRegistros extends Component {
             console.log("Tabla registros");
             return(
                     <tr key={rgt._id}>
-                        <th></th>
+                        {/* <th></th> */}
                         <td>{rgt.nombre}</td>
                         <td>{rgt.nombreUsuario}</td>
                         <td>{rgt.password}</td>
@@ -99,23 +99,25 @@ class ListaRegistros extends Component {
     render(){
         return(
             <div className="row md-12 contenedor">
-                <div className="row md-12 containerForm">
-                    <button className="nuevo btn" onClick={this.formRegistros}>
-                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                        Nuevo Usuario
-                    </button>
+                <div className="row administrador">
+                    <div className="col ">
+                    <b><h3 className="centrarTexto">Bienvenido: {this.state.nombre}</h3></b>
+                    </div>
+                    <div className="col btn-nuevo-usuario">
+                        <button className="" onClick={this.formRegistros}>
+                            <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                            Nuevo Usuario
+                        </button>
+                    </div>
                 </div>
                     <table className="table ">
                         <thead>
-                            <tr>
-                                <th scope="col"></th>
+                            <tr>                                
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Usuario</th>
                                 <th scope="col">Contraseña</th>
                                 <th scope="col"></th>
-                                <th scope="col">Acciones</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th colspan="2">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

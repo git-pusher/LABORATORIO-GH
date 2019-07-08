@@ -20,7 +20,7 @@ class EditarRegistros extends Component {
     }
 
     editarRegistroUsuario = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const { id } = this.props.match.params;
         
         const registro = {
