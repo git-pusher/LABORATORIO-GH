@@ -14,7 +14,7 @@
 
 .containerForm {
   display: inline-block;
-  padding: 2rem 56px 0px 655px;
+  padding: 2rem 5% 2% 45%; /*2rem 56px 0px 655px;*/
   justify-content: center;
   align-items: center
 }
@@ -65,7 +65,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -78,7 +78,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -90,7 +90,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -100,10 +100,9 @@
   border: none;
   color: white;
   padding: 2px 7px 2px 2px;
-  text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -116,7 +115,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -141,13 +140,6 @@
   text-align: center;
 }
 
-.cardBorder {
-  border-right-style: ridge;
-  border-left-style:  ridge;
-  border-top-style:   ridge;
-  border-bottom-style:ridge;
-}
-
 .cardCentrado {
   width: 80%;
   height: 50%;
@@ -156,12 +148,6 @@
   position: absolute;
   top: 70%;
   left: 10%;
-}
-
-.espacios{
-  border-collapse: separate;
-	border-spacing: 5px;
-	border: 1px solid #000;
 }
 
 .cabTabla{

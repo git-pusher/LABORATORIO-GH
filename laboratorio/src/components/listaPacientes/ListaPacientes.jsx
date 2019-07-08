@@ -42,9 +42,7 @@ class ListaPacientes extends Component {
            this.setState({
                 paciente: paciente.data,
                 modalNuevaCita: true
-           })
-            console.log("data para crear cita: ", paciente.data);
-            console.log("PAcietne: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
+           });
        }).catch(err => {
            console.log("Error: ", err); 
        });
@@ -62,7 +60,6 @@ class ListaPacientes extends Component {
                 modalHistorialPaciente: true
             });
            }
-            console.log("data para historial: ", this.state.historialCitas);
         }).catch(err => {
            console.log("Error: ", err); 
         });
@@ -87,8 +84,7 @@ class ListaPacientes extends Component {
                 this.setState({
                     cambiarEstado: res.data,
                     modalCambiarEstadoPaciente: true
-                })
-                console.log("Paciente obtenido correctamente para estado ", res.data, "valor: ");
+                });
             }).catch(error => {
                 console.log("Error en estado: ", error);
             })
@@ -176,26 +172,26 @@ class ListaPacientes extends Component {
                     </button>
                 </div>
                 <table className="table">
-                <thead>
-                    <tr className="cabTabla">
-                    <th >Nombre Completo</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Correo Electrónico</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th >Estado</th>
-                    <th></th>
-                    <th >Acciones</th>
-                    <th ></th>
-                    <th ></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
-                </tbody>
+                    <thead>
+                        <tr className="cabTabla">
+                        <th >Nombre Completo</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th >Estado</th>
+                        <th></th>
+                        <th >Acciones</th>
+                        <th ></th>
+                        <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
+                    </tbody>
                 </table>
             </div>
-            );
+        );
     }
     
 }

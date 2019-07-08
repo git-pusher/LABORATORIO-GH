@@ -27,7 +27,6 @@ class ListaDoctores extends Component {
     }
 
     getDoctores = () => {
-        console.log("URL: ", API_URL + 'doctores');
         axios.get(API_URL + 'doctores')
             .then(res => {
                 console.log("Lista Médicos: ", res.data);
@@ -45,8 +44,7 @@ class ListaDoctores extends Component {
                 this.setState({
                     cambiarEstado: res.data,
                     modalCambiarEstadoMedico: true
-                })
-                console.log("Médico obtenido correctamente para estado ", res.data, "valor: ");
+                });
             }).catch(error => {
                 console.log("Error en estado: ", error);
             })
@@ -124,15 +122,15 @@ class ListaDoctores extends Component {
                 <table className="table">
                     <thead>
                         <tr className="cabTabla">
-                            <th ></th>
-                            <th >Nombre Completo</th>
+                            <th></th>
+                            <th>Nombre Completo</th>
                             <th>correo Electrónico</th>
                             <th>Teléfono</th>
                             <th>Cédula Profesional</th>
                             <th>Especialidad</th>
                             <th>Estado</th>
-                            <th ></th>
-                            <th >Acciones</th>
+                            <th></th>
+                            <th>Acciones</th>
 
                         </tr>
                     </thead>

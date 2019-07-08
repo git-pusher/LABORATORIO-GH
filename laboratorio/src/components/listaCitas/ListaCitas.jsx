@@ -30,7 +30,6 @@ class ListaCitas extends Component {
     }
 
     getCitas = () => {
-        console.log("URL: ", API_URL + 'citas');
         axios.get(API_URL + 'citas')
             .then(res => {
                 console.log("Lista Citas: ", res.data);
@@ -48,9 +47,7 @@ class ListaCitas extends Component {
                 this.setState({
                     cita: cita.data,
                     modalDetalleCita: true
-                })
-                console.log("data: ", cita.data);
-                console.log("PAcietne: ID ", cita.data.pacienteId, cita.data.nombre, cita.data.apellidoPaterno, cita.data.apellidoMaterno);
+                });
             }).catch(err => {
                 console.log("Error: ", err);
             });
@@ -64,8 +61,7 @@ class ListaCitas extends Component {
                 this.setState({
                     cambiarEstado: res.data,
                     modalCambiarEstadoCita: true
-                })
-                console.log("Cita obtenida correctamente para estado ", res.data, "valor: ");
+                });
             }).catch(error => {
                 console.log("Error en estado: ", error);
             })
@@ -119,7 +115,7 @@ class ListaCitas extends Component {
                     <td>
                         <button className="btn accionCitas" onClick={e => this.obtenerCita(e, ct._id)}>
                             <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
-                            Ver Detalles
+                            Detalles
                         </button>
                         <ModalDetallesCita show={this.state.modalDetalleCita} onHide={modalDetalleCitaClose}>{this.state.cita}</ModalDetallesCita>
                     </td>
