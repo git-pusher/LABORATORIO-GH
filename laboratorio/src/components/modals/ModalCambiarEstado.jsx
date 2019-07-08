@@ -57,16 +57,20 @@ class ModalCambiarEstado extends Component {
                             <tr>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{medico}</td>
                                 <td>
-                                <button className="btn accionEditar" onClick={e => this.desactivar(e,"I")}>
+                                <button className="btn accionEstatus" onClick={e => this.desactivar(e,"I")}>
                                     <MaterialIcon icon="block" className="material-icons"></MaterialIcon>
                                 </button>
                                 </td>
+                                <td><button type="button" onClick={this.props.onHide} className="btn accionVolver">
+                                    <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
+                                </button></td>
                             </tr>
                         </tbody>                        
                     </table>

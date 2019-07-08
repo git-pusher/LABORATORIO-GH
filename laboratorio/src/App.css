@@ -31,6 +31,32 @@
   margin: 4px 2px;
 }
 
+.accionEstatus {
+  background-color: #46a4deb3;
+  border: none;
+  color: white;
+  padding: 2px 7px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 14px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.accionVolver {
+  background-color: #bc322ccf;;
+  border: none;
+  color: white;
+  padding: 2px 7px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 14px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
 .accionEditar {
   background-color: #46a4deb3;
   border: none;
