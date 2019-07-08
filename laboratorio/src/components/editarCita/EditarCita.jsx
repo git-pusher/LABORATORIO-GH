@@ -11,9 +11,8 @@ class EditarCita extends Component {
         super(props);
         this.state = {
             request: true,
-            citas: [],
+            cita: [],
             medicos: [],
-            medico: [],
             error: ''
         };
         //this.verDetalles = this.verDetalles.bind(this);
@@ -39,9 +38,8 @@ class EditarCita extends Component {
                 doctor: res.data.doctor,
                 consultorio: res.data.consultorio,
                 estado: res.data.estado
-            })
+            });
             console.log(res.data);
-            
         }).catch(error => {
             console.log("ERROR: ", error);
             toast.success("ERROR al actualizar médico");
@@ -52,6 +50,8 @@ class EditarCita extends Component {
     editarRegistro = (e) => {
         e.preventDefault();
         const { id } = this.props.match.params;
+        console.log("Editar registro");
+        
         axios.put(API_URL + `citas/${id}`, {
             pacienteId: this.state.pacienteId,
             nombre: this.state.nombre,
@@ -65,19 +65,21 @@ class EditarCita extends Component {
             estado: this.state.estado
         }).
             then(res => {
-                //this.setState({ citas: res.data, request: false });
+                //this.setState({ cita: res.data, request: true });
                 if(res.data.success){
-                    toast.success("Cita actualizada correctamente");
-                    this.listaCitas();
-                }else{
-                    toast.error("ERROR al actualizar cita");
-                }
-                
+                    console.log("Cita actualizada con éxito");
+                    toast.success(res.data.mensaje);
+                }else if(res.data.err){
+                    console.log("ERROR al actualizar cita");
+                    toast.error(res.data.mensaje);
+                } 
+                    //this.listaCitas();
             }).catch(err => {
                 console.log("ERROR: ", err);
                 toast.error("ERROR al actualizar cita");
                 this.setState({ error: err, request: false });
             });
+            //this.listaCitas();
     }
 
     listaCitas = () => {

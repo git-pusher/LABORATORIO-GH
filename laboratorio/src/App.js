@@ -32,7 +32,7 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
+      <div className="row App">
         <ToastContainer
           position="bottom-center"
           autoClose={2000}

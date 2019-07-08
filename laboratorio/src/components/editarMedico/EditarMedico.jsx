@@ -53,13 +53,19 @@ class EditarMedico extends Component {
             especialidad: this.state.especialidad
         }).
         then(res => {
-            console.log("éxito en Detalles: ", res.data);
-            toast.success("Médico actualizado con éxito");
+            if(res.data.success){
+                console.log("éxito en Detalles: ", res.data);
+                toast.success(res.data.mensaje);
+            }else if(res.data.err){
+                console.log("ERROR al actualizar ");
+                toast.error(res.data.mensaje);
+            }
         }).catch(err => {
             console.log("ERROR: ", err);
             toast.error("ERROR al actualizar médico");
             this.setState({error: err, request: false});
         });
+        //this.listaDoctores();
     }
 
     listaDoctores = () => {

@@ -105,7 +105,7 @@ class ListaRegistros extends Component {
                         Nuevo Usuario
                     </button>
                 </div>
-                    <table className="table">
+                    <table className="table ">
                         <thead>
                             <tr>
                                 <th scope="col"></th>

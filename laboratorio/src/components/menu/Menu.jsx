@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import labo from '../../img/logo.png';
-// import Login from '../sesion/Login';
-// import Contacto from '../../pages/Contacto'
 import './menu.css';
 
 class Menu extends Component {
@@ -15,7 +13,7 @@ class Menu extends Component {
         console.log(this.props.location);
         return (
 			<nav className="navbar navbar-expand-lg navbar-light fixed-top" >
-				<div className="container-fluid">
+				{/* <div className="container-fluid"> */}
 					<NavLink className="navbar-brand" to="/">
 						<img src={labo} alt="Landsteiner Scientific" height="40px"/>
 					</NavLink>
@@ -23,18 +21,17 @@ class Menu extends Component {
 						<span className="navbar-toggler-icon"></span>
 					</button>     
 					<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-						<ul className="navbar-nav mr-auto">
+						<div className="navbar-nav">
 								<NavLink className="nav-item nav-link" to="/">Inicio </NavLink> 
 								<NavLink className="nav-item nav-link" to="/ListaMedicos">Médicos </NavLink> 
 								<NavLink className="nav-item nav-link" to="/ListaPacientes">Pacientes </NavLink> 
 								<NavLink className="nav-item nav-link" to="/ListaCitas">Citas </NavLink> 
 								<NavLink className="nav-item nav-link" to="/ListaRegistros">Usuarios </NavLink>
-						</ul>
-						<ul className="nav navbar-nav navbar-right">
-							<li><NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink></li>
-						</ul>
+						</div>
+						<div className="boton-sesion">
+							<NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink>
+						</div>						
 					</div>
-				</div>  
 			</nav>
         );
     }

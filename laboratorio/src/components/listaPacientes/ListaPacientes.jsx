@@ -7,10 +7,10 @@ import moment from 'moment';
 
 import ModalCrearCita from '../modals/ModalCrearCita';
 import ModalHistorialCitas from '../modals/ModalHistorialCitas';
-import ModalCambiarEstado from '../modals/ModalCambiarEstado';
+// import ModalCambiarEstado from '../modals/ModalCambiarEstado';
 
 //import './listaPaciente.css';
-import '../../App.css';
+// import '../../App.css';
 
 class ListaPacientes extends Component {
 
@@ -109,7 +109,7 @@ class ListaPacientes extends Component {
             let modalCambiarEstadoClose = () => this.setState({modalCambiarEstado: false});
             return(
                     <tr key={pct._id}>
-                        <th></th>
+                        {/* <th></th> */}
                         <td className="espacios">{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
                         <td className="espacios">{moment(pct.fechaNacimiento).format('DD-MM-YYYY')}</td>
                         <td className="espacios">{pct.correoElectronico}</td>
@@ -160,32 +160,40 @@ class ListaPacientes extends Component {
     }
     render(){
         return(
-            <div className="row md-12 contenedor">
-                 <div className="row md-12 containerForm">
-                    <button className="nuevo btn" onClick={this.formPacientes}>
-                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                        Nuevo Paciente
-                    </button>
+            <div className="row row-md-12 contenedor">
+                 <div className="col-12 md-12">
+                     <div className="row row-debajo-barra">
+                        <div className="col-4"></div>
+                        <div className="col-4 text-center">
+                            <button className="nuevo btn" onClick={this.formPacientes}>
+                                <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                                Nuevo Paciente
+                            </button>
+                        </div>
+                        <div className="col-4"></div>
+                     </div>
                 </div>
-                <table className="table">
-                <thead>
-                    <tr>
-                    <th ></th>
-                    <th >Nombre Completo</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Correo Electrónico</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th ></th>
-                    <th >Acciones</th>
-                    <th ></th>
-                    <th ></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
-                </tbody>
-                </table>
+                <div className="col-12 col-lg-12 table-padding">
+                    <table className="table table-responsive-md">
+                    <thead>
+                        <tr className="">
+                            {/* <th ></th> */}
+                            <th >Nombre Completo</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Correo Electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th ></th>
+                            <th >Acciones</th>
+                            <th ></th>
+                            <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
+                    </tbody>
+                    </table>
+                </div>
             </div>
             );
     }
