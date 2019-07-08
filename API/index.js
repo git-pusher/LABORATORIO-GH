@@ -65,7 +65,7 @@ app.get('/pacientes/:id', (req, res) => {
 app.get('/citasPacientes/:pacienteId', (req, res) => {
     const detallesCita = req.params.pacienteId;
     console.log("ID paciente: ", detallesCita);
-    Cita.find({ pacienteId: detallesCita }).exec(
+    Cita.find({ pacienteId: detallesCita }).sort({fechaCita: 1}).exec(
         (err, citas) => {
             if (err) {
                 return res.status(400).json({
