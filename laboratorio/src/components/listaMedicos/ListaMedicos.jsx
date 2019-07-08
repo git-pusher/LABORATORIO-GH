@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 //import './listaMedicos.css';
 import '../../App.css';
+import ModalCambiarEstado from '../modals/ModalCambiarEstado';
 
 class ListaDoctores extends Component {
 
@@ -14,6 +15,8 @@ class ListaDoctores extends Component {
         this.state = {
             request: true,
             doctores: [],
+            modalCambiarEstadoMedico: false,
+            cambiarEstado: [],
             error: ''
         }
     }
@@ -33,6 +36,21 @@ class ListaDoctores extends Component {
             });
     }
 
+    cambiarEstado(e, _id) {
+        e.preventDefault();
+        const paciente = {};
+        axios.get(API_URL + `doctores/${_id}`, paciente)
+            .then(res => {
+                this.setState({
+                    cambiarEstado: res.data,
+                    modalCambiarEstadoMedico: true
+                })
+                console.log("Médico obtenido correctamente para estado ", res.data);
+            }).catch(error => {
+                console.log("Error en estado: ", error);
+            })
+    }
+
     pintarDoctores = () => {
         if (this.state.error) {
             return (
@@ -43,6 +61,7 @@ class ListaDoctores extends Component {
             );
         }
         return this.state.doctores.length ? this.state.doctores.map(doct => {
+            let modalCambiarEstadoMedicoClose = () => this.setState({modalCambiarEstadoMedico: false});
             return (
                 <tr key={doct._id}>
                     <td></td>
@@ -60,10 +79,11 @@ class ListaDoctores extends Component {
                         </NavLink>
                     </td>
                     <td>
-                        <button className="btn accionDesactivar">
+                        <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, doct._id)}>
                             <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                             Desactivar
-                            </button>
+                        </button>
+                        <ModalCambiarEstado show={this.state.modalCambiarEstadoMedico} onHide={modalCambiarEstadoMedicoClose}>{this.state.cambiarEstado}</ModalCambiarEstado>
                     </td>
                 </tr>
             );
@@ -100,7 +120,7 @@ class ListaDoctores extends Component {
                             <th>Especialidad</th>
                             <th ></th>
                             <th >Acciones</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>

@@ -58,14 +58,20 @@ class EditarPaciente extends Component {
             direccion: this.state.direccion
         }).
             then(res => {
-                console.log("Paciente actualizado con éxito");                
-                toast.success("Paciente actualizado con éxito");
+                if(res.data.success){
+                    console.log("Paciente actualizado con éxito");                
+                    toast.success(res.data.mensaje);
+                }else if(res.data.err){
+                    console.log("Paciente actualizado con éxito");                
+                    toast.err(res.data.mensaje);
+                }
+                //this.listaPacientes();
             }).catch(err => {
                 console.log("ERROR: ", err);
                 toast.success("ERROR al actualizar paciente");
                 this.setState({ error: err, request: false });
             });
-
+            this.listaPacientes();
     }
 
     listaPacientes = () => {

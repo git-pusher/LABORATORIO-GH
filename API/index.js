@@ -104,8 +104,16 @@ app.post('/pacientes', (req, res) => {
 app.put('/pacientes/:id', (req, res) => {
     Paciente.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, paciente) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(paciente);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err
+            })
+            : res.status(200).send({
+                success: true,
+                mensaje: "Paciente actualizado con éxito",
+                paciente: paciente
+            });
         });
 });
 
@@ -180,8 +188,16 @@ app.post('/doctores', (req, res) => {
 app.put('/doctores/:id', (req, res) => {
     Doctor.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, doctor) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(doctor);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err
+            })
+            : res.status(200).send({
+                success: true,
+                mensaje: "Médico actualizado correctamente",
+                doctor: doctor
+            });
         });
 });
 
@@ -247,8 +263,15 @@ app.post('/citas', (req, res) => {
 app.put('/citas/:id', (req, res) => {
     Cita.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, cita) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(cita);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err})
+                : res.status(200).send({
+                    success: true,
+                    mensaje: "Cita actualizada correctamente",
+                    cita: cita
+                });
         });
 });
 
