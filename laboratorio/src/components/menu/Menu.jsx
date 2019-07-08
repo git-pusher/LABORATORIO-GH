@@ -13,7 +13,6 @@ class Menu extends Component {
         console.log(this.props.location);
         return (
 			<nav className="navbar navbar-expand-lg navbar-light fixed-top" >
-				{/* <div className="container-fluid"> */}
 					<NavLink className="navbar-brand" to="/">
 						<img src={labo} alt="Landsteiner Scientific" height="40px"/>
 					</NavLink>
