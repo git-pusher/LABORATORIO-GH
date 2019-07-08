@@ -35,8 +35,10 @@ class ModalCambiarEstadoM extends Component {
             .then(res => {
                 this.setState({medico: res.data})
                 console.log(":)", res.data);
-                toast.success("Se cambió el estado correctamente: Médico "+ esdo)
-                console.log("Se cambió el estado correctamente: Médico ", esdo);   
+                toast.success("Se cambió el estado correctamente: Médico "+ esdo);
+                setTimeout(function(){
+                    window.location.reload(true);
+                  },2000);  
             }).catch(err => {
                 console.log("error: ", err);
                 toast.err(err)

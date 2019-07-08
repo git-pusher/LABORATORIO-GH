@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 
-class ModalCambiarEstadoC extends Component {
+class ModalCambiarEstadoC extends Component {   
     desactivar(e) {
         e.preventDefault();
         console.log("ID: ", this.props.children._id);
@@ -37,12 +37,15 @@ class ModalCambiarEstadoC extends Component {
             .then(res => {
                 this.setState({cita: res.data})
                 console.log(":)", res.data);
-                toast.success("Se cambió el estado correctamente: Cita "+ esdo)
-                console.log("Se cambió el estado correctamente: Cita ", esdo);   
+                toast.success("Se cambió el estado correctamente: Cita "+ esdo); 
+                 setTimeout( function(){
+                    window.location.reload(true)
+                }, 2000 );
             }).catch(err => {
                 console.log("error: ", err);
                 toast.err(err)
-            })
+            });
+        
     }
 
     render() {
@@ -68,7 +71,7 @@ class ModalCambiarEstadoC extends Component {
                     aria-labelledby="example-modal-sizes-title-sm"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title className="centrarTexto">Cambiar estado: Cita</Modal.Title>
+                        <Modal.Title className="centrarTexto">Cambiar estado</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <table>

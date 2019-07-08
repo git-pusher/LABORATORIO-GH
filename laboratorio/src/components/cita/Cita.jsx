@@ -15,11 +15,13 @@ class Cita extends Component {
             if (cita.data.success) {
                 console.log('Cita creada correctamente: ', cita, this.state);
                 toast.success( cita.data.mensaje);
+                setTimeout(function(){
+                    window.location.replace('/ListaCitas');
+                },2000);
             }else if(cita.data.err){
                 console.log('Error...');
                 toast.error(cita.data.mensaje);
             }
-            //this.listaCitas();
         }).catch(err => {
             console.log('Error...', err);
         });

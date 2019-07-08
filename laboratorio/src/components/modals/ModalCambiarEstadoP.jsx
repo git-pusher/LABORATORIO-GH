@@ -10,10 +10,10 @@ import 'react-toastify/dist/ReactToastify.css'
 class ModalCambiarEstadoP extends Component {
     desactivar(e) {
         e.preventDefault();
-        console.log("ID: ", this.props.children._id);
         const id = this.props.children._id;
         let edo = this.props.children.estado;
         let esdo='';
+
         if (edo === "A") {
             edo = "I";
             esdo="Inactivo" ;  
@@ -21,6 +21,7 @@ class ModalCambiarEstadoP extends Component {
             edo = "A";
             esdo="Activo";
         }
+        
         axios.put(API_URL + 'pacientes/' + id, {
             nombre: this.props.children.nombre,
             apellidoPaterno: this.props.children.apellidoPaterno,
@@ -34,8 +35,10 @@ class ModalCambiarEstadoP extends Component {
             .then(res => {
                 this.setState({paciente: res.data})
                 console.log(":)", res.data);
-                toast.success("Se cambió el estado correctamente: Paciente "+ esdo)
-                console.log("Se cambió el estado correctamente: Paciente ", esdo);   
+                toast.success("Se cambió el estado correctamente: Paciente "+ esdo);
+                setTimeout(function(){
+                    window.location.reload(true);
+                },2000);
             }).catch(err => {
                 console.log("error: ", err);
                 toast.err(err)

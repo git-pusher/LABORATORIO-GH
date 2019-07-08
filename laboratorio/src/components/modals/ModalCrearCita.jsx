@@ -53,6 +53,9 @@ class ModalCrearCita extends Component {
                 console.log('Cita status ', cita.data);
                 if (cita.data.success) {
                     toast.success( cita.data.mensaje);
+                    setTimeout(function(){
+                        window.location.replace('/ListaCitas')
+                    },2000);
                 }else if(cita.data.err){
                     toast.error(cita.data.mensaje);
                 }

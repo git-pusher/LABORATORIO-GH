@@ -149,7 +149,7 @@ class ListaCitas extends Component {
                 </div>
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="cabTabla">
                             <th ></th>
                             <th >Nombre del Paciente</th>
                             <th >Fecha de la cita</th>

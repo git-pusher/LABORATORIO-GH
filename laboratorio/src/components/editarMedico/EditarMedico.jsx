@@ -33,7 +33,7 @@ class EditarMedico extends Component {
                 noCedula: res.data.noCedula,
                 especialidad : res.data.especialidad,
                 estado: res.data.estado
-            })
+            });
         }).catch(error => {
             console.log("ERROR: ", error);
             toast.success("ERROR al actualizar médico");
@@ -58,6 +58,9 @@ class EditarMedico extends Component {
             if(res.data.success){
                 console.log("éxito en Detalles: ", res.data);
                 toast.success(res.data.mensaje);
+                setTimeout(function(){
+                    window.location.replace('/ListaMedicos')
+                  },2000);
             }else if(res.data.err){
                 console.log("ERROR al actualizar ");
                 toast.error(res.data.mensaje);

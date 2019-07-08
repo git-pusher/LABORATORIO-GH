@@ -177,7 +177,7 @@ class ListaPacientes extends Component {
                 </div>
                 <table className="table">
                 <thead>
-                    <tr>
+                    <tr className="cabTabla">
                     <th >Nombre Completo</th>
                     <th>Fecha de Nacimiento</th>
                     <th>Correo Electrónico</th>

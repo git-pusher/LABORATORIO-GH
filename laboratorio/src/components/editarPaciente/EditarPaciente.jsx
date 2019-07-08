@@ -16,7 +16,6 @@ class EditarPaciente extends Component {
             pacientes: [],
             err: ''
         };
-        //this.editarRegistro = this.editarRegistro.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -37,8 +36,6 @@ class EditarPaciente extends Component {
                     telefono: res.data.telefono,
                     direccion: res.data.direccion
                 })
-                console.log("datos recuperados en get: ", res.data);
-                console.log("fechaNacimiento en get: ", moment(res.data.fechaNacimiento).format("YYYY-MM-DD"));
             }).catch(err => {
                 console.log("error: ", err);
             });
@@ -61,17 +58,18 @@ class EditarPaciente extends Component {
                 if(res.data.success){
                     console.log("Paciente actualizado con éxito");                
                     toast.success(res.data.mensaje);
+                    setTimeout(function(){
+                        window.location.replace('/ListaPacientes')
+                      },2000);
                 }else if(res.data.err){
                     console.log("Paciente actualizado con éxito");                
                     toast.err(res.data.mensaje);
                 }
-                //this.listaPacientes();
             }).catch(err => {
                 console.log("ERROR: ", err);
                 toast.success("ERROR al actualizar paciente");
                 this.setState({ error: err, request: false });
             });
-            this.listaPacientes();
     }
 
     listaPacientes = () => {

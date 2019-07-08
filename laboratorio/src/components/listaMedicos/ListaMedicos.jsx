@@ -17,6 +17,7 @@ class ListaDoctores extends Component {
             doctores: [],
             modalCambiarEstadoMedico: false,
             cambiarEstado: [],
+            estatus: '',
             error: ''
         }
     }
@@ -122,7 +123,7 @@ class ListaDoctores extends Component {
                 </div>
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="cabTabla">
                             <th ></th>
                             <th >Nombre Completo</th>
                             <th>correo Electrónico</th>
