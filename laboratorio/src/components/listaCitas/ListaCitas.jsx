@@ -44,7 +44,7 @@ class ListaCitas extends Component {
         .then( cita => {
             this.setState({
                  cita: cita.data,
-                 modalDetallesCita: true
+                 modalDetalleCita: true
             })
              console.log("data: ", cita.data);
              console.log("PAcietne: ID ", cita.data.pacienteId, cita.data.nombre , cita.data.apellidoPaterno , cita.data.apellidoMaterno);
@@ -63,7 +63,7 @@ class ListaCitas extends Component {
             );
         }
         return this.state.citas.length ? this.state.citas.map(ct => {
-            let modalDetalleCitaClose = () => this.setState({modalDetallesCita: false});
+            let modalDetalleCitaClose = () => this.setState({modalDetalleCita: false});
             return(
                 <tr key={ct._id}>
                     <td></td>

@@ -132,7 +132,7 @@ class EditarCita extends Component {
                 <form className="" onSubmit={this.editarRegistro}>
                     <div className="card">
                         <div className="cardBorder card-body">
-                            <b><h3 className="centrarTexto">Editar Cita del Paciente: {this.state.nombre} {this.state.apellidoPaterno} {this.state.apellidoMaterno}</h3></b>
+                            <b><h3 className="centrarTexto">Editar Cita</h3></b>
                         </div>
                     </div><br /><br />
                     <div className="form-row">

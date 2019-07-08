@@ -155,7 +155,7 @@ class EditarPaciente extends Component {
                             <button type="button" onClick={this.listaPacientes} className="btn accionCancelar">
                                 <MaterialIcon icon="cancel" className="material-icons"></MaterialIcon>
                                 &nbsp;Cancelar
-                            </button>
+                  </button>
                         </div>
                     </div>
                 </form>

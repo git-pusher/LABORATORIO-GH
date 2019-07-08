@@ -55,7 +55,7 @@ class ModalHistorialCitas extends Component {
                                 {citas.length > 0 ? citas 
                                         : <div className="cardCentrado">
                                             <div className="row md-12 ">
-                                                    <b><h3 className="centrarTexto">Aún no hay citas registradas de este paciente.</h3></b>
+                                                    <b><h3 className="centrarTexto">No hay datos para mostrar</h3></b>
                                             </div>
                                         </div>
                                 }

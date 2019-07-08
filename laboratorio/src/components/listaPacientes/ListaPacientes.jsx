@@ -9,7 +9,7 @@ import ModalCrearCita from '../modals/ModalCrearCita';
 import ModalHistorialCitas from '../modals/ModalHistorialCitas';
 import ModalCambiarEstado from '../modals/ModalCambiarEstado';
 
-// import './listaPaciente.css';
+//import './listaPaciente.css';
 import '../../App.css';
 
 class ListaPacientes extends Component {
@@ -167,26 +167,26 @@ class ListaPacientes extends Component {
                         Nuevo Paciente
                     </button>
                 </div>
-                    <table className="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Nombre Completo</th>
-                            <th>Fecha de Nacimiento</th>
-                            <th>Correo Electrónico</th>
-                            <th>Teléfono</th>
-                            <th>Dirección</th>
-                            <th></th>
-                            <th>Acciones</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
-                    </tbody>
-                    </table>
-                </div>
+                <table className="table">
+                <thead>
+                    <tr>
+                    <th ></th>
+                    <th >Nombre Completo</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th ></th>
+                    <th >Acciones</th>
+                    <th ></th>
+                    <th ></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
+                </tbody>
+                </table>
+            </div>
             );
     }
     
