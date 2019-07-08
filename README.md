@@ -22,7 +22,7 @@
 * Redireccionamiento entre pag
 * Pantalla ver detalles v1
 * Accion Editar
-##Catálogo de registros de usuario
+## Catálogo de registros de usuario
 * Formulario
 * Listado de usuarios registrados
 * Redireccionamiento entre pag
