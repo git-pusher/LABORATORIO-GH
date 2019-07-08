@@ -21,7 +21,7 @@
 * Redireccionamiento entre pag
 * Pantalla ver detalles v1
 * Accion Editar
-##Catálogo de registros de usuario
+## Catálogo de registros de usuario
 * Formulario
 * Listado de usuarios registrados
 * Redireccionamiento entre pag
@@ -29,4 +29,3 @@
 * Crear nueva cita
 * Ver detalles de cada cita
 * Ver historial de citas de cada paciente
-
