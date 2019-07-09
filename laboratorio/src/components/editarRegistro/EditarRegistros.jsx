@@ -93,21 +93,44 @@ class EditarRegistros extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="n">Nombre</label>
-                            <input type="text" onChange={this.cambio} className="form-control" id="nombre" value={this.state.nombre} aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
+                            <input type="text" 
+                                   onChange={this.cambio} 
+                                   className="form-control" 
+                                   id="nombre" 
+                                   value={this.state.nombre} 
+                                   aria-describedby="emailHelp" 
+                                   placeholder="Introduzca un nombre"/>
                             <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
                         </div>
                         <div className="form-group col-md-12">
                             <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                            <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" value={this.state.nombreUsuario} aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
+                            <input type="email" 
+                                   onChange={this.cambio} 
+                                   className="form-control" 
+                                   id="nombreUsuario" 
+                                   value={this.state.nombreUsuario} 
+                                   aria-describedby="emailHelp" 
+                                   placeholder="Ejemplo: correo@algo.com"/>
                             <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                         </div>
                         <div className="form-group col-md-12">
                             <label htmlFor="contrasenia">Contraseña</label>
-                            <input type="password" onChange={this.cambio} className="form-control" id="password" value={this.state.password} placeholder="Introducir contraseña"/>
+                            <input type="password" 
+                                   onChange={this.cambio} 
+                                   className="form-control" 
+                                   name="password"
+                                   id="password" 
+                                   value={this.state.password} 
+                                   placeholder="Introducir contraseña"/>
                         </div>                    
                         <div className="form-group col-md-12">
                                 <label htmlFor="cContrasenia">Verificar contraseña</label>
-                                <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
+                                <input type="password" 
+                                       className="form-control" 
+                                       name="confPassword"
+                                       id="confPassword" 
+                                       placeholder="Verificar la contraseña - PENDIENTE"
+                                       disabled/>
                         </div>  
                     </div>
                     <div className="form-row">

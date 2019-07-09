@@ -303,32 +303,39 @@ app.get('/registros', (req, res) => {
 
 app.get('/registros/:id', (req, res) => {
     CrtlRegistro.registro.mostrarRegistros(req.params.id)
-    .then(ct => ct ? res.send(ct) : res.send({}).status(400))
+    .then(rg => rg ? res.send(rg) : res.send({}).status(400))
     .catch(err => res.send(err).status(400));
 });
 
 // POST CON CIFRADO
 app.post('/registros', (req, res) => {
-    console.log("entre al POST de registros");    
-    const datos = new Registro(req.body)
-    const salt = bcrypt.genSaltSync(10);     
-    const registroNuevo = new Registro({
-        "nombre": datos.nombre,
-        "nombreUsuario": datos.nombreUsuario,
-        "password": bcrypt.hashSync(datos.password, salt),
-        "hash": salt
-    })
-    Registro(registroNuevo).save((err, registro) => {
-        err ? res.status(400).json({
-            success: false,
-            mensaje: 'Revise campos obligatorios antes de enviar',
-            err: err
-        }) : res.status(201).json({
-            success: true,
-            mensaje: 'Nuevo usuario registrado con éxito',
-            registro: registro
+    console.log("entre al POST de registros");
+    // const usuario = Registro.findOne({nombreUsuario: nombreUsuario});
+    // if(usuario) {
+    //     return console.log('ya existe el correo');
+        
+    // } else {
+        const datos = new Registro(req.body)
+        const salt = bcrypt.genSaltSync(10);     
+        const registroNuevo = new Registro({
+            "nombre": datos.nombre,
+            "nombreUsuario": datos.nombreUsuario,
+            "password": bcrypt.hashSync(datos.password, salt),
+            "hash": salt
+        })
+        Registro(registroNuevo).save((err, registro) => {
+            err ? res.status(400).json({
+                success: false,
+                mensaje: 'Revise campos obligatorios antes de enviar',
+                err: err
+            }) : res.status(201).json({
+                success: true,
+                mensaje: 'Nuevo usuario registrado con éxito',
+                registro: registro
+            });
         });
-    });
+    // }
+    
 }); 
 
     //PUT

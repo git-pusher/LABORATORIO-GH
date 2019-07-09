@@ -21,10 +21,11 @@ class Registrar extends Component {
         console.log(this.state);
         var password = this.state.password;
         var confPassword = this.state.confPassword 
+
+        
         if(password !== confPassword ) {
             toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
         } else {
-
             axios.post(API_URL + 'registros/', this.state)
                 .then(registro => {
                 if (registro.data.success) {
@@ -77,13 +78,25 @@ class Registrar extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="n">Nombre</label>
-                            <input type="text" onChange={this.cambio} className="form-control" name="nombre" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
+                            <input type="text" 
+                                onChange={this.cambio} 
+                                className="form-control" 
+                                name="nombre" id="nombre" 
+                                aria-describedby="emailHelp" 
+                                placeholder="Introduzca un nombre"/>
                             <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
                         </div>
                         <div className="form-group col-md-12">
                             <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                            <input type="email" onChange={this.cambio} className="form-control" name="nombreUsuario" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
-                            <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
+                            <input type="email" 
+                                onChange={this.cambio} 
+                                className="form-control" 
+                                name="nombreUsuario" 
+                                id="nombreUsuario" 
+                                aria-describedby="emailHelp" 
+                                placeholder="Ejemplo: correo@algo.com"/>
+                            <small id="emailHelp" 
+                            className="form-text text-muted">Introducir su correo electrónico.</small>
                         </div>
                         <div className="form-group col-md-12">
                             <label htmlFor="contrasenia">Contraseña</label>

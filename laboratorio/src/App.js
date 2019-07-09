@@ -15,7 +15,7 @@ import EditarCita from './components/editarCita/EditarCita';
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
 import Registrar from './components/registrar/Registrar';
-import SesionRegistro from './pages/sesionRegistro/SesionRegistro';
+import Sesion from './pages/sesion/Sesion';
 import ListaRegistros from './components/listaRegistros/ListaRegistros';
 import EditarRegistros from './components/editarRegistro/EditarRegistros';
 // import { ToastContainer, toast } from 'react-toastify';
@@ -39,7 +39,7 @@ function App() {
               <Route path="/EditarCita/:id" component={EditarCita}/>
               <Route path="/Cita" component={Cita}/>
               
-              <Route path="/sesion" component={SesionRegistro}/>
+              <Route path="/sesion" component={Sesion}/>
               <Route path="/registrar" component={Registrar}/>
               <Route path="/ListaRegistros" component={ListaRegistros}/>
               <Route path="/EditarRegistro/:id" component={EditarRegistros}/>

@@ -1,20 +1,15 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import labo from '../../img/labo.png';
 // import { ToastContainer, toast } from 'react-toastify';
+import './sesion.css'
 
-import './formularioSesion.css'
-
-class FormularioSesion extends React.Component {
+class Inicio extends React.Component {
     constructor(props) {
 		super(props);
-        this.state = {
-            usuario : {
-                nombreUsuario: '',
-                password: '',
-            }
-        };
+		this.state = {}
     }
-    
+     
     cambio = (event) => {
         
         const { id, value } = event.target;
@@ -27,12 +22,17 @@ class FormularioSesion extends React.Component {
 
     }
 
-    
     render () {
         return (
-            <div className="col-12">
+            <div className="container sesion">
+                <div className="form-row compSes ">
+                    <div className="form-group col-12 col-md-6 col-lg-6">
+                        <img className="labo-img d-none d-md-block" src={labo} alt="Landsteiner Scientific"/> 
+                    </div>
+                    <div className="form-group col-12 col-md-6 col-lg-6 ses ">  
+                    <div className="col-12">
                 <h1 className="text-uppercase text-center pb-2 bienvenido">Bienvenido</h1>
-                <form className="" onSubmit={this.login}>
+                <form className="datos-sesion" onSubmit={this.login}>
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="nombre-usuario">Nombre de usuario</label>
@@ -47,13 +47,16 @@ class FormularioSesion extends React.Component {
                     <div className="form-row">
                         <div className="containerForm registro form-group col-md-12">
                             <button type="submit" className="btn btn-lands accionGuardar">Iniciar sesión</button>                           
-                            {/* <Link to="/registro" className="text-muted small" >Registrar</Link>                         */}
+                            <Link to="/registro" className="text-muted small disabled-link" >¿Olvidó su contraseña?</Link>                        
                         </div>
                     </div>                     
                 </form>
-            </div>                         
+            </div>    
+                    </div>
+                </div>
+            </div>                
         );
     }
 }
 
-export default FormularioSesion;
+export default Inicio;

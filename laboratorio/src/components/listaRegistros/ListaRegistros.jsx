@@ -136,7 +136,7 @@ class ListaRegistros extends Component {
                 </div>
                     <table className="table">
                         <thead>
-                            <tr>                                
+                            <tr className="cabTabla">                                
                                 <th scope="col" className="text-center">Nombre</th>
                                 <th scope="col" className="text-center">Usuario</th>
                                 {/* <th scope="col">Contraseña</th> */}
