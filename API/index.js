@@ -309,8 +309,7 @@ app.get('/registros/:id', (req, res) => {
 
 // POST CON CIFRADO
 app.post('/registros', (req, res) => {
-    console.log("entre al POST de registros");
-    
+    console.log("entre al POST de registros");    
     const datos = new Registro(req.body)
     const salt = bcrypt.genSaltSync(10);     
     const registroNuevo = new Registro({

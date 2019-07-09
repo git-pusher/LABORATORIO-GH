@@ -11,6 +11,7 @@ class Registrar extends Component {
         super(props);
         // nombre, nombreUsuario, password
 		this.state = {
+            
         }
     }
 
