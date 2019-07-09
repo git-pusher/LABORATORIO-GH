@@ -15,8 +15,8 @@ cita.crearCita = function(cita){
 }
 
 cita.mostrarCitas = function(id= ''){
-    return id ? Cita.findById(id).exec() 
-              : Cita.find().exec();
+    return id ? Cita.findById(id).sort({fechaCita: 1}).exec() 
+              : Cita.find().sort({fechaCita: 1}).exec();
 }
 
 cita.mostrarCita = function(id = '', populate = false){

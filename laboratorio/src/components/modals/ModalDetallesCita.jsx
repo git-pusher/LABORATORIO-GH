@@ -16,7 +16,7 @@ class ModalDetallesCita extends Component {
         if (this.props.children.estado === 'I') {
             estadoC = 'Cancelada';
         } else if (this.props.children.estado === 'A') {
-            estadoC = 'Pendiente';
+            estadoC = 'Activa';
         }
 
         return (

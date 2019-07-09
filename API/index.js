@@ -10,48 +10,18 @@ const { Doctor } = require('./models/Doctor');
 const { Cita } = require('./models/Cita');
 const { Registro } = require('./models/Registro')
 const cors = require('cors');
-
-// const session = require('express-session');
-// const passport = require('passport');
 const bcrypt = require('bcrypt-nodejs');
-// const engine = require('ejs-mate');
-// const path = require('path');
 
-// configuraciones
-// app.set('views', path.join(__dirname, 'views')); //para establecer la ruta
-// app.engine('ejs', engine); //motor de plantillas
-const PORT = process.env.PORT || 3001;
-
-//middlewares
-// app.use(express.urlencoded({extended: false}));
-// passport.use(session({
-//     secret: 'vacaloca',
-//     resave: false,
-//     saveUninitialized: false
-// }));
-// // app.use(flash());
-// passport.use(passport.initialize());
-// passport.use(passport.session());
-
-// app.use((req, res, next) => {
-//     app.locals.registrarMessage = req.flash('registrarMessage');
-//     next();
-// })
-
-//inicializando
 const app = express();
-// require('./passport/local-auth.jsx');
-
-
-
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-//Está pendiente crear las variables de entorno para usuario y contraseña
+
 // const DB_USER = process.env.DB_USER;
 // const DB_PASS = process.env.DB_PASS;
-
+const PORT = process.env.PORT || 3001;
+//const PORT = process.env.PORt || 'https://apihosp.herokuapp.com/';
 
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
 const URL_MONGO = 'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
@@ -88,17 +58,19 @@ app.get('/pacientes', (req, res) => {
 //GET un paciente en especifico
 app.get('/pacientes/:id', (req, res) => {
     Ctrl.paciente.mostrarPacientes(req.params.id)
-        .then(pct => pct ? res.send(pct) 
-        : res.send({}).status(400))
-        .catch(err => 
-            res.send(err).status(400));
+        .then(pct =>
+            pct ? res.send(pct)
+                : res.send({}).status(400)
+        ).catch(err =>
+            res.send(err).status(400)
+        );
 });
 
 //GET para recuperar citas por paciente 
 app.get('/citasPacientes/:pacienteId', (req, res) => {
     const detallesCita = req.params.pacienteId;
     console.log("ID paciente: ", detallesCita);
-    Cita.find({ pacienteId: detallesCita }).exec(
+    Cita.find({ pacienteId: detallesCita }).sort({fechaCita: 1}).exec(
         (err, citas) => {
             if (err) {
                 return res.status(400).json({
@@ -137,8 +109,16 @@ app.post('/pacientes', (req, res) => {
 app.put('/pacientes/:id', (req, res) => {
     Paciente.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, paciente) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(paciente);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err
+            })
+            : res.status(200).send({
+                success: true,
+                mensaje: "Paciente actualizado con éxito",
+                paciente: paciente
+            });
         });
 });
 
@@ -174,6 +154,25 @@ app.get('/doctores/:id', (req, res) => {
         .catch(err => res.send(err).status(400));
 });
 
+//GET para recuperar citas por paciente 
+app.get('/citasDoctores/:doctorId', (req, res) => {
+    const detallesCita = req.params.doctorId;
+    console.log("ID médico: ", detallesCita);
+    Cita.find({ doctorId: detallesCita }).exec(
+        (err, citas) => {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                res.status(200).json({
+                    success: true,
+                    mensaje: 'Citas del médico: ' + detallesCita.doctorId + ' recuperada con éxito',
+                    citas: citas
+                });
+            }
+        });
+
+});
+
 //POST 
 app.post('/doctores', (req, res) => {
     console.log("entré a POST");
@@ -194,8 +193,16 @@ app.post('/doctores', (req, res) => {
 app.put('/doctores/:id', (req, res) => {
     Doctor.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, doctor) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(doctor);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err
+            })
+            : res.status(200).send({
+                success: true,
+                mensaje: "Médico actualizado correctamente",
+                doctor: doctor
+            });
         });
 });
 
@@ -243,12 +250,11 @@ app.post('/citas', (req, res) => {
     })
 
     Cita(req.body).save((err, ct) => {
-            if (err)
-              return res.json({ success: false, err })
-            res.status(200).json({
-              success: true,
-              mensaje: 'Nuevo permiso registrado con éxito',
-              cita: ct
+        if (err)
+            return res.json({
+                success: false,
+                mensaje: "Todos los campos son obligatorios",
+                err: err
             })
         res.status(200).json({
             success: true,
@@ -262,8 +268,15 @@ app.post('/citas', (req, res) => {
 app.put('/citas/:id', (req, res) => {
     Cita.findByIdAndUpdate(req.params.id, req.body,
         { new: true }, (err, cita) => {
-            err ? res.status(400).send(err)
-                : res.status(200).send(cita);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err})
+                : res.status(200).send({
+                    success: true,
+                    mensaje: "Cita actualizada correctamente",
+                    cita: cita
+                });
         });
 });
 
@@ -294,9 +307,10 @@ app.get('/registros/:id', (req, res) => {
     .catch(err => res.send(err).status(400));
 });
 
-// POST
+// POST CON CIFRADO
 app.post('/registros', (req, res) => {
     console.log("entre al POST de registros");
+    
     const datos = new Registro(req.body)
     const salt = bcrypt.genSaltSync(10);     
     const registroNuevo = new Registro({
@@ -316,7 +330,7 @@ app.post('/registros', (req, res) => {
 
     //PUT
 app.put('/registros/:id', (req, res) =>{
-
+// if()
     Registro.findByIdAndUpdate(req.params.id, req.body,
         { new: true}, (err, registro) => {
             err ? res.status(400).send(err) 

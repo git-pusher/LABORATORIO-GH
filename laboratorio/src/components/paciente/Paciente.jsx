@@ -27,12 +27,13 @@ class Paciente extends Component {
         if (paciente.data.success) {
           console.log('Paciente registrado correctamente: ', paciente);
           toast.success( paciente.data.mensaje);
+          setTimeout(function(){
+            window.location.replace('/ListaPacientes')
+          },2000);
         }else if(paciente.data.err){
           toast.error(paciente.data.mensaje);
           console.log("Error: ", paciente.data.mensaje);
-      }
-        //this.props.history.push('/ListaPacientes'); 
-        //this.listaPacientes();
+        }
       }).catch(err => {
         toast.error("Ocurrió un error", err);
         console.log("Ocurrió un error", err);

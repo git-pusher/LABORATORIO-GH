@@ -10,11 +10,13 @@ const registroSchema = new Schema({
     nombreUsuario: {
         type: String,
         required: true
-    },    
+    },  
+    //ESTE ES EL HASH GENERADO CON EL PASSWORD Y EL SALT  
     password: {
         type: String,
         required: true
     },
+    //ESTE ES EL SALT
     hash: {
         type: String
     }

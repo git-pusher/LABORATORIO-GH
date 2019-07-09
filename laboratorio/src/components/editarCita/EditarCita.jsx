@@ -65,21 +65,21 @@ class EditarCita extends Component {
             estado: this.state.estado
         }).
             then(res => {
-                //this.setState({ cita: res.data, request: true });
                 if(res.data.success){
                     console.log("Cita actualizada con éxito");
                     toast.success(res.data.mensaje);
+                    setTimeout(function(){
+                        window.location.replace('/ListaCitas');
+                      },2000);
                 }else if(res.data.err){
                     console.log("ERROR al actualizar cita");
                     toast.error(res.data.mensaje);
                 } 
-                    //this.listaCitas();
             }).catch(err => {
                 console.log("ERROR: ", err);
                 toast.error("ERROR al actualizar cita");
                 this.setState({ error: err, request: false });
             });
-            //this.listaCitas();
     }
 
     listaCitas = () => {

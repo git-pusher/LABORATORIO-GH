@@ -7,10 +7,10 @@ import moment from 'moment';
 
 import ModalCrearCita from '../modals/ModalCrearCita';
 import ModalHistorialCitas from '../modals/ModalHistorialCitas';
-// import ModalCambiarEstado from '../modals/ModalCambiarEstado';
+import ModalCambiarEstadoP from '../modals/ModalCambiarEstadoP';
 
 //import './listaPaciente.css';
-// import '../../App.css';
+import '../../App.css';
 
 class ListaPacientes extends Component {
 
@@ -25,7 +25,7 @@ class ListaPacientes extends Component {
             cambiarEstado: [],
             modalNuevaCita: false,
             modalHistorialPaciente: false,
-            modalCambiarEstado: false,
+            modalCambiarEstadoPaciente: false,
             error: ''
         }
     }
@@ -33,21 +33,6 @@ class ListaPacientes extends Component {
     componentDidMount(){
         this.getPacientes();
     }
-
-   /* cambiarEstado(e, _id){
-        e.preventDefault();
-        const paciente={};
-        axios.get(API_URL+`pacientes/${_id}`, paciente)
-        .then(res => {
-            this.setState({
-                cambiarEstado: res.data,
-                modalCambiarEstado: true
-            })
-            console.log("Paciente obtenido correctamente para estado");
-        }).catch(error => {
-            console.log("Error en estado: ", error);
-        })
-    }*/
 
     obtenerPaciente(e, _id) {
         e.preventDefault();
@@ -57,9 +42,7 @@ class ListaPacientes extends Component {
            this.setState({
                 paciente: paciente.data,
                 modalNuevaCita: true
-           })
-            console.log("data para crear cita: ", paciente.data);
-            console.log("PAcietne: ", paciente.data.nombre , paciente.data.apellidoPaterno , paciente.data.apellidoMaterno);
+           });
        }).catch(err => {
            console.log("Error: ", err); 
        });
@@ -77,7 +60,6 @@ class ListaPacientes extends Component {
                 modalHistorialPaciente: true
             });
            }
-            console.log("data para historial: ", this.state.historialCitas);
         }).catch(err => {
            console.log("Error: ", err); 
         });
@@ -94,6 +76,20 @@ class ListaPacientes extends Component {
         });
     }
 
+    cambiarEstado(e, _id) {
+        e.preventDefault();
+        const paciente = {};
+        axios.get(API_URL + `pacientes/${_id}`, paciente)
+            .then(res => {
+                this.setState({
+                    cambiarEstado: res.data,
+                    modalCambiarEstadoPaciente: true
+                });
+            }).catch(error => {
+                console.log("Error en estado: ", error);
+            })
+    }
+
     pintarPacientes = () => {
         if(this.state.error){
             return(
@@ -106,16 +102,18 @@ class ListaPacientes extends Component {
         return this.state.pacientes.length ? this.state.pacientes.map(pct => {
             let modalNuevaCitaClose = () => this.setState({modalNuevaCita: false});
             let modalHistorialPacienteClose = () => this.setState({modalHistorialPaciente: false});
-            let modalCambiarEstadoClose = () => this.setState({modalCambiarEstado: false});
+            let modalCambiarEstadoPacienteClose = () => this.setState({modalCambiarEstadoPaciente: false});
             return(
                     <tr key={pct._id}>
-                        {/* <th></th> */}
-                        <td className="espacios">{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
-                        <td className="espacios">{moment(pct.fechaNacimiento).format('DD-MM-YYYY')}</td>
-                        <td className="espacios">{pct.correoElectronico}</td>
-                        <td className="espacios">{pct.telefono}</td>
-                        <td className="espacios">{pct.direccion}</td>
-                        <td className="espacios">
+                        <td>{pct.nombre} {pct.apellidoPaterno} {pct.apellidoMaterno}</td>
+                        <td>{moment(pct.fechaNacimiento).format('DD-MM-YYYY')}</td>
+                        <td>{pct.correoElectronico}</td>
+                        <td>{pct.telefono}</td>
+                        <td>{pct.direccion}</td>
+                        <td>{pct.estado === "I" 
+                        ? <MaterialIcon icon ="block" className="material-icons"></MaterialIcon> 
+                        : <MaterialIcon icon ="check" className="material-icons"></MaterialIcon>}</td>
+                        <td>
                             <NavLink to={`/EditarPaciente/${pct._id}`}>
                                 <button className="btn accionEditar">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
@@ -123,21 +121,27 @@ class ListaPacientes extends Component {
                                 </button>
                             </NavLink>
                         </td>
-                        <td className="espacios">
-                            <button className="btn accionDesactivar" type="submit">
+                        <td>{pct.estado === "A"
+                            ?
+                            <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, pct._id)}>
                                 <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                                 Desactivar
                             </button>
-                            {/*<ModalCambiarEstado show={this.state.modalCambiarEstado} onHide={modalCambiarEstadoClose}>{this.state.cambiarEstado}</ModalCambiarEstado>*/}
+                            :
+                            <button className="btn accionActivar" onClick={(e) => this.cambiarEstado(e, pct._id)}>
+                                <MaterialIcon icon="toggle_on" className="material-icons"></MaterialIcon>
+                                Activar
+                            </button>}
+                            <ModalCambiarEstadoP show={this.state.modalCambiarEstadoPaciente} onHide={modalCambiarEstadoPacienteClose}>{this.state.cambiarEstado}</ModalCambiarEstadoP>
                         </td>
-                        <td className="espacios">
+                        <td>
                             <button className="btn accionCitas" onClick={(e) => this.obtenerPaciente(e, pct._id)}>
                                 <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                                 Cita
                             </button>
                             <ModalCrearCita show={this.state.modalNuevaCita} onHide={modalNuevaCitaClose}>{this.state.paciente}</ModalCrearCita>
                         </td>
-                        <td className="espacios">
+                        <td>
                             <button className="btn accionHistorial" onClick={(e) => this.historialPaciente(e, pct._id)}>
                                 <MaterialIcon icon="list_alt" className="material-icons"></MaterialIcon>
                                 Historial
@@ -160,42 +164,34 @@ class ListaPacientes extends Component {
     }
     render(){
         return(
-            <div className="row row-md-12 contenedor">
-                 <div className="col-12 md-12">
-                     <div className="row row-debajo-barra">
-                        <div className="col-4"></div>
-                        <div className="col-4 text-center">
-                            <button className="nuevo btn" onClick={this.formPacientes}>
-                                <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
-                                Nuevo Paciente
-                            </button>
-                        </div>
-                        <div className="col-4"></div>
-                     </div>
+            <div className="row md-12 contenedor">
+                 <div className="row md-12 containerForm">
+                    <button className="nuevo btn" onClick={this.formPacientes}>
+                        <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
+                        Nuevo Paciente
+                    </button>
                 </div>
-                <div className="col-12 col-lg-12 table-padding">
-                    <table className="table table-responsive-md">
+                <table className="table">
                     <thead>
-                        <tr className="">
-                            {/* <th ></th> */}
-                            <th >Nombre Completo</th>
-                            <th>Fecha de Nacimiento</th>
-                            <th>Correo Electrónico</th>
-                            <th>Teléfono</th>
-                            <th>Dirección</th>
-                            <th ></th>
-                            <th >Acciones</th>
-                            <th ></th>
-                            <th ></th>
+                        <tr className="cabTabla">
+                        <th >Nombre Completo</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th >Estado</th>
+                        <th></th>
+                        <th >Acciones</th>
+                        <th ></th>
+                        <th ></th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.request ? <tr><td>Cargando...</td></tr> : this.pintarPacientes()}
                     </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
-            );
+        );
     }
     
 }

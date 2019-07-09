@@ -19,11 +19,12 @@ class Medico extends Component {
         if (doctor.data.success) {
           console.log('Doctor registrado correctamente: ', doctor);
           toast.success( doctor.data.mensaje);
-      }else if(doctor.data.err){
-          toast.error(doctor.data.mensaje);
-      }
-        //this.props.history.push('/ListaDoctores'); 
-        //this.listaDoctores();
+          setTimeout(function(){
+            window.location.replace('/ListaMedicos')
+          },2000);
+        }else if(doctor.data.err){
+            toast.error(doctor.data.mensaje);
+        }
       }).catch(err => {
         toast.error("Ocurrió un error", err);
         console.log("Ocurrió un error", err);

@@ -14,7 +14,7 @@
 
 .containerForm {
   display: inline-block;
-  padding: 2rem 56px 0px 655px;
+  padding: 2rem 5% 2% 45%; /*2rem 56px 0px 655px;*/
   justify-content: center;
   align-items: center
 }
@@ -32,7 +32,7 @@
 }
 
 .accionEstatus {
-  background-color: #46a4deb3;
+  background-color: #3eb9abb0;
   border: none;
   color: white;
   padding: 2px 7px 2px 2px;
@@ -65,11 +65,23 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
 
+.accionActivar {
+  background-color: #abbbb9b0;
+  border: none;
+  color: white;
+  padding: 2px 7px 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
 .accionDesactivar {
   background-color: #3eb9abb0;
   border: none;
@@ -78,7 +90,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -88,10 +100,9 @@
   border: none;
   color: white;
   padding: 2px 7px 2px 2px;
-  text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -104,7 +115,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 14px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -129,13 +140,6 @@
   text-align: center;
 }
 
-.cardBorder {
-  border-right-style: ridge;
-  border-left-style:  ridge;
-  border-top-style:   ridge;
-  border-bottom-style:ridge;
-}
-
 .cardCentrado {
   width: 80%;
   height: 50%;
@@ -146,27 +150,6 @@
   left: 10%;
 }
 
-.espacios{
-  border-collapse: separate;
-	border-spacing: 5px;
-	border: 1px solid #000;
-}
-
-.row-debajo-barra{
-  /* padding-top: 85px; */
-  padding-bottom: 12px;
-}
-
-.table-padding{
-  margin:0 15px;  
-  word-wrap:break-word;
-}
-
-.btn-nuevo-usuario {
-/* justify-items: right; */
-}
-
-.administrador {
-  width: 100%;
- 
+.cabTabla{
+  background-color: #3eb9ab5c;
 }

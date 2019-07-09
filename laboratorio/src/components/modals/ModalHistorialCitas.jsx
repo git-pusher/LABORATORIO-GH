@@ -42,7 +42,7 @@ class ModalHistorialCitas extends Component {
                     <Modal.Body>
                         <table className="table">
                             <thead>
-                                <tr>
+                                <tr className="cabTabla">
                                     <th ></th>
                                     <th >Fecha</th>
                                     <th >Hora</th>

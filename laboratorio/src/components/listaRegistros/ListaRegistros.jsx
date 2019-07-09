@@ -99,16 +99,11 @@ class ListaRegistros extends Component {
     render(){
         return(
             <div className="row md-12 contenedor">
-                <div className="row administrador">
-                    <div className="col ">
-                    <b><h3 className="centrarTexto">Bienvenido: {this.state.nombre}</h3></b>
-                    </div>
-                    <div className="col btn-nuevo-usuario">
-                        <button className="" onClick={this.formRegistros}>
+                <div className="row md-12 containerForm">
+                        <button className="nuevo btn" onClick={this.formRegistros}>
                             <MaterialIcon icon="add" className="material-icons"></MaterialIcon>
                             Nuevo Usuario
                         </button>
-                    </div>
                 </div>
                     <table className="table ">
                         <thead>

@@ -33,20 +33,7 @@ class Registrar extends Component {
                 toast.error('Registro no realizado. Inténtalo nuevamente.')
             console.log("Ocurrió un error", err);
             });
-    //   }
     }
-
-
-//     passport.authenticate('local-singnup', {
-//         successRedirect: '/',
-//         failureRedirect: '/registrar',
-//         passReqToCallback: true
-//     }
-    
-    
-//     // this.listaRegistros();
-// ))}; 
-
 
     
     cambio = (event) => {
@@ -74,41 +61,45 @@ class Registrar extends Component {
                     pauseOnHover
                 />
                  <form className="" onSubmit={this.guardar}>
-                    {/* <form action="/registros" method="POST"> */}
-                        <div className="form-row">
-                            <div className="form-group col-md-12">
-                                <label htmlFor="n">Nombre</label>
-                                <input type="text" onChange={this.cambio} className="form-control" name="nombre" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
-                                <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                                <input type="email" onChange={this.cambio} className="form-control" name="nombreUsuario" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
-                                <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
-                            </div>
-                            <div className="form-group col-md-12">
-                                <label htmlFor="contrasenia">Contraseña</label>
-                                <input type="password" onChange={this.cambio} className="form-control" name="password" id="password" placeholder="Introducir contraseña"/>
-                            </div>                            
-                            <div className="form-group col-md-12">
-                                <label htmlFor="cContrasenia">Verificar contraseña</label>
-                                <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
-                                {/* <input type="hidden" value="sdopkfpdso" className="form-control" id="hash" placeholder="Verificar la contraseña"/> */}
-                            </div>                            
+                    <div className="card">
+                        <div className="cardBorder card-body">
+                        <b><h3 className="centrarTexto">Registrar Nuevo Usuario</h3></b>
                         </div>
-                        <div className="form-row">
-                            <div className="containerForm form-group col-md-12">
-                                <button type="submit" className="btn btn-primary accionGuardar" >
-                                    <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
-                                    Registrar
-                                </button>
-                                <Link to="/sesion" className="btn accionCancelar">
-                                    <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
-                                    Cancelar
-                                </Link>
-                            </div>
-                        </div>                                                                            
-                    </form>
+                    </div><br /><br />
+                    <div className="form-row">
+                        <div className="form-group col-md-12">
+                            <label htmlFor="n">Nombre</label>
+                            <input type="text" onChange={this.cambio} className="form-control" name="nombre" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
+                            <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
+                        </div>
+                        <div className="form-group col-md-12">
+                            <label htmlFor="nombre-usuario">Nombre de usuario</label>
+                            <input type="email" onChange={this.cambio} className="form-control" name="nombreUsuario" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
+                            <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
+                        </div>
+                        <div className="form-group col-md-12">
+                            <label htmlFor="contrasenia">Contraseña</label>
+                            <input type="password" onChange={this.cambio} className="form-control" name="password" id="password" placeholder="Introducir contraseña"/>
+                        </div>                            
+                        <div className="form-group col-md-12">
+                            <label htmlFor="cContrasenia">Verificar contraseña</label>
+                            <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
+                            {/* <input type="hidden" value="sdopkfpdso" className="form-control" id="hash" placeholder="Verificar la contraseña"/> */}
+                        </div>                            
+                    </div>
+                    <div className="form-row">
+                        <div className="containerForm form-group col-md-12">
+                            <button type="submit" className="btn accionGuardar" >
+                                <MaterialIcon icon="done" className="material-icons"></MaterialIcon>
+                                Registrar
+                            </button>
+                            <Link to="/ListaRegistros" className="btn accionCancelar">
+                                <MaterialIcon icon="close" className="material-icons"></MaterialIcon>
+                                Cancelar
+                            </Link>
+                        </div>
+                    </div>                                                                            
+                </form>
             </div>                 
                       
         );
