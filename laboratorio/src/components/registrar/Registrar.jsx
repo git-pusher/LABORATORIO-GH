@@ -6,34 +6,43 @@ import MaterialIcon from 'material-icons-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
+import { validateAll } from 'indicative';
+
 class Registrar extends Component {
     constructor(props) {
         super(props);
         // nombre, nombreUsuario, password
-		this.state = {
-        }
+		this.state = {}
     }
 
 
     guardar = (e) => {
-        e.preventDefault();
-        axios.post(API_URL + 'registros/', this.state)
-          .then(registro => {
-            if (registro.data.success) {
-              console.log('registro registrado correctamente: ', registro);
-              toast.success( registro.data.mensaje);
-              setTimeout(function(){
-                window.location.replace('/ListaRegistros')
-              },2000);
-            }else if(registro.data.err){
-              toast.error(registro.data.mensaje);
-              console.log("Error: ", registro.data.mensaje);
-            }
-          }).catch(err => {
-            toast.error("Ocurrió un error", err);
-            console.log("Ocurrió un error", err);
-          });
-      }
+        e.preventDefault(); 
+        console.log(this.state);
+        var password = this.state.password;
+        var confPassword = this.state.confPassword 
+        if(password !== confPassword ) {
+            toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
+        } else {
+
+            axios.post(API_URL + 'registros/', this.state)
+                .then(registro => {
+                if (registro.data.success) {
+                    console.log('registro registrado correctamente: ', registro);
+                    toast.success( registro.data.mensaje);
+                    setTimeout(function(){
+                    window.location.replace('/ListaRegistros')
+                    },2000);
+                }else if(registro.data.err){
+                    toast.error(registro.data.mensaje);
+                    console.log("Error: ", registro.data.mensaje);
+                }
+                }).catch(err => {
+                toast.error("Ocurrió un error", err);
+                console.log("Ocurrió un error", err);
+                });
+        }
+    }
     
     cambio = (event) => {
         const {id, value} = event.target;
@@ -53,7 +62,7 @@ class Registrar extends Component {
                     autoClose={2000}
                     hideProgressBar
                     newestOnTop={false}
-                    // closeOnClick
+                    closeOnClick
                     rtl={false}
                     pauseOnVisibilityChange
                     draggable
@@ -78,12 +87,21 @@ class Registrar extends Component {
                         </div>
                         <div className="form-group col-md-12">
                             <label htmlFor="contrasenia">Contraseña</label>
-                            <input type="password" onChange={this.cambio} className="form-control" name="password" id="password" placeholder="Introducir contraseña"/>
+                            <input type="password" 
+                                onChange={this.cambio} 
+                                className="form-control" 
+                                name="password" 
+                                id="password" 
+                                placeholder="Introducir contraseña"/>
                         </div>                            
                         <div className="form-group col-md-12">
                             <label htmlFor="cContrasenia">Verificar contraseña</label>
-                            <input type="password" className="form-control" id="cPassword" placeholder="Verificar la contraseña"/>
-                            {/* <input type="hidden" value="sdopkfpdso" className="form-control" id="hash" placeholder="Verificar la contraseña"/> */}
+                            <input type="password"
+                                onChange={this.cambio} 
+                                className="form-control" 
+                                name="confPassword"
+                                id="confPassword" 
+                                placeholder="Verificar la contraseña"/>
                         </div>                            
                     </div>
                     <div className="form-row">

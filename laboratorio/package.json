@@ -13,6 +13,7 @@
     "ejs-mate": "^3.0.0",
     "faker": "^4.1.0",
     "i": "^0.3.6",
+    "indicative": "^7.1.2",
     "material-icons-react": "^1.0.4",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
