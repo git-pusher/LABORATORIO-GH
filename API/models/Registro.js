@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt-nodejs');
 const Schema = mongoose.Schema;
 
 const registroSchema = new Schema({
@@ -14,8 +14,12 @@ const registroSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    hash: {
+        type: String
     }
     }, {timestamps: true});
 
-    const Registro = mongoose.model('Registro', registroSchema);
-    module.exports = {Registro};
+
+const Registro = mongoose.model('Registro', registroSchema);
+module.exports = {Registro};

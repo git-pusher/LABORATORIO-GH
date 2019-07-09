@@ -20,7 +20,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 
-
+const passport = require('passport');
 
 
 class App extends Component {
@@ -58,7 +58,10 @@ class App extends Component {
               <Route path="/ListaCitas" component={ListaCitas}/>
               <Route path="/DetallesCita/:id" component={DetallesCita}/>
               <Route path="/EditarCita/:id" component={EditarCita}/>
+              
               <Route path="/sesion" component={SesionRegistro}/>
+
+
               {/* <Route path="/registro" component={SesionRegistro}/> */}
               <Route path="/registrar" component={Registrar}/>
               <Route path="/ListaRegistros" component={ListaRegistros}/>

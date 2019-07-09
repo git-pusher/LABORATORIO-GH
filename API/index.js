@@ -11,7 +11,39 @@ const { Cita } = require('./models/Cita');
 const { Registro } = require('./models/Registro')
 const cors = require('cors');
 
+// const session = require('express-session');
+// const passport = require('passport');
+const bcrypt = require('bcrypt-nodejs');
+// const engine = require('ejs-mate');
+// const path = require('path');
+
+// configuraciones
+// app.set('views', path.join(__dirname, 'views')); //para establecer la ruta
+// app.engine('ejs', engine); //motor de plantillas
+const PORT = process.env.PORT || 3001;
+
+//middlewares
+// app.use(express.urlencoded({extended: false}));
+// passport.use(session({
+//     secret: 'vacaloca',
+//     resave: false,
+//     saveUninitialized: false
+// }));
+// // app.use(flash());
+// passport.use(passport.initialize());
+// passport.use(passport.session());
+
+// app.use((req, res, next) => {
+//     app.locals.registrarMessage = req.flash('registrarMessage');
+//     next();
+// })
+
+//inicializando
 const app = express();
+// require('./passport/local-auth.jsx');
+
+
+
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
@@ -19,7 +51,7 @@ app.use(bodyparser.json());
 //Está pendiente crear las variables de entorno para usuario y contraseña
 // const DB_USER = process.env.DB_USER;
 // const DB_PASS = process.env.DB_PASS;
-const PORT = process.env.PORT || 3001;
+
 
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
 const URL_MONGO = 'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
@@ -29,7 +61,7 @@ console.log("LOG: ", URL_MONGO);
 //Conexión a mongo
 mongoose.connect(URL_MONGO, { useNewUrlParser: true}, (err) => {
     if(err){
-        console.log("Ocurrió un error inesperado", err);
+        console.error("Ocurrió un error inesperado", err);
     } else {
         console.log("Conexión exitosa");
 
@@ -262,10 +294,18 @@ app.get('/registros/:id', (req, res) => {
     .catch(err => res.send(err).status(400));
 });
 
-//POST
+// POST
 app.post('/registros', (req, res) => {
     console.log("entre al POST de registros");
-    Registro(req.body).save((err, registro) => {
+    const datos = new Registro(req.body)
+    const salt = bcrypt.genSaltSync(10);     
+    const registroNuevo = new Registro({
+        "nombre": datos.nombre,
+        "nombreUsuario": datos.nombreUsuario,
+        "password": bcrypt.hashSync(datos.password, salt),
+        "hash": salt
+    })
+    Registro(registroNuevo).save((err, registro) => {
         err ? res.status(400).send({
             message: "Revisar petición del registro",
             errorMongo: err
@@ -273,8 +313,10 @@ app.post('/registros', (req, res) => {
     });
 }); 
 
-//PUT
+
+    //PUT
 app.put('/registros/:id', (req, res) =>{
+
     Registro.findByIdAndUpdate(req.params.id, req.body,
         { new: true}, (err, registro) => {
             err ? res.status(400).send(err) 
@@ -282,6 +324,7 @@ app.put('/registros/:id', (req, res) =>{
         });
 });
 
+      
 app.listen(PORT, () => {
     console.log("Puerto: " + PORT);
 

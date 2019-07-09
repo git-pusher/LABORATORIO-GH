@@ -68,20 +68,21 @@ class Registrar extends Component {
                 <div className="col">
                     <h1 className="text-uppercase text-center pb-2 registrar">Registro</h1>
                     <form className="" onSubmit={this.guardar}>
+                    {/* <form action="/registrar" method="POST"> */}
                         <div className="form-row">
                             <div className="form-group col-md-12">
                                 <label htmlFor="n">Nombre</label>
-                                <input type="text" onChange={this.cambio} className="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
+                                <input type="text" onChange={this.cambio} className="form-control" name="nombre" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca un nombre"/>
                                 <small id="emailHelp" className="form-text text-muted">Puede ser cualquier nombre corto para identificarlo.</small>
                             </div>
                             <div className="form-group col-md-12">
                                 <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                                <input type="email" onChange={this.cambio} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
+                                <input type="email" onChange={this.cambio} className="form-control" name="nombreUsuario" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
                                 <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                             </div>
                             <div className="form-group col-md-12">
                                 <label htmlFor="contrasenia">Contraseña</label>
-                                <input type="password" onChange={this.cambio} className="form-control" id="password" placeholder="Introducir contraseña"/>
+                                <input type="password" onChange={this.cambio} className="form-control" name="password" id="password" placeholder="Introducir contraseña"/>
                             </div>                            
                             <div className="form-group col-md-12">
                                 <label htmlFor="cContrasenia">Verificar contraseña</label>
