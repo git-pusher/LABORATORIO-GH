@@ -14,12 +14,12 @@ app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-//USUARIO
-//CONTRASEÑA
+const DB_USER;
+const DB_PASS;
 const PORT = process.env.PORT || 3001;
 
 //const URL_MONGO = `mongodb+srv://karen:151111034@cluster0-offbi.mongodb.net/test?retryWrites=true&w=majority`;
-//const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
+//const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority`;
 const URL_MONGO = 'mongodb+srv://karen:ABZWO1RKXRt6A2K4@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority';
 
 console.log("LOG: ", URL_MONGO);
