@@ -14,10 +14,10 @@ app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-const DB_USER;
-const DB_PASS;
-//const PORT = process.env.PORT || 3001;
-const PORT = process.env.PORt || 'https://apihosp.herokuapp.com/';
+//const DB_USER;
+//const DB_PASS;
+const PORT = process.env.PORT || 3001;
+//const PORT = process.env.PORt || 'https://apihosp.herokuapp.com/';
 
 //const URL_MONGO = `mongodb+srv://karen:151111034@cluster0-offbi.mongodb.net/test?retryWrites=true&w=majority`;
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@laboratorio-pdxyp.mongodb.net/test?retryWrites=true&w=majority`;
