@@ -319,13 +319,17 @@ app.post('/registros', (req, res) => {
         "hash": salt
     })
     Registro(registroNuevo).save((err, registro) => {
-        err ? res.status(400).send({
-            message: "Revisar petición del registro",
-            errorMongo: err
-        }) : res.status(201).send(registro);
+        err ? res.status(400).json({
+            success: false,
+            mensaje: 'Revise campos obligatorios antes de enviar',
+            err: err
+        }) : res.status(201).json({
+            success: true,
+            mensaje: 'Nuevo usuario registrado con éxito',
+            registro: registro
+        });
     });
 }); 
-
 
     //PUT
 app.put('/registros/:id', (req, res) =>{

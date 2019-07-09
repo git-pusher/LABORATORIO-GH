@@ -11,26 +11,29 @@ class Registrar extends Component {
         super(props);
         // nombre, nombreUsuario, password
 		this.state = {
-            
         }
     }
 
 
     guardar = (e) => {
         e.preventDefault();
-        console.log('Guardando registro...');
-        axios.post(API_URL+'registros/', this.state)
-            .then(registro => {
-            toast.success(`Registro correcto del usuario "${this.state.nombre}"`);
-            // Limpiar el formulario
-            console.log('Usuario registrado correctamente: ', registro);
-            this.listaRegistros();
-            }).catch(err => {
-                toast.error('Registro no realizado. Inténtalo nuevamente.')
+        axios.post(API_URL + 'registros/', this.state)
+          .then(registro => {
+            if (registro.data.success) {
+              console.log('registro registrado correctamente: ', registro);
+              toast.success( registro.data.mensaje);
+              setTimeout(function(){
+                window.location.replace('/ListaRegistros')
+              },2000);
+            }else if(registro.data.err){
+              toast.error(registro.data.mensaje);
+              console.log("Error: ", registro.data.mensaje);
+            }
+          }).catch(err => {
+            toast.error("Ocurrió un error", err);
             console.log("Ocurrió un error", err);
-            });
-    }
-
+          });
+      }
     
     cambio = (event) => {
         const {id, value} = event.target;
