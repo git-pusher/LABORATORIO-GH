@@ -40,12 +40,11 @@ class EditarRegistros extends Component {
             nombre: this.state.nombre,
             nombreUsuario: this.state.nombreUsuario,
             password: this.state.password,
-            hash: this.state.hash,
+            // hash: this.state.hash,
             estado: this.state.estado
         }).                
             then(res => {
                 if(res.data.success){                
-                    // toast.success(`"${this.state.nombre}" actualizado con éxito.`);
                     toast.success(res.data.mensaje);
                     setTimeout(function(){
                         window.location.replace('/ListaRegistros')

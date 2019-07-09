@@ -141,11 +141,11 @@ class ListaRegistros extends Component {
                                 <th scope="col" className="text-center">Usuario</th>
                                 {/* <th scope="col">Contraseña</th> */}
                                 <th scope="col" className="text-center">Estado</th>
-                                <th colspan="2" className="text-center">Acciones</th>
+                                <th colSpan="2" className="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.request ? <tr><td scope="row">Cargando... </td></tr> : this.pintarRegistros()}
+                            {this.state.request ? <tr><td>Cargando... </td></tr> : this.pintarRegistros()}
                         </tbody>
                     </table>
                 </div>

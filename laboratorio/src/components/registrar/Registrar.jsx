@@ -6,11 +6,6 @@ import MaterialIcon from 'material-icons-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-// import local-auth from '../../.././../API/passport/local-auth';
-const passport = require('passport'); 
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt-nodejs');
-
 class Registrar extends Component {
     constructor(props) {
         super(props);

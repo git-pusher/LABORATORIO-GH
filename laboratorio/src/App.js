@@ -18,11 +18,8 @@ import Registrar from './components/registrar/Registrar';
 import SesionRegistro from './pages/sesionRegistro/SesionRegistro';
 import ListaRegistros from './components/listaRegistros/ListaRegistros';
 import EditarRegistros from './components/editarRegistro/EditarRegistros';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
-const passport = require('passport');
-
 
 function App() {
     return (
