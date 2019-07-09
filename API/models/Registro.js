@@ -19,6 +19,10 @@ const registroSchema = new Schema({
     //ESTE ES EL SALT
     hash: {
         type: String
+    },
+    estado:{
+        type: String,
+        default: "A"
     }
     }, {timestamps: true});
 

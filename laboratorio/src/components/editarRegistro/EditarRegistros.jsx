@@ -16,30 +16,46 @@ class EditarRegistros extends Component {
     }
 
     componentDidMount() {
-        this.editarRegistroUsuario();
+        this.obtenerRegistro();
     }
 
-    editarRegistroUsuario = (e) => {
-        // e.preventDefault();
+    obtenerRegistro = e => {
         const { id } = this.props.match.params;
-        
-        const registro = {
-            nombre: this.state.nombre,
-            nombreUsuario: this.state.nombreUsuario,
-            password: this.state.password
-        }        
-        console.log(API_URL + `registros/${id}`, registro);
-        axios.put(API_URL + `registros/${id}`, registro).
-            then(res => {
+        axios.get(API_URL + `registros/${id}`)
+            .then(res => {
                 this.setState({
                     nombre: res.data.nombre,
                     nombreUsuario: res.data.nombreUsuario,
-                    password: res.data.password                    
-                });
-                toast.success(`"${this.state.nombre}" actualizado con éxito.`);
+                    password: res.data.password
+                })
+            }).catch(err => {
+                console.log("error: ", err);
+            });
+    }
+
+    editarRegistroUsuario = (e) => {
+        e.preventDefault();
+        const { id } = this.props.match.params;
+        axios.put(API_URL + `registros/${id}`, {
+            nombre: this.state.nombre,
+            nombreUsuario: this.state.nombreUsuario,
+            password: this.state.password,
+            hash: this.state.hash,
+            estado: this.state.estado
+        }).                
+            then(res => {
+                if(res.data.success){                
+                    toast.success(`"${this.state.nombre}" actualizado con éxito.`);
+                    // toast.success(res.data.mensaje);
+                    setTimeout(function(){
+                        window.location.replace('/ListaRegistros')
+                      },2000);
+                }else if(res.data.err){                              
+                    toast.err(res.data.mensaje);
+                }
             }).catch(err => {
                 console.log("ERROR: ", err);
-                toast.success("ERROR al actualizar el registro.");
+                toast.error("ERROR al actualizar el registro.");
                 this.setState({ error: err, request: false });
             });       
     }

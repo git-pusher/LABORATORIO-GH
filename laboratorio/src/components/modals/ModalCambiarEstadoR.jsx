@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-class ModalCambiarEstadoP extends Component {
+class ModalCambiarEstadoR extends Component {
     desactivar(e) {
         e.preventDefault();
         const id = this.props.children._id;
@@ -22,20 +22,17 @@ class ModalCambiarEstadoP extends Component {
             esdo="Activo";
         }
         
-        axios.put(API_URL + 'pacientes/' + id, {
+        axios.put(API_URL + 'registros/' + id, {
             nombre: this.props.children.nombre,
-            apellidoPaterno: this.props.children.apellidoPaterno,
-            apellidoMaterno: this.props.children.apellidoMaterno,
-            fechaNacimiento: this.props.children.fechaNacimiento,
-            correoElectronico: this.props.children.correoElectronico,
-            telefono: this.props.children.telefono,
-            direccion: this.props.children.direccion,
+            nombreUsuario: this.props.children.nombreUsuario,
+            password: this.props.children.password,
+            hash: this.props.children.hash,
             estado: edo
         })
             .then(res => {
-                this.setState({paciente: res.data})
+                this.setState({registro: res.data})
                 console.log(":)", res.data);
-                toast.success("Se cambió el estado correctamente: Paciente "+ esdo);
+                toast.success("Se cambió el estado correctamente: Usuario "+ esdo);
                 setTimeout(function(){
                     window.location.reload(true);
                 },2000);
@@ -46,7 +43,7 @@ class ModalCambiarEstadoP extends Component {
     }
 
     render() {
-        let paciente = this.props.children.nombre + ' ' + this.props.children.apellidoPaterno + ' ' + this.props.children.apellidoMaterno;
+        let registro = this.props.children.nombre;
         return (
             <section>
                 <ToastContainer
@@ -81,7 +78,7 @@ class ModalCambiarEstadoP extends Component {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{paciente}</td>
+                                    <td>{registro}</td>
                                     <td></td>
                                 </tr>
                                 <tr></tr>
@@ -113,4 +110,4 @@ class ModalCambiarEstadoP extends Component {
     }
 }
 
-export default ModalCambiarEstadoP;
+export default ModalCambiarEstadoR;

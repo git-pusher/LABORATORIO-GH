@@ -3,6 +3,7 @@ import axios from 'axios';
 import API_URL from '../../constants';
 import { NavLink } from 'react-router-dom';
 import MaterialIcon from 'material-icons-react'
+import ModalCambiarEstadoR from '../modals/ModalCambiarEstadoR';
 
 class ListaRegistros extends Component {
 
@@ -12,6 +13,8 @@ class ListaRegistros extends Component {
             request: true,
             registros: [],
             registro: [],
+            cambiarEstado: [],
+            modalCambiarEstadoUsuario: false,
             error: ''
         }
     }
@@ -21,12 +24,13 @@ class ListaRegistros extends Component {
     }
 
     obtenerRegistro(e, _id) {
+        e.preventDefault();
         const registro={}
         axios.get(API_URL+ `registros/${_id}`, registro)
         .then( registro => {
             this.setState({
                  registro: registro.data,
-                 modalNuevaCita: true
+                //  modalNuevaCita: true
             })
              console.log("data: ", registro.data);
              console.log("Registro: ", registro.data.nombre);
@@ -41,19 +45,31 @@ class ListaRegistros extends Component {
         .then(res => {
             console.log("Listado de registros: ", res.data);
             this.setState({ registros: res.data, request: false });
-            console.log("YA QUEDÓ EL LISTADO DE REGISTROS DE USUARIO");
-        }).catch(err => {
-            console.log("Encontré un error :( ");            
+            console.log("Listado");
+        }).catch(err => {                     
             this.setState({error: err, request: false });
         });
     }
 
+    cambiarEstado(e, _id) {
+        e.preventDefault();
+        const registro = {};
+        axios.get(API_URL + `registros/${_id}`, registro)
+            .then(res => {
+                this.setState({
+                    cambiarEstado: res.data,
+                    modalCambiarEstadoUsuario: true
+                });
+            }).catch(error => {
+                console.log("Error en estado: ", error);
+            })
+    }
+
     pintarRegistros = () => {
-        console.log("pintar registros");
         if(this.state.error){
             return(
                 <div>
-					<p className="text-danger">Ocurrió un error inesperado</p>
+					<p className="text-danger">Ocurrió un error inesperado.</p>
 					<p>{this.state.error}</p>
 				</div>
             );
@@ -61,26 +77,39 @@ class ListaRegistros extends Component {
 
         return this.state.registros.length ? this.state.registros.map(rgt => {
             console.log("Tabla registros");
+            let modalCambiarEstadoUsuarioClose = () => this.setState({modalCambiarEstadoUsuario: false});
             return(
                     <tr key={rgt._id}>
                         {/* <th></th> */}
                         <td>{rgt.nombre}</td>
                         <td>{rgt.nombreUsuario}</td>
-                        <td>{rgt.password}</td>
-                        <td>
+                        {/* <td>{rgt.password}</td> */}
+                        <td className="text-center">{rgt.estado === "I" 
+                            ? <MaterialIcon icon ="block" className="material-icons"></MaterialIcon> 
+                            : <MaterialIcon icon ="check" className="material-icons"></MaterialIcon>}
+                        </td>
+                        <td className="text-right">
                             <NavLink to={`/EditarRegistro/${rgt._id}`}>
-                                <button className="btn accionEditar">
+                                <button className="btn accionEditar align-items-center">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
                                     Editar
                                 </button>
                             </NavLink>
                         </td>
-                        <td>
-                            <button className="btn accionDesactivar" type="submit">
+                        <td>{rgt.estado === "A"
+                            ?
+                            <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, rgt._id)}>
                                 <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
                                 Desactivar
                             </button>
+                            :
+                            <button className="btn accionActivar" onClick={(e) => this.cambiarEstado(e, rgt._id)}>
+                                <MaterialIcon icon="toggle_on" className="material-icons"></MaterialIcon>
+                                Activar
+                            </button>}
+                            <ModalCambiarEstadoR show={this.state.modalCambiarEstadoUsuario} onHide={modalCambiarEstadoUsuarioClose}>{this.state.cambiarEstado}</ModalCambiarEstadoR>
                         </td>
+                        
                         </tr>	
             );
         }) : <div className="cardCentrado">
@@ -105,14 +134,14 @@ class ListaRegistros extends Component {
                             Nuevo Usuario
                         </button>
                 </div>
-                    <table className="table ">
+                    <table className="table">
                         <thead>
                             <tr>                                
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Usuario</th>
-                                <th scope="col">Contraseña</th>
-                                <th scope="col"></th>
-                                <th colspan="2">Acciones</th>
+                                <th scope="col" className="text-center">Nombre</th>
+                                <th scope="col" className="text-center">Usuario</th>
+                                {/* <th scope="col">Contraseña</th> */}
+                                <th scope="col" className="text-center">Estado</th>
+                                <th colspan="2" className="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
