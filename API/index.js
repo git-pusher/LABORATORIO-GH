@@ -330,11 +330,18 @@ app.post('/registros', (req, res) => {
 
     //PUT
 app.put('/registros/:id', (req, res) =>{
-// if()
     Registro.findByIdAndUpdate(req.params.id, req.body,
         { new: true}, (err, registro) => {
-            err ? res.status(400).send(err) 
-                : res.status(200).send(registro);
+            err ? res.status(400).send({
+                success: false,
+                mensaje: "Revise todos los campos antes de enviar",
+                err: err
+            })
+            : res.status(200).send({
+                success: true,
+                mensaje: "Usuario actualizado con éxito.",
+                registro: registro
+            });
         });
 });
 

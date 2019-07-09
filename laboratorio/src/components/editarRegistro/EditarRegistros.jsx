@@ -45,8 +45,8 @@ class EditarRegistros extends Component {
         }).                
             then(res => {
                 if(res.data.success){                
-                    toast.success(`"${this.state.nombre}" actualizado con éxito.`);
-                    // toast.success(res.data.mensaje);
+                    // toast.success(`"${this.state.nombre}" actualizado con éxito.`);
+                    toast.success(res.data.mensaje);
                     setTimeout(function(){
                         window.location.replace('/ListaRegistros')
                       },2000);

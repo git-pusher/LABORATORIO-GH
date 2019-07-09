@@ -96,7 +96,7 @@ class ListaRegistros extends Component {
                                 </button>
                             </NavLink>
                         </td>
-                        <td>{rgt.estado === "A"
+                        <td className="text-center">{rgt.estado === "A"
                             ?
                             <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, rgt._id)}>
                                 <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
