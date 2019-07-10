@@ -82,14 +82,14 @@ class ListaRegistros extends Component {
             return(
                     <tr key={rgt._id}>
                         {/* <th></th> */}
-                        <td>{rgt.nombre}</td>
-                        <td>{rgt.nombreUsuario}</td>
-                        {/* <td>{rgt.password}</td> */}
-                        <td className="text-center">{rgt.estado === "I" 
+                        <td scope="col">{rgt.nombre}</td>
+                        <td scope="col">{rgt.nombreUsuario}</td>
+                        {/* <td scope="col">{rgt.password}</td> */}
+                        <td scope="col" className="text-center">{rgt.estado === "I" 
                             ? <MaterialIcon icon ="block" className="material-icons"></MaterialIcon> 
                             : <MaterialIcon icon ="check" className="material-icons"></MaterialIcon>}
                         </td>
-                        <td className="text-right">
+                        <td scope="col" className="text-right">
                             <NavLink to={`/EditarRegistro/${rgt._id}`}>
                                 <button className="btn accionEditar align-items-center">
                                     <MaterialIcon icon="create" className="material-icons"></MaterialIcon>
@@ -97,7 +97,7 @@ class ListaRegistros extends Component {
                                 </button>
                             </NavLink>
                         </td>
-                        <td className="text-center">{rgt.estado === "A"
+                        <td scope="col" className="text-center">{rgt.estado === "A"
                             ?
                             <button className="btn accionDesactivar" onClick={(e) => this.cambiarEstado(e, rgt._id)}>
                                 <MaterialIcon icon="toggle_off" className="material-icons"></MaterialIcon>
@@ -146,7 +146,7 @@ class ListaRegistros extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.request ? <tr><td>Cargando... </td></tr> : this.pintarRegistros()}
+                            {this.state.request ? <tr> <th> <td scope="row">Cargando... </td></th></tr> : this.pintarRegistros()}
                         </tbody>
                     </table>
                 </div>

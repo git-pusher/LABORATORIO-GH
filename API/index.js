@@ -310,36 +310,28 @@ app.get('/registros/:id', (req, res) => {
 // POST CON CIFRADO
 app.post('/registros', (req, res) => {
     console.log("entre al POST de registros");
+   
+        
     const datos = new Registro(req.body);
-    // const usuario = Registro.find( {nombreUsuario: datos.nombreUsuario});
-    // if(usuario) {
-    //     return res.json({
-    //         success: false,
-    //         mensaje: usuario.nombreUsuario,
-    //         err: true
-    //     })   
-    // } else {
-        const salt = bcrypt.genSaltSync(10);     
-        const registroNuevo = new Registro({
-            "nombre": datos.nombre,
-            "nombreUsuario": datos.nombreUsuario,
-            "password": bcrypt.hashSync(datos.password, salt),
-            "hash": salt
-        })
-
-        Registro(registroNuevo).save((err, registro) => {
-            err ? res.status(422).json({
-                success: false,
-                mensaje: 'Revise campos obligatorios antes de enviar',
-                err: err
-            }) : res.status(201).json({
-                success: true,
-                mensaje: 'Nuevo usuario registrado con éxito',
-                registro: registro
-            });
-        });
-    // }
+    const salt = bcrypt.genSaltSync(10);     
+    const registroNuevo = new Registro({
+        "nombre": datos.nombre,
+        "nombreUsuario": datos.nombreUsuario,
+        "password": bcrypt.hashSync(datos.password, salt),
+        "hash": salt
+    })
     
+    Registro(registroNuevo).save((err, registro) => {
+        err ? res.status(422).json({
+            success: false,
+            mensaje: 'Revise campos obligatorios antes de enviar',
+            err: err
+        }) : res.status(201).json({
+            success: true,
+            mensaje: 'Nuevo usuario registrado con éxito',
+            registro: registro
+        });
+    }); 
 }); 
 
     //PUT

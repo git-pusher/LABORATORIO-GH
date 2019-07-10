@@ -4,29 +4,45 @@ import labo from '../../img/labo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import { Redirect } from "react-router-dom";
 import './login.css'
+// import { registro } from '../../../../API/controllers/registroCRUD';
 
 class Inicio extends React.Component {
     constructor(props) {
 		super(props);
-		this.state = {}
+		this.state = {
+            nombreUsuario: "",
+            password: "",
+            error: {}
+        };
     }
-     
-    cambio = (event) => {
-        
-        const { id, value } = event.target;
-        this.setState({ [id]: value });        
-        console.log(this.state);
-    }
-    
-    
-  
+
+      
+      
+      
+      // cambio = (event) => {
+          
+      //     const { id, value } = event.target;
+      //     this.setState({ [id]: value });        
+      //     console.log(this.state);
+      // }
 
     // onSubmit =(e) => {
     //     e.preventDefault();
 
     // }
 
+    // function singIn (req, res) {
+    //     Registro.find({ nombreUsuario: req.body.nombreUsuario}, (err, registro) => {
+    //         if(err) return res.status(500).send({message: err})
+    //         if(!user) return res.status(404).send({message: "No existe el usuario"})
 
+    //         req.registro = registro
+    //         res.status(200).send({
+    //             message: "TEhas logueado correctamene",
+    //             //token
+    //         })
+    //     })
+    // }
 
     render () {
         return (
