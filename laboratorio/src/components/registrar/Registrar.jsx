@@ -42,9 +42,13 @@ class Registrar extends Component {
                             toast.error(registro.data.mensaje);
                             console.log("Error: ", registro.data.mensaje);
                         }
-                        }).catch(err => {
-                        toast.error("Ocurrió un error", err);
-                        console.log("Ocurrió un error", err);
+                        }).catch(err => {       
+                            if (err.response.status=== 422) {
+                                toast.error("Usuario ya existe");
+                            }else{
+                                toast.error("Ocurrió un error", err);
+                                console.log(err);
+                            }
                         });
                 }
 

@@ -8,6 +8,7 @@ const registroSchema = new Schema({
         required: true
     },
     nombreUsuario: {
+        unique: true,
         type: String,
         required: true
     },  

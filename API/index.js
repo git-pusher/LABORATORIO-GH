@@ -310,12 +310,15 @@ app.get('/registros/:id', (req, res) => {
 // POST CON CIFRADO
 app.post('/registros', (req, res) => {
     console.log("entre al POST de registros");
-    // const usuario = Registro.findOne({nombreUsuario: nombreUsuario});
+    const datos = new Registro(req.body);
+    // const usuario = Registro.find( {nombreUsuario: datos.nombreUsuario});
     // if(usuario) {
-    //     return 
-        
+    //     return res.json({
+    //         success: false,
+    //         mensaje: usuario.nombreUsuario,
+    //         err: true
+    //     })   
     // } else {
-        const datos = new Registro(req.body)
         const salt = bcrypt.genSaltSync(10);     
         const registroNuevo = new Registro({
             "nombre": datos.nombre,
@@ -325,7 +328,12 @@ app.post('/registros', (req, res) => {
         })
 
         Registro(registroNuevo).save((err, registro) => {
-            err ? res.status(400).json({
+
+            // if (err.name === 'MongoError' && err.code === 11000) {
+            //     // Duplicate username
+            //     return res.status(422).send({ succes: false, mensaje: 'User already exist!' });
+            //   }
+            err ? res.status(422).json({
                 success: false,
                 mensaje: 'Revise campos obligatorios antes de enviar',
                 err: err
