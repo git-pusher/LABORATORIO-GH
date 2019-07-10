@@ -312,7 +312,7 @@ app.post('/registros', (req, res) => {
     console.log("entre al POST de registros");
     // const usuario = Registro.findOne({nombreUsuario: nombreUsuario});
     // if(usuario) {
-    //     return console.log('ya existe el correo');
+    //     return 
         
     // } else {
         const datos = new Registro(req.body)
@@ -323,6 +323,7 @@ app.post('/registros', (req, res) => {
             "password": bcrypt.hashSync(datos.password, salt),
             "hash": salt
         })
+
         Registro(registroNuevo).save((err, registro) => {
             err ? res.status(400).json({
                 success: false,

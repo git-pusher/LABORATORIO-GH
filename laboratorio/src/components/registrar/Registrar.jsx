@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 import { validateAll } from 'indicative';
+import { isNullOrUndefined } from 'util';
 
 class Registrar extends Component {
     constructor(props) {
@@ -22,26 +23,35 @@ class Registrar extends Component {
         var password = this.state.password;
         var confPassword = this.state.confPassword 
 
-        
-        if(password !== confPassword ) {
-            toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
-        } else {
-            axios.post(API_URL + 'registros/', this.state)
-                .then(registro => {
-                if (registro.data.success) {
-                    console.log('registro registrado correctamente: ', registro);
-                    toast.success( registro.data.mensaje);
-                    setTimeout(function(){
-                    window.location.replace('/ListaRegistros')
-                    },2000);
-                }else if(registro.data.err){
-                    toast.error(registro.data.mensaje);
-                    console.log("Error: ", registro.data.mensaje);
+        if(!isNullOrUndefined(password)) {
+            if (password.length <= 5){
+                toast.error('Las contraseñas debe contener 6 o más caracteres.')
+            } else {
+                if(password !== confPassword ) {
+                    toast.error('Las contraseñas no coinciden, verifíquelo nuevamente.')
+                } else {
+                    axios.post(API_URL + 'registros/', this.state)
+                        .then(registro => {
+                        if (registro.data.success) {
+                            console.log('registro registrado correctamente: ', registro);
+                            toast.success( registro.data.mensaje);
+                            setTimeout(function(){
+                            window.location.replace('/ListaRegistros')
+                            },2000);
+                        }else if(registro.data.err){
+                            toast.error(registro.data.mensaje);
+                            console.log("Error: ", registro.data.mensaje);
+                        }
+                        }).catch(err => {
+                        toast.error("Ocurrió un error", err);
+                        console.log("Ocurrió un error", err);
+                        });
                 }
-                }).catch(err => {
-                toast.error("Ocurrió un error", err);
-                console.log("Ocurrió un error", err);
-                });
+
+            } 
+        } else { 
+            toast.error('Necesitas escribir una contraseña.')
+
         }
     }
     
@@ -106,6 +116,7 @@ class Registrar extends Component {
                                 name="password" 
                                 id="password" 
                                 placeholder="Introducir contraseña"/>
+                                <small id="emailHelp" className="form-text text-muted">La contraseña debe tener seis o más caracteres. </small>
                         </div>                            
                         <div className="form-group col-md-12">
                             <label htmlFor="cContrasenia">Verificar contraseña</label>
