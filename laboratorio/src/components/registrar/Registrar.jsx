@@ -44,7 +44,7 @@ class Registrar extends Component {
                         }
                         }).catch(err => {       
                             if (err.response.status=== 422) {
-                                toast.error("Usuario ya existe");
+                                toast.error("Este usuario ya existe, prueve con otro correo electrónico.");
                             }else{
                                 toast.error("Ocurrió un error", err);
                                 console.log(err);

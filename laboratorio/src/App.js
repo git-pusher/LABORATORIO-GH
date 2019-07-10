@@ -15,75 +15,13 @@ import EditarCita from './components/editarCita/EditarCita';
 import Layout from './components/Layout';
 import Laboratorio from './pages/Laboratorio';
 import Registrar from './components/registrar/Registrar';
-import Sesion from './pages/sesion/Sesion'; //Login
-import ListaRegistros from './components/listaRegistros/ListaRegistros'; //MiPerfil
+import Login from './pages/login/Login';
+import ListaRegistros from './components/listaRegistros/ListaRegistros';
 import EditarRegistros from './components/editarRegistro/EditarRegistros';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer, toast } from 'react-toastify';
-// import MiPerfil from "./components/MiPerfil"; //ListaRegistro
-import Perfil from './components/Perfil';
-// import Login from "./components/lo";
-import Logout from './components/Logout';
 
-
-class App extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      users: [
-        {
-          user: 'administrador@gmail.com',
-          password: '123456',
-          firstName: 'Administrador'
-        }
-      ],
-      loggedUser: null
-    }
-  }
-
-  
-  logout = () => {
-    toast(`Adios, ${this.state.loggedUser.user}` )
-    this.setState({
-      loggedUser: null
-    })
-  }
-
-  login = (user, password) => {
-    let dataUser = this.state.users.find(u => {
-      return u.user === user
-    })
-    console.log(dataUser)
-    if (dataUser) {
-      
-      if (password === dataUser.password) {
-
-        toast.success(`Login Exitoso para ${dataUser.user}`)
-        this.setState({
-          loggedUser: {
-            user: dataUser.user,
-            firstName: dataUser.firstName
-          }
-        })
-        
-      } else {
-
-        toast.error('Password incorrecto')
-
-      }
-
-    } else {
-      toast.error("No está registado Usuario")
-    }
-  }
-
-  
-
-  loginWithProps = () => {
-    return <Sesion onLogin={this.login} loggedUser={this.state.loggedUser} />
-  }
-
-  render () {
+function App() {
     return (
       <div className="row App">
         <Router>
@@ -101,32 +39,15 @@ class App extends React.Component {
               <Route path="/EditarCita/:id" component={EditarCita}/>
               <Route path="/Cita" component={Cita}/>
               
-              <Route path="/sesion" component={Sesion} render={this.loginWithProps}/>
-              {/* <Route path="/registrar" component={Registrar}/>  */}
+              <Route path="/Login" component={Login}/>
+              <Route path="/registrar" component={Registrar}/>
               <Route path="/ListaRegistros" component={ListaRegistros}/>
               <Route path="/EditarRegistro/:id" component={EditarRegistros}/>
-              <Route path="/logout" render={() => {
-                return (
-                  <Logout 
-                    loggedUser={this.state.loggedUser} 
-                    onLogout={this.logout}
-                  />
-                  )
-                }}/>
-              <Route path="/perfil/:id" component={Perfil}/>
-              <Route path="/mi-perfil" render={() => {
-                return <ListaRegistros loggedUser={this.state.loggedUser}/>
-              }}/>              
-              <Route path="/registrar" render={() => {
-                return <Registrar onRegistrar={this.registrar}/>
-              }}/>
-              {/* /perfil/1  o /perfil/2 */}
            </Switch>
           </Layout>
         </Router>
       </div>
     );
   }
-}
 
 export default App;

@@ -32,7 +32,7 @@ class Menu extends Component {
 								! this.state.loggedUser 
 								?
 								// <Navlink to="/login">Login</Navlink>
-								<NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink>
+								<NavLink className="btn btn-outline-light" to="/Login">Inicia sesión</NavLink>
 								:
 								<NavLink className="btn btn-outline-light" to="/logout">Logout</NavLink>
 							}
