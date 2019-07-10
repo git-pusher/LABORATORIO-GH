@@ -32,7 +32,7 @@ class Carrusel extends Component {
                             <div className="container">
                                 <div className="row align-items-center">
                                     <div className="col-md-6 offset-md-6 text-center text-md-right">
-                                        <h1>LANDSTEINER SCIENTIFIC</h1>
+                                        <h1 className="text-uppercase">Grace HOPPER</h1>
                                         <h4>Laboratorio de hematología</h4>
                                         <p className="d-none d-md-block carrusel-detalles">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
