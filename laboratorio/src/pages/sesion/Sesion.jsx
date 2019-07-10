@@ -40,9 +40,9 @@ class Inicio extends React.Component {
 
     // }
 
-    // handleButtonClick = () => {
-    //     this.props.onLogin(this.state.userText, this.state.passwordText)
-    // }
+    handleButtonClick = () => {
+        this.props.onLogin(this.state.userText, this.state.passwordText)
+    }
 
     render () {
         if ( this.props.loggedUser) {
@@ -63,7 +63,7 @@ class Inicio extends React.Component {
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="nombre-usuario">Nombre de usuario</label>
-                            <input type="email" onChange={this.updateUserText} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
+                            <input type="tetx" onChange={this.updateUserText} className="form-control" id="nombreUsuario" aria-describedby="emailHelp" placeholder="Ejemplo: correo@algo.com"/>
                             <small id="emailHelp" className="form-text text-muted">Introducir su correo electrónico.</small>
                         </div>
                         <div className="form-group col-md-12">

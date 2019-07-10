@@ -328,11 +328,6 @@ app.post('/registros', (req, res) => {
         })
 
         Registro(registroNuevo).save((err, registro) => {
-
-            // if (err.name === 'MongoError' && err.code === 11000) {
-            //     // Duplicate username
-            //     return res.status(422).send({ succes: false, mensaje: 'User already exist!' });
-            //   }
             err ? res.status(422).json({
                 success: false,
                 mensaje: 'Revise campos obligatorios antes de enviar',

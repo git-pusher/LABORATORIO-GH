@@ -28,7 +28,14 @@ class Menu extends Component {
 								<NavLink className="nav-item nav-link" to="/ListaRegistros">Usuarios </NavLink>
 						</div>
 						<div className="boton-sesion">
-							<NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink>
+							{
+								! this.state.loggedUser 
+								?
+								// <Navlink to="/login">Login</Navlink>
+								<NavLink className="btn btn-outline-light" to="/sesion">Inicia sesión</NavLink>
+								:
+								<NavLink className="btn btn-outline-light" to="/logout">Logout</NavLink>
+							}
 						</div>						
 					</div>
 			</nav>

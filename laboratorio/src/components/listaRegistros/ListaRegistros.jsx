@@ -4,6 +4,7 @@ import API_URL from '../../constants';
 import { NavLink } from 'react-router-dom';
 import MaterialIcon from 'material-icons-react'
 import ModalCambiarEstadoR from '../modals/ModalCambiarEstadoR';
+import { Redirect } from "react-router-dom";
 
 class ListaRegistros extends Component {
 
@@ -42,13 +43,13 @@ class ListaRegistros extends Component {
     getRegistros = () => {
         console.log("URL: ", API_URL + 'registros');
         axios.get(API_URL + 'registros')
-        .then(res => {
-            console.log("Listado de registros: ", res.data);
-            this.setState({ registros: res.data, request: false });
-            console.log("Listado");
-        }).catch(err => {                     
-            this.setState({error: err, request: false });
-        });
+        // .then(res => {
+        //     console.log("Listado de registros: ", res.data);
+        //     this.setState({ registros: res.data, request: false });
+        //     console.log("Listado");
+        // }).catch(err => {                     
+        //     this.setState({error: err, request: false });
+        // });
     }
 
     cambiarEstado(e, _id) {
@@ -126,6 +127,10 @@ class ListaRegistros extends Component {
     }
 
     render(){
+        console.log('props', this.props)
+        if ( ! this.props.loggedUser) {
+            return <Redirect to="/sesion" />
+        }
         return(
             <div className="row md-12 contenedor">
                 <div className="row md-12 containerForm">
@@ -134,6 +139,7 @@ class ListaRegistros extends Component {
                             Nuevo Usuario
                         </button>
                 </div>
+                <h3>Bienvenido, {this.props.loggedUser.firstName}</h3>
                     <table className="table">
                         <thead>
                             <tr className="cabTabla">                                
