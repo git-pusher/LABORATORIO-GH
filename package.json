@@ -2,7 +2,7 @@
     "name": "laboratorio-gh",
     "version": "0.1.0",
     "scripts": {
-        "start": "node API/index.js ",
+        "start": "node index.js ",
         "heroku-postbuild": "npm install --prefix API && npm install --prefix laboratorio"
     }
   }
