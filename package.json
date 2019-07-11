@@ -3,6 +3,6 @@
     "version": "0.1.0",
     "scripts": {
         "start": "node API/index.js",
-        "heroku-postbuild": "npm install --prefix API && npm install --prefix laboratorio"
+        "heroku-postbuild": "cd laboratorio && npm install && npm run build"
     }
   }
