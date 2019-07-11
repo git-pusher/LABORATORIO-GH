@@ -20,8 +20,8 @@ app.use(bodyparser.json());
 
 // const DB_USER = process.env.DB_USER;
 // const DB_PASS = process.env.DB_PASS;
-// const PORT = process.env.PORT || 3001;
-const PORT = process.env.PORT || 'https://laboratorio-gh.herokuapp.com/';
+const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 'https://laboratorio-gh.herokuapp.com/';
 //const PORT = process.env.PORt || 'https://apihosp.herokuapp.com/';
 
 //const URL_MONGO = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ijbr8.mongodb.net/test?retryWrites=true`;
